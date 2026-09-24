@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AFESU Conecta — Oportunidades de Emprego, Estágios e Cursos</title>
+  <meta name="description" content="Plataforma exclusiva para alunas e ex-alunas da AFESU. Conecte seus talentos a oportunidades de emprego, estágios e cursos oferecidos por empresas parceiras.">
+
+  <!-- Fontes do Google: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS Modulares -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('afesu_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. HEADER / NAVBAR SUPERIOR
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      
+      <!-- Logotipo Oficial AFESU CONECTA -->
+      <a href="index.html" class="brand-logo" aria-label="AFESU Conecta — Início">
+        <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 42px; height: 42px; object-fit: contain;">
+        <div class="brand-logo-text">
+          <span class="brand-name">AFESU</span>
+          <span class="brand-tagline">CONECTA</span>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação Institucional / Visitante -->
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação Institucional">
+        <a href="#inicio" class="nav-link active">Início</a>
+        <a href="#quem-somos" class="nav-link">Quem Somos</a>
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="#parceiros" class="nav-link">Parcerias</a>
+
+        <!-- Ações no Drawer Mobile -->
+        <div class="mobile-menu-actions">
+          <a href="criar-perfil.html" class="btn btn-primary btn-sm">✨ Criar Perfil</a>
+          <a href="login.html" class="btn btn-outline btn-sm">🔐 Entrar / Login</a>
+        </div>
+      </nav>
+
+      <!-- Botões de Ação do Header: [...menu...] [Criar Perfil] [Entrar] [☀️/🌙 Modo Claro/Escuro] -->
+      <div class="header-actions">
+        <a href="criar-perfil.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSignup">
+          Criar Perfil
+        </a>
+        <a href="login.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogin">
+          Entrar
+        </a>
+
+        <!-- Botão Toggle de Modo Escuro (Posicionado à direita / após os botões de ação) -->
+        <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
+          <span class="theme-icon-sun">☀️</span>
+          <span class="theme-icon-moon">🌙</span>
+        </button>
+
+        <!-- Botão Hamburger Mobile -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================================================
+         2. HERO / PRIMEIRA SEÇÃO (APRESENTAÇÃO DO PROJETO)
+         ======================================================================== -->
+    <section class="hero-section" id="inicio">
+      <div class="hero-ambient-shape-1"></div>
+      <div class="hero-ambient-shape-2"></div>
+
+      <div class="container hero-grid">
+        
+        <!-- Texto & Chamadas -->
+        <div class="hero-content reveal">
+          <div class="hero-badge-pill">
+            <span class="hero-badge-dot"></span>
+            <span class="hero-badge-text">Plataforma Institucional • Alunas & Parceiros AFESU</span>
+          </div>
+
+          <h1 class="hero-title">
+            Seu próximo passo <br>
+            <span class="text-gradient">começa aqui.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            O <strong>AFESU Conecta</strong> é a plataforma oficial que conecta alunas e ex-alunas formadas pela AFESU a oportunidades de <strong>estágio</strong>, <strong>emprego</strong> e <strong>capacitações</strong> oferecidas por empresas parceiras.
+          </p>
+
+          <div class="hero-actions">
+            <a href="criar-perfil.html" class="btn btn-primary btn-lg" id="btnHeroProfile">
+              <span>Criar meu perfil</span>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="login.html" class="btn btn-outline btn-lg" id="btnHeroLogin">
+              Acessar conta
+            </a>
+          </div>
+
+          <!-- Prova Social Integrada -->
+          <div class="hero-proof">
+            <div class="hero-avatars-stack">
+              <div class="avatar-mini bg-purple">MS</div>
+              <div class="avatar-mini bg-pink">LA</div>
+              <div class="avatar-mini bg-orange">CB</div>
+              <div class="avatar-mini bg-yellow">VF</div>
+            </div>
+            <div class="hero-proof-text">
+              <strong>+500 alunas conectadas</strong>
+              <span>Acelerando trajetórias profissionais</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Composição Visual Hero (Ilustração & Cards Flutuantes) -->
+        <div class="hero-visual-wrapper reveal reveal-delay-1">
+          <div class="hero-visual-card">
+            
+            <!-- Card Flutuante 1: Oportunidade em Destaque -->
+            <div class="hero-floating-card floating-card-1">
+              <div class="floating-icon-mini purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <div class="floating-text-group">
+                <span class="floating-text-title">Vaga Tech Júnior</span>
+                <span class="floating-text-sub">Empresa Parceira • Remoto</span>
+              </div>
+            </div>
+
+            <!-- Ilustração Gráfica Central de Conexão -->
+            <div class="hero-illustration-box">
+              <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="animate-soft-pulse">
+                <circle cx="160" cy="130" r="100" fill="url(#heroCircleGrad)" fill-opacity="0.12" />
+                <circle cx="160" cy="130" r="75" stroke="#E11D74" stroke-width="1.5" stroke-dasharray="4 4" stroke-opacity="0.4" />
+
+                <path d="M80 180 C 120 100, 200 100, 240 180" stroke="url(#heroPathGrad)" stroke-width="3" stroke-linecap="round" />
+                <path d="M100 90 L 160 130 L 220 90" stroke="#F97316" stroke-width="2" stroke-dasharray="3 3" stroke-opacity="0.6" />
+
+                <!-- Nó 1: Formação -->
+                <g transform="translate(60, 160)">
+                  <circle cx="18" cy="18" r="18" fill="#5B21B6" />
+                  <path d="M18 10L9 15L18 20L27 15L18 10Z" fill="white" />
+                  <path d="M12 16.7V22.5C12 22.5 14.5 24.5 18 24.5C21.5 24.5 24 22.5 24 22.5V16.7" stroke="white" stroke-width="1.5" />
+                </g>
+
+                <!-- Nó 2: Aluna / Carreira -->
+                <g transform="translate(138, 108)">
+                  <circle cx="22" cy="22" r="24" fill="url(#heroCenterGrad)" />
+                  <circle cx="22" cy="17" r="7" fill="white" />
+                  <path d="M12 32C12 26.5 16.5 25.5 22 25.5C27.5 25.5 32 26.5 32 32" stroke="white" stroke-width="2" stroke-linecap="round" />
+                  <circle cx="33" cy="12" r="3" fill="#FBBF24" />
+                </g>
+
+                <!-- Nó 3: Empresas Parceiras -->
+                <g transform="translate(225, 160)">
+                  <circle cx="18" cy="18" r="18" fill="#EA580C" />
+                  <rect x="11" y="13" width="14" height="11" rx="1.5" fill="white" />
+                  <path d="M15 13V11C15 10.4 15.4 10 16 10H20C20.6 10 21 10.4 21 11V13" stroke="white" stroke-width="1.2" />
+                </g>
+
+                <defs>
+                  <linearGradient id="heroCircleGrad" x1="60" y1="30" x2="260" y2="230" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#5B21B6" />
+                    <stop offset="0.5" stop-color="#E11D74" />
+                    <stop offset="1" stop-color="#F59E0B" />
+                  </linearGradient>
+                  <linearGradient id="heroPathGrad" x1="80" y1="140" x2="240" y2="140" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#5B21B6" />
+                    <stop offset="0.5" stop-color="#E11D74" />
+                    <stop offset="1" stop-color="#F97316" />
+                  </linearGradient>
+                  <linearGradient id="heroCenterGrad" x1="138" y1="108" x2="182" y2="152" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#E11D74" />
+                    <stop offset="1" stop-color="#F97316" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
+            <!-- Card Flutuante 2: Certificação AFESU -->
+            <div class="hero-floating-card floating-card-2">
+              <div class="floating-icon-mini orange">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+              </div>
+              <div class="floating-text-group">
+                <span class="floating-text-title">Formação AFESU</span>
+                <span class="floating-text-sub">Perfil Verificado & Recomendado</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3. SEÇÃO “QUEM SOMOS” (PROPÓSITO & ORIGEM DO PROJETO)
+         ======================================================================== -->
+    <section class="section section-about" id="quem-somos">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag purple">Quem Somos</span>
+          <h2 class="section-title">O que é a AFESU Conecta?</h2>
+          <p class="section-description">
+            A ponte digital que valoriza a dedicação de mulheres e transforma sua formação em oportunidades reais de crescimento profissional.
+          </p>
+        </div>
+
+        <div class="about-intro-box reveal">
+          <div class="about-intro-grid">
+            <div class="about-intro-content">
+              <h3 class="about-highlight-title">Transformando potencial feminino em realizações profissionais.</h3>
+              <p class="about-highlight-text">
+                Há mais de seis décadas, a <strong>AFESU</strong> oferece formação profissional e humana gratuita para meninas e mulheres em situação de vulnerabilidade social. 
+              </p>
+              <p class="about-highlight-text">
+                O <strong>AFESU Conecta</strong> nasceu da necessidade de criar um canal direto, seguro e qualificado entre as alunas formadas pelas três unidades da AFESU (Veleiros, Morro Velho e Jardim Petrópolis) e empresas parceiras que acreditam na diversidade e no mérito.
+              </p>
+            </div>
+
+            <div class="about-stats-grid">
+              <div class="about-stat-card">
+                <div class="about-stat-number">100%</div>
+                <div class="about-stat-label">Gratuito para Alunas</div>
+              </div>
+              <div class="about-stat-card">
+                <div class="about-stat-number">+500</div>
+                <div class="about-stat-label">Alunas Conectadas</div>
+              </div>
+              <div class="about-stat-card">
+                <div class="about-stat-number">3</div>
+                <div class="about-stat-label">Unidades Formadoras</div>
+              </div>
+              <div class="about-stat-card">
+                <div class="about-stat-number">+90%</div>
+                <div class="about-stat-label">Empregabilidade</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         4. SEÇÃO “SOBRE A PLATAFORMA” (ESTRUTURA DETALHADA E ORGANIZADA)
+         ======================================================================== -->
+    <section class="section section-about-topics" id="sobre">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag pink">Sobre a Plataforma</span>
+          <h2 class="section-title">Como o AFESU Conecta funciona e apoia você</h2>
+          <p class="section-description">
+            Conheça os detalhes de como nossa plataforma atua para unir alunas dedicadas a organizações comprometidas com o desenvolvimento social.
+          </p>
+        </div>
+
+        <div class="about-topics-grid">
+          
+          <!-- Card 1: Como Funciona a Plataforma -->
+          <div class="about-topic-card reveal reveal-delay-1">
+            <div class="about-topic-icon purple">⚙️</div>
+            <h3>Como a Plataforma Funciona</h3>
+            <p>
+              Um ecossistema digital centralizado onde alunas criam seu perfil profissional estruturado e encontram vagas exclusivas de forma rápida e intuitiva.
+            </p>
+            <ul class="about-topic-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Currículo digital padronizado e profissional</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Busca com filtros por área, modalidade e curso</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Como Ajuda as Alunas & Ex-Alunas -->
+          <div class="about-topic-card reveal reveal-delay-2">
+            <div class="about-topic-icon pink">👩‍🎓</div>
+            <h3>Apoio às Alunas & Ex-Alunas</h3>
+            <p>
+              Valorizamos sua história com selo institucional de formação, aumentando sua credibilidade perante recrutadores e facilitando o início de carreira.
+            </p>
+            <ul class="about-topic-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Selo de Aluna Verificada AFESU</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Visibilidade direta para empresas parceiras</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 3: Conexão com Empresas & Patrocinadores -->
+          <div class="about-topic-card reveal reveal-delay-3">
+            <div class="about-topic-icon orange">🏢</div>
+            <h3>Conexão com Empresas</h3>
+            <p>
+              As empresas parceiras encontram candidatas preparadas, com sólida base técnica e humana, para estágios, vagas efetivas e programas de capacitação.
+            </p>
+            <ul class="about-topic-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Acesso a banco de talentos qualificados</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Processos seletivos ágeis com impacto social</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 4: Como Funcionam as Vagas de Emprego -->
+          <div class="about-topic-card reveal reveal-delay-1">
+            <div class="about-topic-icon purple">💼</div>
+            <h3>Vagas de Emprego</h3>
+            <p>
+              Oportunidades profissionais em regime CLT e contratos formais, com foco em desenvolvimento de plano de carreira e estabilidade.
+            </p>
+            <ul class="about-topic-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Cargos Júnior e Assistentes</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Empresas verificadas e seguras</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 5: Como Funcionam os Estágios -->
+          <div class="about-topic-card reveal reveal-delay-2">
+            <div class="about-topic-icon pink">🚀</div>
+            <h3>Programas de Estágio</h3>
+            <p>
+              Primeiras experiências práticas acompanhadas de mentoria, aplicando os conhecimentos adquiridos na formação técnica e acadêmica da AFESU.
+            </p>
+            <ul class="about-topic-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Bolsa-auxílio e benefícios estruturados</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Compatível com horários de estudo</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 6: Cursos & Capacitações Corporativas -->
+          <div class="about-topic-card reveal reveal-delay-3">
+            <div class="about-topic-icon orange">🎓</div>
+            <h3>Cursos & Capacitações</h3>
+            <p>
+              Trilhas de aprendizado contínuo, bootcamps, workshops e certificações promovidos por parceiros para enriquecer seu currículo.
+            </p>
+            <ul class="about-topic-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Capacitações com certificado oficial</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                <span>Workshops técnicos e comportamentais</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         5. SEÇÃO “COMO FUNCIONA” (PASSO A PASSO PRÁTICO)
+         ======================================================================== -->
+    <section class="section section-how-it-works" id="como-funciona">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag orange">Passo a Passo</span>
+          <h2 class="section-title">Como começar no AFESU Conecta?</h2>
+          <p class="section-description">
+            Em apenas 3 passos simples você ativa seu perfil profissional e conecta sua trajetória a novas oportunidades.
+          </p>
+        </div>
+
+        <div class="steps-wrapper">
+          <div class="steps-connector"></div>
+
+          <!-- ETAPA 01 -->
+          <div class="step-card step-1 reveal reveal-delay-1">
+            <div class="step-number-badge">01</div>
+            <h3>Crie seu perfil</h3>
+            <p>Cadastre seus dados, formações na AFESU, competências e objetivos profissionais para montar seu perfil digital.</p>
+          </div>
+
+          <!-- ETAPA 02 -->
+          <div class="step-card step-2 reveal reveal-delay-2">
+            <div class="step-number-badge">02</div>
+            <h3>Acesse a plataforma</h3>
+            <p>Faça login para desbloquear o catálogo completo de empregos, estágios e cursos recomendados para seu perfil.</p>
+          </div>
+
+          <!-- ETAPA 03 -->
+          <div class="step-card step-3 reveal reveal-delay-3">
+            <div class="step-number-badge">03</div>
+            <h3>Conecte-se e cresça</h3>
+            <p>Envie candidaturas diretas e conecte-se com recrutadores parceiros que valorizam o seu potencial.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" class="reveal">
+          <a href="criar-perfil.html" class="btn btn-primary btn-lg">
+            <span>Começar agora — Criar Perfil</span>
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         6. SEÇÃO DE CONEXÃO COM EMPRESAS & PARCEIROS
+         ======================================================================== -->
+    <section class="section section-companies" id="parceiros">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag purple">Parcerias Estratégicas</span>
+          <h2 class="section-title">Conectando talentos a grandes empresas</h2>
+          <p class="section-description">
+            Nossos patrocinadores e parceiros apoiam a formação profissional feminina e abrem portas reais de inclusão no mercado.
+          </p>
+        </div>
+
+        <!-- Composição Visual ALUNA -> AFESU CONECTA -> EMPRESA -->
+        <div class="connection-diagram reveal">
+          
+          <!-- Nó 1: ALUNA -->
+          <div class="conn-node">
+            <div class="conn-icon-box student">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h4>Aluna & Ex-Aluna</h4>
+            <p>Talento formado, capacitado e pronto para novos desafios.</p>
+          </div>
+
+          <!-- Seta 1 -->
+          <div class="conn-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <!-- Nó 2: AFESU CONECTA (Ponte Central) -->
+          <div class="conn-node">
+            <div class="conn-icon-box afesu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h4>AFESU Conecta</h4>
+            <p>A ponte inteligente que une formação de excelência a oportunidades qualificadas.</p>
+          </div>
+
+          <!-- Seta 2 -->
+          <div class="conn-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <!-- Nó 3: EMPRESA PARCEIRA -->
+          <div class="conn-node">
+            <div class="conn-icon-box company">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="21" width="18" height="2"></rect>
+                <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                <path d="M9 7h1"></path>
+                <path d="M9 11h1"></path>
+                <path d="M9 15h1"></path>
+                <path d="M14 7h1"></path>
+                <path d="M14 11h1"></path>
+                <path d="M14 15h1"></path>
+              </svg>
+            </div>
+            <h4>Empresas & Patrocinadores</h4>
+            <p>Organizações comprometidas com diversidade, inclusão e futuro.</p>
+          </div>
+
+        </div>
+
+        <!-- Badges de Apoio das Parcerias -->
+        <div class="partner-pills-row reveal reveal-delay-1">
+          <div class="partner-pill">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>Vagas Verificadas e Transparentes</span>
+          </div>
+
+          <div class="partner-pill">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+            </svg>
+            <span>Mentoria & Acompanhamento de Carreira</span>
+          </div>
+
+          <div class="partner-pill">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.586L14 1.879v12.828l3.707 3.707A1 1 0 0018 17.707V6a1 1 0 00-.293-.414z" clip-rule="evenodd" />
+            </svg>
+            <span>Capacitações Corporativas Contínuas</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         7. CTA FINAL
+         ======================================================================== -->
+    <section class="section section-cta">
+      <div class="container">
+        
+        <div class="cta-banner reveal">
+          <div class="cta-ambient-circle-1"></div>
+          <div class="cta-ambient-circle-2"></div>
+
+          <div class="cta-content">
+            <h2 class="cta-title">Pronta para dar o próximo passo?</h2>
+            <p class="cta-text">
+              Crie seu perfil em poucos minutos ou acesse sua conta para explorar todas as oportunidades e cursos disponíveis.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+              <a href="criar-perfil.html" class="btn btn-white btn-lg" id="btnFinalCtaSignup">
+                <span>✨ Criar meu perfil</span>
+              </a>
+              <a href="login.html" class="btn btn-outline btn-lg" id="btnFinalCtaLogin" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.6);">
+                <span>🔐 Acessar conta</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       8. FOOTER / RODAPÉ
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-top">
+        
+        <!-- Coluna 1: Marca & Tagline -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="AFESU Conecta">
+            <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 44px; height: 44px; object-fit: contain;">
+            <div class="brand-logo-text">
+              <span class="brand-name">AFESU</span>
+              <span class="brand-tagline">CONECTA</span>
+            </div>
+          </a>
+
+          <p class="footer-tagline">
+            Conectando talentos, oportunidades e novos caminhos.
+          </p>
+
+          <!-- Redes Sociais -->
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram da AFESU">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn da AFESU">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Navegação</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Início</a></li>
+            <li><a href="oportunidades.html" class="footer-link">Oportunidades</a></li>
+            <li><a href="oportunidades.html?cat=CURSO" class="footer-link">Cursos</a></li>
+            <li><a href="#como-funciona" class="footer-link">Como funciona</a></li>
+            <li><a href="#sobre" class="footer-link">Sobre</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Oportunidades -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Oportunidades</h4>
+          <ul class="footer-links-list">
+            <li><a href="oportunidades.html?cat=EMPREGO" class="footer-link">Empregos</a></li>
+            <li><a href="oportunidades.html?cat=ESTAGIO" class="footer-link">Vagas de Estágio</a></li>
+            <li><a href="oportunidades.html?cat=CURSO" class="footer-link">Capacitações</a></li>
+            <li><a href="#sobre" class="footer-link">Perfil Profissional</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Contato & Informações -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Contato</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>contato@afesuconecta.org.br</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>São Paulo — SP, Brasil</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Rodapé Inferior -->
+      <div class="footer-bottom">
+        <p>© 2026 AFESU Conecta. Todos os direitos reservados.</p>
+        <div class="footer-bottom-badge">
+          <span>Desenvolvido para alunas e parceiros AFESU</span>
+          <svg viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL DE AUTENTICAÇÃO / CADASTRO INTERATIVO
+       ======================================================================== -->
+  <div class="modal-overlay" id="authModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-container">
+      
+      <button class="modal-close" id="modalCloseBtn" aria-label="Fechar janela">
+        ✕
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-badge">AFESU Conecta</div>
+        <h3 class="modal-title" id="modalTitle">Crie seu perfil</h3>
+        <p class="modal-subtitle" id="modalSubtitle">Dê o próximo passo rumo ao seu crescimento profissional.</p>
+      </div>
+
+      <!-- Abas de Seleção: Aluna / Empresa -->
+      <div class="modal-tabs">
+        <button type="button" class="modal-tab-btn active" id="tabStudent">Sou Aluna / Ex-Aluna</button>
+        <button type="button" class="modal-tab-btn" id="tabPartner">Sou Empresa Parceira</button>
+      </div>
+
+      <!-- Formulário com Feedback Amigável -->
+      <form id="authForm">
+        <div class="modal-form-group">
+          <label class="modal-label" for="inputName">Nome Completo</label>
+          <input type="text" id="inputName" class="modal-input" placeholder="Seu nome" required>
+        </div>
+
+        <div class="modal-form-group">
+          <label class="modal-label" for="inputEmail">E-mail</label>
+          <input type="email" id="inputEmail" class="modal-input" placeholder="seuemail@exemplo.com" required>
+        </div>
+
+        <div class="modal-notice">
+          <svg viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+          </svg>
+          <span>A estrutura de login e cadastro completo será integrada nos próximos módulos.</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" id="formSubmitBtn">
+          Criar meu perfil
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Scripts JavaScript -->
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

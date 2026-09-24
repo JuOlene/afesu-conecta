@@ -1,0 +1,143 @@
+/* ==========================================================================
+   AFESU CONECTA — DESIGN TOKENS & VARIÁVEIS CSS
+   Cores: Roxo, Rosa, Laranja, Amarelo (Vivas, Modernas, Equilibradas)
+   ========================================================================== */
+
+:root {
+  /* --- Cores Primárias e Estruturais (Roxo) --- */
+  --color-purple-900: #2E1065;
+  --color-purple-800: #3B0764;
+  --color-purple-700: #4C1D95;
+  --color-purple-600: #5B21B6;
+  --color-purple-500: #6D28D9;
+  --color-purple-400: #8B5CF6;
+  --color-purple-100: #EDE9FE;
+  --color-purple-50:  #F5F3FF;
+
+  /* --- Cor de Destaque e Empoderamento (Rosa) --- */
+  --color-pink-700: #BE185D;
+  --color-pink-600: #DB2777;
+  --color-pink-500: #E11D74;
+  --color-pink-400: #F43F5E;
+  --color-pink-100: #FCE7F3;
+  --color-pink-50:  #FDF2F8;
+
+  /* --- Cor de Ação e Energia (Laranja) --- */
+  --color-orange-700: #C2410C;
+  --color-orange-600: #EA580C;
+  --color-orange-500: #F97316;
+  --color-orange-400: #FB923C;
+  --color-orange-100: #FFEDD5;
+  --color-orange-50:  #FFF7ED;
+
+  /* --- Cor de Inovação e Luz (Amarelo) --- */
+  --color-yellow-600: #D97706;
+  --color-yellow-500: #F59E0B;
+  --color-yellow-400: #FBBF24;
+  --color-yellow-300: #FCD34D;
+  --color-yellow-100: #FEF3C7;
+  --color-yellow-50:  #FFFBEB;
+
+  /* --- Neutros e Fundos --- */
+  --color-bg-main: #FAFAFC;
+  --color-bg-card: #FFFFFF;
+  --color-bg-subtle: #F4F4F8;
+  --color-bg-dark: #1E1B4B;
+
+  --color-text-primary: #1E1B4B;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
+  --color-text-white: #FFFFFF;
+
+  --color-border-subtle: #E2E8F0;
+  --color-border-focus: #7C3AED;
+
+  /* --- Gradientes da Marca --- */
+  --gradient-primary: linear-gradient(135deg, #5B21B6 0%, #E11D74 100%);
+  --gradient-accent: linear-gradient(135deg, #E11D74 0%, #F97316 100%);
+  --gradient-sun: linear-gradient(135deg, #F97316 0%, #F59E0B 100%);
+  --gradient-full: linear-gradient(135deg, #5B21B6 0%, #E11D74 40%, #F97316 75%, #F59E0B 100%);
+  --gradient-hero-bg: radial-gradient(circle at 85% 20%, rgba(225, 29, 116, 0.08) 0%, rgba(91, 33, 182, 0.05) 35%, rgba(250, 250, 252, 0) 70%);
+  --gradient-card-border: linear-gradient(135deg, rgba(91, 33, 182, 0.2), rgba(225, 29, 116, 0.2));
+
+  /* --- Tipografia --- */
+  --font-family-base: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-family-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+
+  /* --- Sombras Suaves e Modernas --- */
+  --shadow-xs: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(16, 24, 40, 0.08), 0 1px 2px 0 rgba(16, 24, 40, 0.04);
+  --shadow-md: 0 4px 8px -2px rgba(16, 24, 40, 0.08), 0 2px 4px -2px rgba(16, 24, 40, 0.04);
+  --shadow-lg: 0 12px 16px -4px rgba(16, 24, 40, 0.08), 0 4px 6px -2px rgba(16, 24, 40, 0.03);
+  --shadow-xl: 0 20px 24px -4px rgba(16, 24, 40, 0.08), 0 8px 8px -4px rgba(16, 24, 40, 0.03);
+  --shadow-glow-purple: 0 8px 25px -4px rgba(91, 33, 182, 0.35);
+  --shadow-glow-pink: 0 8px 25px -4px rgba(225, 29, 116, 0.35);
+  --shadow-glow-orange: 0 8px 25px -4px rgba(249, 115, 22, 0.35);
+
+  /* --- Raios de Borda --- */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* --- Transições Suaves --- */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* --- Z-index Layers --- */
+  --z-base: 1;
+  --z-card-float: 10;
+  --z-header: 100;
+  --z-drawer: 200;
+  --z-modal: 500;
+}
+
+/* ==========================================================================
+   TEMA ESCURO (DARK MODE ELEGANTE & PROFISSIONAL)
+   ========================================================================== */
+[data-theme="dark"] {
+  --color-bg-main: #0C0A17;
+  --color-bg-card: #161228;
+  --color-bg-subtle: #1F1A38;
+  --color-bg-dark: #07050E;
+
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-text-muted: #94A3B8;
+  --color-text-light: #64748B;
+  --color-text-white: #FFFFFF;
+
+  --color-border-subtle: #2D2552;
+  --color-border-focus: #A78BFA;
+
+  --color-purple-900: #EDE9FE;
+  --color-purple-800: #DDD6FE;
+  --color-purple-700: #C4B5FD;
+  --color-purple-600: #A78BFA;
+  --color-purple-500: #8B5CF6;
+  --color-purple-100: #2E2554;
+  --color-purple-50:  #1E1838;
+
+  --color-pink-100: #4C1330;
+  --color-pink-50:  #2D0B1C;
+
+  --color-orange-100: #4A200B;
+  --color-orange-50:  #2C1205;
+
+  --color-yellow-100: #483307;
+  --color-yellow-50:  #2A1D04;
+
+  --gradient-hero-bg: radial-gradient(circle at 85% 20%, rgba(225, 29, 116, 0.15) 0%, rgba(91, 33, 182, 0.12) 35%, rgba(12, 10, 23, 0) 70%);
+
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 6px 12px -2px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 14px 20px -4px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 22px 30px -4px rgba(0, 0, 0, 0.8);
+}

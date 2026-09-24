@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Meu Perfil — AFESU Conecta</title>
+  <meta name="description" content="Crie seu perfil profissional no AFESU Conecta e conecte sua trajetória a oportunidades de emprego, estágio e cursos.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/profile-form.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('afesu_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. HEADER / NAVBAR SUPERIOR
+       ======================================================================== -->
+  <!-- ========================================================================
+       1. HEADER / NAVBAR SUPERIOR
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      
+      <!-- Logotipo Oficial AFESU CONECTA -->
+      <a href="index.html" class="brand-logo" aria-label="AFESU Conecta — Início">
+        <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 42px; height: 42px; object-fit: contain;">
+        <div class="brand-logo-text">
+          <span class="brand-name">AFESU</span>
+          <span class="brand-tagline">CONECTA</span>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação da Aluna -->
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="oportunidades.html" class="nav-link">Oportunidades</a>
+        <a href="oportunidades.html?cat=CURSO" class="nav-link">Cursos</a>
+        <a href="perfil.html" class="nav-link">Meu Perfil</a>
+        <a href="curriculo.html" class="nav-link">Meu Currículo</a>
+        <a href="oportunidades.html?view=candidaturas" class="nav-link">Minhas Candidaturas</a>
+
+        <!-- Ações no Drawer Mobile -->
+        <div class="mobile-menu-actions">
+          <a href="perfil.html" class="btn btn-outline btn-sm">👤 Ver Meu Perfil</a>
+          <a href="patrocinador.html" class="btn btn-secondary btn-sm">🏢 Área Patrocinador</a>
+          <a href="login.html" class="btn btn-outline btn-sm">🔐 Acessar / Sair</a>
+        </div>
+      </nav>
+
+      <!-- Botões de Ação do Header -->
+      <div class="header-actions">
+        <a href="perfil.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderProfile">
+          Meu Perfil
+        </a>
+        <a href="patrocinador.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSponsor">
+          Área Patrocinador
+        </a>
+
+        <!-- Botão Toggle de Modo Escuro -->
+        <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
+          <span class="theme-icon-sun">☀️</span>
+          <span class="theme-icon-moon">🌙</span>
+        </button>
+
+        <!-- Botão Hamburger Mobile -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <section class="onboarding-section">
+      <div class="container onboarding-container">
+        
+        <!-- Cabeçalho de Boas-Vindas -->
+        <div class="onboarding-header">
+          <span class="section-tag purple">Cadastro de Perfil</span>
+          <h1 class="onboarding-title">Crie seu perfil profissional</h1>
+          <p class="onboarding-subtitle">
+            Conte um pouco sobre você, sua formação, suas habilidades e seus objetivos. Seu perfil ajudará você a encontrar oportunidades que combinam com o seu caminho profissional.
+          </p>
+        </div>
+
+        <!-- Indicador de Progresso das Etapas -->
+        <div class="steps-progress-card">
+          <div class="steps-bar-wrapper">
+            <div class="steps-bar-info">
+              <span>Etapa <span id="currentStepNum">1</span> de 7</span>
+              <span class="steps-bar-percent" id="progressPercentText">14%</span>
+            </div>
+            <div class="steps-progress-track">
+              <div class="steps-progress-fill" id="progressBarFill" style="width: 14%;"></div>
+            </div>
+          </div>
+
+          <div class="steps-nav-list">
+            <div class="step-nav-item active" data-step-target="1">
+              <div class="step-nav-circle">1</div>
+              <span class="step-nav-label">Pessoais</span>
+            </div>
+            <div class="step-nav-item" data-step-target="2">
+              <div class="step-nav-circle">2</div>
+              <span class="step-nav-label">Formação</span>
+            </div>
+            <div class="step-nav-item" data-step-target="3">
+              <div class="step-nav-circle">3</div>
+              <span class="step-nav-label">Experiências</span>
+            </div>
+            <div class="step-nav-item" data-step-target="4">
+              <div class="step-nav-circle">4</div>
+              <span class="step-nav-label">Cursos</span>
+            </div>
+            <div class="step-nav-item" data-step-target="5">
+              <div class="step-nav-circle">5</div>
+              <span class="step-nav-label">Habilidades</span>
+            </div>
+            <div class="step-nav-item" data-step-target="6">
+              <div class="step-nav-circle">6</div>
+              <span class="step-nav-label">Interesses</span>
+            </div>
+            <div class="step-nav-item" data-step-target="7">
+              <div class="step-nav-circle">7</div>
+              <span class="step-nav-label">Revisão</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             ETAPA 1: INFORMAÇÕES PESSOAIS & FOTO
+             ==================================================================== -->
+        <div class="form-step-card active" data-step="1">
+          <div class="step-header">
+            <span class="step-badge">Etapa 01</span>
+            <h2 class="step-title">Vamos começar</h2>
+            <p class="step-desc">Conte algumas informações básicas sobre você.</p>
+          </div>
+
+          <!-- Upload de Foto de Perfil -->
+          <div class="photo-upload-container">
+            <div class="photo-preview-circle" id="photoPreviewCircle">
+              <span>AF</span>
+            </div>
+            <div class="photo-upload-actions">
+              <div class="photo-upload-title">Sua Foto de Perfil</div>
+              <div class="photo-upload-desc">Adicione uma foto nítida e profissional (opcional).</div>
+              <div class="photo-btns-row">
+                <input type="file" id="photoFileInput" accept="image/*" style="display: none;">
+                <button type="button" class="btn btn-secondary btn-sm" id="btnSelectPhoto">
+                  📷 Adicionar foto
+                </button>
+                <button type="button" class="btn btn-outline btn-sm" id="btnRemovePhoto" style="display: none; color: var(--color-pink-600);">
+                  Remover
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campos de Dados Pessoais -->
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="inputFullName">
+                Nome completo <span class="required-star">*</span>
+              </label>
+              <input type="text" id="inputFullName" class="form-control" placeholder="Digite seu nome completo" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputSocialName">
+                Nome que gostaria de usar no perfil <span class="optional-tag">(opcional)</span>
+              </label>
+              <input type="text" id="inputSocialName" class="form-control" placeholder="Ex: Mariana Silva">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="inputEmail">
+                E-mail <span class="required-star">*</span>
+              </label>
+              <input type="email" id="inputEmail" class="form-control" placeholder="seuemail@exemplo.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputPhone">
+                Telefone / WhatsApp <span class="optional-tag">(opcional)</span>
+              </label>
+              <input type="tel" id="inputPhone" class="form-control" placeholder="(11) 90000-0000">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="inputCity">
+                Cidade <span class="required-star">*</span>
+              </label>
+              <input type="text" id="inputCity" class="form-control" value="São Paulo" placeholder="Ex: São Paulo" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputState">
+                Estado <span class="required-star">*</span>
+              </label>
+              <select id="inputState" class="form-control">
+                <option value="SP" selected>São Paulo (SP)</option>
+                <option value="RJ">Rio de Janeiro (RJ)</option>
+                <option value="MG">Minas Gerais (MG)</option>
+                <option value="PR">Paraná (PR)</option>
+                <option value="Outro">Outro Estado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="inputBirthDate">
+                Data de nascimento <span class="optional-tag">(opcional)</span>
+              </label>
+              <input type="date" id="inputBirthDate" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputBio">
+                Fale um pouco sobre você / Apresentação <span class="optional-tag">(até 500 caracteres)</span>
+              </label>
+              <textarea id="inputBio" class="form-control" rows="3" maxlength="500" placeholder="Ex: Sou estudante dedicada da AFESU interessada em desenvolver minhas habilidades profissionais, aprender coisas novas e conquistar minha primeira oportunidade no mercado de trabalho."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             ETAPA 2: FORMAÇÃO EDUCACIONAL
+             ==================================================================== -->
+        <div class="form-step-card" data-step="2">
+          <div class="step-header">
+            <span class="step-badge">Etapa 02</span>
+            <h2 class="step-title">Sua formação</h2>
+            <p class="step-desc">Conte um pouco sobre sua trajetória educacional e cursos na AFESU.</p>
+          </div>
+
+          <!-- Lista de Formações Adicionadas -->
+          <div class="items-card-list" id="formationsList"></div>
+
+          <!-- Botão para Adicionar Nova Formação -->
+          <button type="button" class="btn-add-item" id="btnAddFormation">
+            <span>+ Adicionar formação</span>
+          </button>
+        </div>
+
+        <!-- ====================================================================
+             ETAPA 3: EXPERIÊNCIAS
+             ==================================================================== -->
+        <div class="form-step-card" data-step="3">
+          <div class="step-header">
+            <span class="step-badge">Etapa 03</span>
+            <h2 class="step-title">Suas experiências</h2>
+            <p class="step-desc">Conte sobre experiências que ajudam a mostrar seus conhecimentos e habilidades.</p>
+          </div>
+
+          <!-- Opção Acolhedora Sem Experiência -->
+          <div class="no-experience-toggle">
+            <label class="no-exp-checkbox-label">
+              <input type="checkbox" id="noExperienceCheckbox">
+              <span>Ainda não tenho experiência profissional formal</span>
+            </label>
+            <div class="no-exp-encouragement" id="noExpEncouragement">
+              💛 <strong>Tudo bem!</strong> Cursos, projetos da AFESU, trabalhos voluntários e atividades acadêmicas também ajudam a mostrar seu talento e potencial.
+            </div>
+          </div>
+
+          <div id="expSectionContent">
+            <!-- Lista de Experiências Adicionadas -->
+            <div class="items-card-list" id="experiencesList"></div>
+
+            <button type="button" class="btn-add-item" id="btnAddExperience">
+              <span>+ Adicionar experiência</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             ETAPA 4: CURSOS E CERTIFICAÇÕES
+             ==================================================================== -->
+        <div class="form-step-card" data-step="4">
+          <div class="step-header">
+            <span class="step-badge">Etapa 04</span>
+            <h2 class="step-title">Cursos e certificações</h2>
+            <p class="step-desc">Adicione cursos e capacitações extracurriculares que você já realizou.</p>
+          </div>
+
+          <!-- Lista de Cursos -->
+          <div class="items-card-list" id="coursesList"></div>
+
+          <button type="button" class="btn-add-item" id="btnAddCourse">
+            <span>+ Adicionar curso ou certificado</span>
+          </button>
+        </div>
+
+        <!-- ====================================================================
+             ETAPA 5: HABILIDADES
+             ==================================================================== -->
+        <div class="form-step-card" data-step="5">
+          <div class="step-header">
+            <span class="step-badge">Etapa 05</span>
+            <h2 class="step-title">Suas habilidades</h2>
+            <p class="step-desc">Selecione ou adicione habilidades que representam seus conhecimentos técnicos e comportamentais.</p>
+          </div>
+
+          <div class="skills-selector-wrapper">
+            <div class="skills-chips-grid">
+              <button type="button" class="skill-chip-btn" data-skill="Comunicação">💬 Comunicação</button>
+              <button type="button" class="skill-chip-btn" data-skill="Organização">📋 Organização</button>
+              <button type="button" class="skill-chip-btn" data-skill="Trabalho em equipe">🤝 Trabalho em equipe</button>
+              <button type="button" class="skill-chip-btn" data-skill="Atendimento ao cliente">🎧 Atendimento ao cliente</button>
+              <button type="button" class="skill-chip-btn" data-skill="Pacote Office">💻 Pacote Office</button>
+              <button type="button" class="skill-chip-btn" data-skill="Excel">📊 Excel</button>
+              <button type="button" class="skill-chip-btn" data-skill="Redes sociais">📱 Redes sociais</button>
+              <button type="button" class="skill-chip-btn" data-skill="Criatividade">🎨 Criatividade</button>
+              <button type="button" class="skill-chip-btn" data-skill="Liderança">⭐ Liderança</button>
+              <button type="button" class="skill-chip-btn" data-skill="Planejamento">📅 Planejamento</button>
+              <button type="button" class="skill-chip-btn" data-skill="Inglês">🌍 Inglês</button>
+              <button type="button" class="skill-chip-btn" data-skill="Tecnologia">⚙️ Tecnologia</button>
+              <button type="button" class="skill-chip-btn" data-skill="Gestão de tempo">⏰ Gestão de tempo</button>
+              <button type="button" class="skill-chip-btn" data-skill="HTML & CSS">🌐 HTML & CSS</button>
+              <button type="button" class="skill-chip-btn" data-skill="Design Digital">✨ Design Digital</button>
+            </div>
+
+            <!-- Adicionar Habilidade Customizada -->
+            <div class="add-custom-skill-row">
+              <input type="text" id="inputCustomSkill" class="form-control" placeholder="Digite outra habilidade...">
+              <button type="button" class="btn btn-primary" id="btnAddCustomSkill" style="white-space: nowrap;">
+                Adicionar
+              </button>
+            </div>
+
+            <!-- Tags Selecionadas -->
+            <div class="selected-skills-container">
+              <div class="selected-skills-title">Habilidades Selecionadas</div>
+              <div class="active-skills-list" id="activeSkillsList"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             ETAPA 6: OBJETIVOS E INTERESSES
+             ==================================================================== -->
+        <div class="form-step-card" data-step="6">
+          <div class="step-header">
+            <span class="step-badge">Etapa 06</span>
+            <h2 class="step-title">Que caminho você quer seguir?</h2>
+            <p class="step-desc">Escolha as áreas e preferências de oportunidades que mais despertam seu interesse.</p>
+          </div>
+
+          <!-- Áreas de Interesse -->
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 700; margin-bottom: 0.75rem;">
+              1. Áreas de Interesse (Selecione uma ou mais)
+            </label>
+            <div class="interests-grid">
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestArea" value="Administração">
+                <span>Administração</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestArea" value="Tecnologia">
+                <span>Tecnologia</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestArea" value="Comunicação">
+                <span>Comunicação</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestArea" value="Marketing">
+                <span>Marketing</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestArea" value="Recursos Humanos">
+                <span>Recursos Humanos</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestArea" value="Atendimento">
+                <span>Atendimento</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestArea" value="Finanças">
+                <span>Finanças</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestArea" value="Design">
+                <span>Design</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestArea" value="Educação">
+                <span>Educação</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Tipos de Oportunidade -->
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 700; margin-bottom: 0.75rem;">
+              2. Que tipo de oportunidade você procura?
+            </label>
+            <div class="interests-grid">
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestType" value="Emprego">
+                <span>💼 Emprego</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestType" value="Estágio">
+                <span>🌱 Estágio</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestType" value="Curso">
+                <span>🎓 Curso / Capacitação</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Formato de Trabalho -->
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 700; margin-bottom: 0.75rem;">
+              3. Qual formato você prefere?
+            </label>
+            <div class="interests-grid">
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestFormat" value="Presencial">
+                <span>🏢 Presencial</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestFormat" value="Híbrido">
+                <span>🔄 Híbrido</span>
+              </label>
+              <label class="interest-checkbox-card">
+                <input type="checkbox" name="interestFormat" value="Remoto">
+                <span>🏠 Remoto</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Cidades de Interesse -->
+          <div class="form-group">
+            <label class="form-label" for="inputInterestCities" style="font-weight: 700;">
+              4. Cidades de interesse para atuar
+            </label>
+            <input type="text" id="inputInterestCities" class="form-control" placeholder="Ex: São Paulo, Osasco, Santo André, Guarulhos" value="São Paulo, Osasco">
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             ETAPA 7: REVISÃO & FINALIZAÇÃO
+             ==================================================================== -->
+        <div class="form-step-card" data-step="7">
+          <div class="step-header">
+            <span class="step-badge">Etapa Final</span>
+            <h2 class="step-title">Revise seu perfil</h2>
+            <p class="step-desc">Confira todas as informações antes de finalizar seu cadastro no AFESU Conecta.</p>
+          </div>
+
+          <!-- Gauge de Completude -->
+          <div class="completeness-gauge-card">
+            <div class="gauge-circle-box" id="reviewGaugeValue">100%</div>
+            <div class="gauge-info">
+              <h4>Completude do Perfil</h4>
+              <p id="reviewGaugeMsg">Excelente! Seu perfil está completo e pronto para encontrar novas oportunidades!</p>
+            </div>
+          </div>
+
+          <!-- Blocos de Revisão com Botões de Editar -->
+          <div class="review-sections-list">
+            
+            <div class="review-block">
+              <div class="review-block-header">
+                <span class="review-block-title">Informações Pessoais</span>
+                <button type="button" class="btn-edit-step" data-edit-step="1">✏️ Editar</button>
+              </div>
+              <div id="reviewPersonal"></div>
+            </div>
+
+            <div class="review-block">
+              <div class="review-block-header">
+                <span class="review-block-title">Formação Acadêmica</span>
+                <button type="button" class="btn-edit-step" data-edit-step="2">✏️ Editar</button>
+              </div>
+              <div id="reviewFormations"></div>
+            </div>
+
+            <div class="review-block">
+              <div class="review-block-header">
+                <span class="review-block-title">Experiências</span>
+                <button type="button" class="btn-edit-step" data-edit-step="3">✏️ Editar</button>
+              </div>
+              <div id="reviewExperiences"></div>
+            </div>
+
+            <div class="review-block">
+              <div class="review-block-header">
+                <span class="review-block-title">Cursos & Certificações</span>
+                <button type="button" class="btn-edit-step" data-edit-step="4">✏️ Editar</button>
+              </div>
+              <div id="reviewCourses"></div>
+            </div>
+
+            <div class="review-block">
+              <div class="review-block-header">
+                <span class="review-block-title">Habilidades</span>
+                <button type="button" class="btn-edit-step" data-edit-step="5">✏️ Editar</button>
+              </div>
+              <div id="reviewSkills"></div>
+            </div>
+
+            <div class="review-block">
+              <div class="review-block-header">
+                <span class="review-block-title">Interesses e Preferências</span>
+                <button type="button" class="btn-edit-step" data-edit-step="6">✏️ Editar</button>
+              </div>
+              <div id="reviewInterests"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             BARRA DE NAVEGAÇÃO ENTRE ETAPAS (VOLTAR / CONTINUAR)
+             ==================================================================== -->
+        <div class="step-actions-bar">
+          <button type="button" class="btn btn-outline" id="btnPrevStep" style="display: none;">
+            ← Voltar etapa
+          </button>
+          <div style="flex-grow: 1;"></div>
+          <button type="button" class="btn btn-primary btn-lg" id="btnNextStep">
+            <span>Continuar</span>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+          </button>
+          <button type="button" class="btn btn-orange btn-lg" id="btnSubmitProfile" style="display: none;">
+            <span>Criar meu perfil</span>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       MODAL DE ADICIONAR FORMAÇÃO
+       ======================================================================== -->
+  <div class="modal-overlay" id="formationModal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close" id="modalFormationClose">✕</button>
+      <div class="modal-header">
+        <h3 class="modal-title">Adicionar Formação</h3>
+      </div>
+      <form id="formFormation">
+        <div class="modal-form-group">
+          <label class="modal-label" for="eduInst">Instituição de Ensino</label>
+          <input type="text" id="eduInst" class="modal-input" placeholder="Ex: AFESU Veleiros" required>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="eduCourse">Curso / Formação</label>
+          <input type="text" id="eduCourse" class="modal-input" placeholder="Ex: Técnico em Tecnologia & Programação" required>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="eduLevel">Nível de Formação</label>
+          <select id="eduLevel" class="modal-input">
+            <option value="Ensino técnico">Ensino técnico</option>
+            <option value="Ensino médio">Ensino médio</option>
+            <option value="Ensino superior">Ensino superior</option>
+            <option value="Curso profissionalizante">Curso profissionalizante</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+        <div class="form-grid-2">
+          <div class="modal-form-group">
+            <label class="modal-label" for="eduStatus">Status</label>
+            <select id="eduStatus" class="modal-input">
+              <option value="Em andamento">Em andamento</option>
+              <option value="Concluído" selected>Concluído</option>
+            </select>
+          </div>
+          <div class="modal-form-group">
+            <label class="modal-label" for="eduYear">Ano de Conclusão / Previsão</label>
+            <input type="text" id="eduYear" class="modal-input" placeholder="Ex: 2026" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem;">
+          Salvar Formação
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL DE ADICIONAR EXPERIÊNCIA
+       ======================================================================== -->
+  <div class="modal-overlay" id="experienceModal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close" id="modalExperienceClose">✕</button>
+      <div class="modal-header">
+        <h3 class="modal-title">Adicionar Experiência</h3>
+      </div>
+      <form id="formExperience">
+        <div class="modal-form-group">
+          <label class="modal-label" for="expCompany">Empresa / Instituição</label>
+          <input type="text" id="expCompany" class="modal-input" placeholder="Ex: Empresa Parceira AFESU" required>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="expRole">Cargo / Função</label>
+          <input type="text" id="expRole" class="modal-input" placeholder="Ex: Auxiliar de Atendimento" required>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="expType">Tipo de Experiência</label>
+          <select id="expType" class="modal-input">
+            <option value="Estágio">Estágio</option>
+            <option value="Emprego">Emprego</option>
+            <option value="Jovem aprendiz">Jovem aprendiz</option>
+            <option value="Trabalho voluntário">Trabalho voluntário</option>
+            <option value="Projeto acadêmico">Projeto acadêmico</option>
+            <option value="Outra experiência">Outra experiência</option>
+          </select>
+        </div>
+        <div class="form-grid-2">
+          <div class="modal-form-group">
+            <label class="modal-label" for="expStart">Data de Início</label>
+            <input type="text" id="expStart" class="modal-input" placeholder="Ex: Março 2025" required>
+          </div>
+          <div class="modal-form-group">
+            <label class="modal-label" for="expEnd">Data de Término</label>
+            <input type="text" id="expEnd" class="modal-input" placeholder="Ex: Dezembro 2025">
+          </div>
+        </div>
+        <div class="modal-form-group">
+          <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; cursor: pointer;">
+            <input type="checkbox" id="expCurrent">
+            <span>Trabalho atualmente neste local</span>
+          </label>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="expDesc">Descrição das Atividades</label>
+          <textarea id="expDesc" class="modal-input" rows="3" placeholder="Conte brevemente o que você desenvolveu..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+          Salvar Experiência
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL DE ADICIONAR CURSO
+       ======================================================================== -->
+  <div class="modal-overlay" id="courseModal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close" id="modalCourseClose">✕</button>
+      <div class="modal-header">
+        <h3 class="modal-title">Adicionar Curso</h3>
+      </div>
+      <form id="formCourse">
+        <div class="modal-form-group">
+          <label class="modal-label" for="curName">Nome do Curso / Certificação</label>
+          <input type="text" id="curName" class="modal-input" placeholder="Ex: Excel para o Mercado de Trabalho" required>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="curInst">Instituição</label>
+          <input type="text" id="curInst" class="modal-input" placeholder="Ex: AFESU Conecta" required>
+        </div>
+        <div class="form-grid-2">
+          <div class="modal-form-group">
+            <label class="modal-label" for="curHours">Carga Horária (horas)</label>
+            <input type="number" id="curHours" class="modal-input" placeholder="Ex: 40" required>
+          </div>
+          <div class="modal-form-group">
+            <label class="modal-label" for="curYear">Ano de Conclusão</label>
+            <input type="text" id="curYear" class="modal-input" placeholder="Ex: 2026" required>
+          </div>
+        </div>
+        <div class="modal-form-group">
+          <label class="modal-label" for="curCert">Possui Certificado?</label>
+          <select id="curCert" class="modal-input">
+            <option value="sim" selected>Sim</option>
+            <option value="nao">Não</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+          Salvar Curso
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL DE CELEBRAÇÃO & SUCESSO
+       ======================================================================== -->
+  <div class="modal-overlay" id="successModal" role="dialog" aria-modal="true">
+    <div class="modal-container success-modal-container">
+      <div class="success-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+
+      <h2 class="success-title">Perfil criado com sucesso!</h2>
+      <p class="success-desc">
+        Parabéns! Suas informações foram organizadas e agora você já pode visualizar seu perfil profissional e explorar oportunidades alinhadas com o seu caminho.
+      </p>
+
+      <div class="success-actions" style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+        <a href="curriculo.html" class="btn btn-primary btn-lg">
+          <span>📄 Ver meu currículo</span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+        </a>
+        <a href="perfil.html" class="btn btn-outline btn-lg">
+          <span>Ver perfil completo</span>
+        </a>
+        <a href="oportunidades.html" class="btn btn-outline btn-lg">
+          Explorar oportunidades
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Padronizado AFESU CONECTA -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col-main">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 42px; height: 42px; object-fit: contain;">
+            <div class="brand-logo-text">
+              <span class="brand-name">AFESU</span>
+              <span class="brand-tagline">CONECTA</span>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            Conectando talentos, oportunidades e novos caminhos para transformar futuros através da educação e empregabilidade.
+          </p>
+          <div class="footer-social-links" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-toolbar-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Instagram</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn-toolbar-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Navegação</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="oportunidades.html">Oportunidades</a></li>
+            <li><a href="oportunidades.html?cat=CURSO">Cursos</a></li>
+            <li><a href="index.html#como-funciona">Como funciona</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Para Alunas</h4>
+          <ul class="footer-links-list">
+            <li><a href="criar-perfil.html">Criar Perfil</a></li>
+            <li><a href="perfil.html">Meu Perfil</a></li>
+            <li><a href="curriculo.html">Currículo Digital</a></li>
+            <li><a href="oportunidades.html?view=candidaturas">Minhas Candidaturas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Para Empresas</h4>
+          <ul class="footer-links-list">
+            <li><a href="patrocinador.html">Área do Patrocinador</a></li>
+            <li><a href="patrocinador.html#minhasOportunidadesSection">Publicar Vaga</a></li>
+            <li><a href="patrocinador.html#candidaturasSection">Banco de Talentos</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AFESU Conecta. Todos os direitos reservados.</p>
+        <div class="footer-bottom-badge">
+          <span>Desenvolvido para alunas e parceiros AFESU</span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/profile-form.js"></script>
+</body>
+</html>

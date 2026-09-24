@@ -1,0 +1,784 @@
+/* ==========================================================================
+   AFESU CONECTA — ÁREA DOS PATROCINADORES / EMPRESAS
+   Paleta: Roxo (#5B21B6), Rosa (#E11D74), Laranja (#F97316), Amarelo (#F59E0B)
+   ========================================================================== */
+
+/* --- Seção Principal / Container --- */
+.sponsor-page-section {
+  padding: 2.5rem 0 5rem;
+  background-color: var(--color-bg-main);
+  min-height: calc(100vh - 160px);
+}
+
+.sponsor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ==========================================================================
+   1. HERO / ONBOARDING INICIAL DO PATROCINADOR
+   ========================================================================== */
+.sponsor-hero-card {
+  background: linear-gradient(135deg, var(--color-purple-900) 0%, var(--color-purple-800) 45%, var(--color-pink-700) 100%);
+  border-radius: var(--radius-2xl);
+  color: #FFFFFF;
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 35px -10px rgba(91, 33, 182, 0.35);
+  margin-bottom: 2.5rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.sponsor-hero-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(225, 29, 116, 0.3) 0%, rgba(249, 115, 22, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sponsor-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.sponsor-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.sponsor-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-yellow-400);
+}
+
+.sponsor-hero-title {
+  font-family: var(--font-family-display);
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.sponsor-hero-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+.sponsor-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.sponsor-hero-visual {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sponsor-preview-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  color: #FFFFFF;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.sponsor-preview-metric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.sponsor-metric-badge {
+  background: var(--gradient-sun);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   2. DASHBOARD DO PATROCINADOR
+   ========================================================================== */
+.sponsor-dashboard-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Topo do Dashboard (Boas-vindas & Ação Principal) */
+.sponsor-dash-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: #FFFFFF;
+  padding: 1.75rem 2rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.sponsor-dash-greeting h2 {
+  font-family: var(--font-family-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-purple-900);
+  margin-bottom: 0.25rem;
+}
+
+.sponsor-dash-greeting p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.sponsor-dash-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* --- 3. CARDS DE RESUMO (KPIS) --- */
+.sponsor-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.kpi-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-purple-400);
+}
+
+.kpi-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+}
+
+.kpi-purple .kpi-icon-box {
+  background: var(--color-purple-50);
+  color: var(--color-purple-600);
+  border: 1px solid var(--color-purple-100);
+}
+
+.kpi-pink .kpi-icon-box {
+  background: var(--color-pink-50);
+  color: var(--color-pink-600);
+  border: 1px solid var(--color-pink-100);
+}
+
+.kpi-orange .kpi-icon-box {
+  background: var(--color-orange-50);
+  color: var(--color-orange-600);
+  border: 1px solid var(--color-orange-100);
+}
+
+.kpi-yellow .kpi-icon-box {
+  background: var(--color-yellow-50);
+  color: var(--color-yellow-600);
+  border: 1px solid var(--color-yellow-100);
+}
+
+.kpi-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi-number {
+  font-family: var(--font-family-display);
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+}
+
+.kpi-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   4. SEÇÃO: GERENCIAR OPORTUNIDADES ("MINHAS OPORTUNIDADES")
+   ========================================================================== */
+.sponsor-section-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.section-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-card-title-group h3 {
+  font-family: var(--font-family-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-purple-900);
+  margin: 0;
+}
+
+.section-card-tag {
+  background: var(--color-purple-50);
+  color: var(--color-purple-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-purple-100);
+}
+
+/* Grade de Oportunidades do Patrocinador */
+.sponsor-opps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.25rem;
+}
+
+.sponsor-opp-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.sponsor-opp-card:hover {
+  border-color: var(--color-purple-300);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.sponsor-opp-card.status-encerrada {
+  opacity: 0.75;
+  background: var(--color-bg-subtle);
+}
+
+.sponsor-opp-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.sponsor-opp-type-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-emprego {
+  background: var(--color-purple-50);
+  color: var(--color-purple-700);
+  border: 1px solid var(--color-purple-100);
+}
+
+.badge-estagio {
+  background: var(--color-pink-50);
+  color: var(--color-pink-700);
+  border: 1px solid var(--color-pink-100);
+}
+
+.badge-curso {
+  background: var(--color-orange-50);
+  color: var(--color-orange-700);
+  border: 1px solid var(--color-orange-100);
+}
+
+.sponsor-status-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.status-active-pill {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+}
+
+.status-closed-pill {
+  background: #F1F5F9;
+  color: #64748B;
+  border: 1px solid #CBD5E1;
+}
+
+.sponsor-opp-title {
+  font-family: var(--font-family-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0.5rem 0 0.25rem;
+  line-height: 1.3;
+}
+
+.sponsor-opp-meta {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.sponsor-opp-cands-count {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-purple-700);
+  background: var(--color-purple-50);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  width: fit-content;
+}
+
+.sponsor-opp-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.btn-card-mini {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+  background: #FFFFFF;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-card-mini:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-purple-700);
+  border-color: var(--color-purple-400);
+}
+
+.btn-card-mini-danger {
+  color: var(--color-pink-600);
+}
+
+.btn-card-mini-danger:hover {
+  background: var(--color-pink-50);
+  border-color: var(--color-pink-300);
+}
+
+/* ==========================================================================
+   5. SEÇÃO: CANDIDATURAS RECEBIDAS COM FILTROS & BUSCA
+   ========================================================================== */
+.sponsor-candidates-filterbar {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.candidates-search-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.candidates-search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.candidates-search-input:focus {
+  border-color: var(--color-purple-500);
+  box-shadow: 0 0 0 3px rgba(91, 33, 182, 0.12);
+}
+
+.candidates-search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  width: 18px;
+  height: 18px;
+}
+
+.candidates-filters-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.candidate-filter-select {
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  color: var(--color-text-primary);
+  outline: none;
+  cursor: pointer;
+}
+
+.candidate-filter-select:focus {
+  border-color: var(--color-purple-500);
+}
+
+/* Grade de Candidatas */
+.candidates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.25rem;
+}
+
+.candidate-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-normal);
+}
+
+.candidate-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-purple-300);
+}
+
+.candidate-header-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.candidate-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+}
+
+.candidate-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.candidate-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.candidate-name {
+  font-family: var(--font-family-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.candidate-location {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.candidate-target-opp {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-pink-700);
+  background: var(--color-pink-50);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-pink-100);
+  width: fit-content;
+  margin-top: 0.2rem;
+}
+
+.candidate-formation-box {
+  background: var(--color-bg-subtle);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.candidate-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cand-skill-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.cand-tag-purple {
+  background: var(--color-purple-50);
+  color: var(--color-purple-700);
+  border: 1px solid var(--color-purple-100);
+}
+
+.cand-tag-pink {
+  background: var(--color-pink-50);
+  color: var(--color-pink-700);
+  border: 1px solid var(--color-pink-100);
+}
+
+.cand-tag-orange {
+  background: var(--color-orange-50);
+  color: var(--color-orange-700);
+  border: 1px solid var(--color-orange-100);
+}
+
+.cand-tag-yellow {
+  background: var(--color-yellow-50);
+  color: var(--color-yellow-600);
+  border: 1px solid var(--color-yellow-100);
+}
+
+.candidate-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   6. MODAL DE PUBLICAÇÃO DE OPORTUNIDADES & CURSOS
+   ========================================================================== */
+.pub-modal-container {
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.25rem 2.5rem;
+  border-radius: var(--radius-2xl);
+}
+
+.pub-modal-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.pub-modal-header h3 {
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-purple-900);
+  margin-bottom: 0.3rem;
+}
+
+.pub-modal-header p {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Campos Específicos para Cursos (Exibidos Condicionalmente) */
+.course-extra-fields {
+  display: none;
+  background: var(--color-orange-50);
+  border: 1px solid var(--color-orange-100);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.course-extra-fields.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ==========================================================================
+   7. MODAL DE CURRÍCULO DA CANDIDATA
+   ========================================================================== */
+.cand-cv-modal-container {
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem;
+  border-radius: var(--radius-2xl);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (TABLET & CELULAR)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .sponsor-hero-card {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 2rem;
+  }
+
+  .sponsor-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .candidates-filters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sponsor-hero-title {
+    font-size: 2rem;
+  }
+
+  .sponsor-dash-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .sponsor-dash-actions {
+    justify-content: center;
+  }
+
+  .sponsor-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsor-opps-grid,
+  .candidates-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .candidates-filters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pub-modal-container,
+  .cand-cv-modal-container {
+    padding: 1.5rem;
+  }
+}

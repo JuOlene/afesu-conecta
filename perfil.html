@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Perfil Profissional — AFESU Conecta</title>
+  <meta name="description" content="Visualize seu perfil profissional e currículo digital no AFESU Conecta.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/profile-view.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('afesu_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. HEADER / NAVBAR SUPERIOR
+       ======================================================================== -->
+  <!-- ========================================================================
+       1. HEADER / NAVBAR SUPERIOR
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      
+      <!-- Logotipo Oficial AFESU CONECTA -->
+      <a href="index.html" class="brand-logo" aria-label="AFESU Conecta — Início">
+        <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 42px; height: 42px; object-fit: contain;">
+        <div class="brand-logo-text">
+          <span class="brand-name">AFESU</span>
+          <span class="brand-tagline">CONECTA</span>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação da Aluna -->
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="oportunidades.html" class="nav-link">Oportunidades</a>
+        <a href="oportunidades.html?cat=CURSO" class="nav-link">Cursos</a>
+        <a href="perfil.html" class="nav-link active">Meu Perfil</a>
+        <a href="curriculo.html" class="nav-link">Meu Currículo</a>
+        <a href="oportunidades.html?view=candidaturas" class="nav-link">Minhas Candidaturas</a>
+
+        <!-- Ações no Drawer Mobile -->
+        <div class="mobile-menu-actions">
+          <a href="curriculo.html" class="btn btn-outline btn-sm">📄 Ver Currículo</a>
+          <a href="criar-perfil.html" class="btn btn-primary btn-sm">✏️ Editar Perfil</a>
+          <a href="patrocinador.html" class="btn btn-secondary btn-sm">🏢 Área Patrocinador</a>
+          <a href="login.html" class="btn btn-outline btn-sm">🔐 Acessar / Sair</a>
+        </div>
+      </nav>
+
+      <!-- Botões de Ação do Header -->
+      <div class="header-actions">
+        <a href="curriculo.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderCV">
+          Ver Currículo
+        </a>
+        <a href="patrocinador.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSponsor">
+          Área Patrocinador
+        </a>
+
+        <!-- Botão Toggle de Modo Escuro -->
+        <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
+          <span class="theme-icon-sun">☀️</span>
+          <span class="theme-icon-moon">🌙</span>
+        </button>
+
+        <!-- Botão Hamburger Mobile -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <section class="profile-page-section">
+      <div class="container profile-page-container">
+        
+        <!-- ====================================================================
+             2. BANNER PRINCIPAL DO PERFIL
+             ==================================================================== -->
+        <div class="profile-hero-banner">
+          
+          <div class="profile-hero-main">
+            <!-- Usuária / Avatar / Informações -->
+            <div class="profile-user-group">
+              <div class="profile-photo-lg-wrapper">
+                <div class="profile-photo-lg" id="viewProfileAvatar">
+                  <span>MS</span>
+                </div>
+                <div class="profile-verified-badge" title="Aluna / Formanda Verificada AFESU">✓</div>
+              </div>
+
+              <div class="profile-names-group">
+                <h1 id="viewFullName">Mariana Silva</h1>
+                <div class="profile-headline" id="viewHeadline">Desenvolvimento Web & Tecnologia • Aluna AFESU</div>
+                <div class="profile-meta-row">
+                  <div class="profile-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span id="viewLocation">São Paulo, SP</span>
+                  </div>
+                  <div class="profile-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    </svg>
+                    <span id="viewEmail">mariana.silva@exemplo.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botões de Ação do Perfil -->
+            <div class="profile-actions-group">
+              <a href="criar-perfil.html" class="btn btn-primary" id="btnEditProfile">
+                <span>✏️ Editar perfil</span>
+              </a>
+              <a href="curriculo.html" class="btn btn-outline" id="btnOpenCvPage">
+                <span>📄 Visualizar currículo</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Barra de Completude Integrada -->
+          <div class="profile-banner-completeness">
+            <div class="completeness-text-group">
+              <strong>Status do Perfil:</strong> <span id="completenessPercent">100%</span> completo
+            </div>
+            <div class="completeness-bar-track">
+              <div class="completeness-bar-fill" id="completenessBar" style="width: 100%;"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ====================================================================
+             3. GRADE DE CONTEÚDO DO PERFIL (COLUNA PRINCIPAL & LATERAL)
+             ==================================================================== -->
+        <div class="profile-content-grid">
+          
+          <!-- Coluna Principal (Esquerda) -->
+          <div class="profile-main-col">
+            
+            <!-- Card: Sobre Mim -->
+            <div class="profile-card">
+              <div class="profile-card-header">
+                <div class="profile-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <h3 class="profile-card-title">Sobre Mim</h3>
+              </div>
+              <p id="viewBio" style="color: var(--color-text-secondary); line-height: 1.6; font-size: 0.95rem;"></p>
+            </div>
+
+            <!-- Card: Formação Acadêmica -->
+            <div class="profile-card">
+              <div class="profile-card-header">
+                <div class="profile-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+                <h3 class="profile-card-title">Formação Acadêmica</h3>
+              </div>
+              <div class="timeline-list" id="viewFormationsList"></div>
+            </div>
+
+            <!-- Card: Experiências Profissionais -->
+            <div class="profile-card">
+              <div class="profile-card-header">
+                <div class="profile-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+                <h3 class="profile-card-title">Experiências</h3>
+              </div>
+              <div id="viewExperiencesContainer"></div>
+            </div>
+
+            <!-- Card: Cursos e Certificações -->
+            <div class="profile-card">
+              <div class="profile-card-header">
+                <div class="profile-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                </div>
+                <h3 class="profile-card-title">Cursos & Certificações</h3>
+              </div>
+              <div class="courses-pills-list" id="viewCoursesList"></div>
+            </div>
+
+          </div>
+
+          <!-- Coluna Lateral (Direita) -->
+          <div class="profile-side-col">
+            
+            <!-- Card: Habilidades -->
+            <div class="profile-card">
+              <div class="profile-card-header">
+                <div class="profile-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <h3 class="profile-card-title">Habilidades</h3>
+              </div>
+              <div class="profile-skills-cloud" id="viewSkillsList"></div>
+            </div>
+
+            <!-- Card: Preferências Profissionais -->
+            <div class="profile-card">
+              <div class="profile-card-header">
+                <div class="profile-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                  </svg>
+                </div>
+                <h3 class="profile-card-title">Preferências</h3>
+              </div>
+
+              <div class="preference-row">
+                <span class="preference-label">Áreas de Interesse</span>
+                <span class="preference-value" id="viewInterestsAreas">Tecnologia, Administração</span>
+              </div>
+
+              <div class="preference-row">
+                <span class="preference-label">Tipo de Oportunidade</span>
+                <span class="preference-value" id="viewInterestsTypes">Estágio, Emprego</span>
+              </div>
+
+              <div class="preference-row">
+                <span class="preference-label">Formato Preferido</span>
+                <span class="preference-value" id="viewInterestsFormats">Híbrido, Remoto</span>
+              </div>
+
+              <div class="preference-row">
+                <span class="preference-label">Cidades</span>
+                <span class="preference-value" id="viewInterestsCities">São Paulo, Osasco</span>
+              </div>
+            </div>
+
+            <!-- Card: Chamada para Oportunidades -->
+            <div class="profile-card" style="background: var(--gradient-primary); color: #FFFFFF; text-align: center;">
+              <h4 style="color: #FFFFFF; font-size: 1.2rem; margin-bottom: 0.5rem;">Explorar Vagas</h4>
+              <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.875rem; margin-bottom: 1.25rem;">
+                Confira as oportunidades de emprego, estágios e cursos que combinam com seu perfil.
+              </p>
+              <a href="oportunidades.html" class="btn btn-white btn-sm" style="width: 100%;">
+                Ver Oportunidades
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       MODAL DE VISUALIZAÇÃO DO CURRÍCULO DIGITAL
+       ======================================================================== -->
+  <div class="modal-overlay" id="cvModal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+    <div class="modal-container cv-modal-container">
+      <button class="modal-close" id="btnCloseCvModal" aria-label="Fechar currículo">✕</button>
+      <div id="cvPaperContainer">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Padronizado AFESU CONECTA -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col-main">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 42px; height: 42px; object-fit: contain;">
+            <div class="brand-logo-text">
+              <span class="brand-name">AFESU</span>
+              <span class="brand-tagline">CONECTA</span>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            Conectando talentos, oportunidades e novos caminhos para transformar futuros através da educação e empregabilidade.
+          </p>
+          <div class="footer-social-links" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-toolbar-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Instagram</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn-toolbar-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Navegação</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="oportunidades.html">Oportunidades</a></li>
+            <li><a href="oportunidades.html?cat=CURSO">Cursos</a></li>
+            <li><a href="index.html#como-funciona">Como funciona</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Para Alunas</h4>
+          <ul class="footer-links-list">
+            <li><a href="criar-perfil.html">Criar Perfil</a></li>
+            <li><a href="perfil.html">Meu Perfil</a></li>
+            <li><a href="curriculo.html">Currículo Digital</a></li>
+            <li><a href="oportunidades.html?view=candidaturas">Minhas Candidaturas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Para Empresas</h4>
+          <ul class="footer-links-list">
+            <li><a href="patrocinador.html">Área do Patrocinador</a></li>
+            <li><a href="patrocinador.html#minhasOportunidadesSection">Publicar Vaga</a></li>
+            <li><a href="patrocinador.html#candidaturasSection">Banco de Talentos</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AFESU Conecta. Todos os direitos reservados.</p>
+        <div class="footer-bottom-badge">
+          <span>Desenvolvido para alunas e parceiros AFESU</span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/profile-view.js"></script>
+</body>
+</html>

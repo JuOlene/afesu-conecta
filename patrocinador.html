@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Patrocinador & Empresas — AFESU Conecta</title>
+  <meta name="description" content="Conecte sua empresa aos talentos da AFESU. Divulgue oportunidades, conheça perfis profissionais e acompanhe candidaturas.">
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/profile-view.css">
+  <link rel="stylesheet" href="css/curriculo.css">
+  <link rel="stylesheet" href="css/patrocinador.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('afesu_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. HEADER / NAVBAR SUPERIOR
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      
+      <!-- Logotipo Oficial AFESU CONECTA -->
+      <a href="index.html" class="brand-logo" aria-label="AFESU Conecta — Início">
+        <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 42px; height: 42px; object-fit: contain;">
+        <div class="brand-logo-text">
+          <span class="brand-name">AFESU</span>
+          <span class="brand-tagline">EMPRESAS</span>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação do Patrocinador -->
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação do Patrocinador">
+        <a href="#sponsorDashboardWrap" class="nav-link active">Dashboard</a>
+        <a href="#minhasOportunidadesSection" class="nav-link">Minhas Oportunidades</a>
+        <a href="#candidaturasSection" class="nav-link">Candidaturas e Talentos</a>
+        <a href="javascript:void(0)" class="nav-link" onclick="document.getElementById('btnOpenPubModal').click()">+ Publicar Vaga</a>
+
+        <!-- Ações no Drawer Mobile -->
+        <div class="mobile-menu-actions">
+          <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('btnOpenPubModal').click()">
+            ✨ + Publicar Oportunidade
+          </button>
+          <a href="index.html" class="btn btn-outline btn-sm">👩‍🎓 Portal da Aluna</a>
+          <a href="login.html" class="btn btn-outline btn-sm">🔐 Acessar / Trocar Perfil</a>
+        </div>
+      </nav>
+
+      <!-- Botões de Ação do Header -->
+      <div class="header-actions">
+        <button type="button" class="btn btn-primary btn-sm nav-desktop-btn" id="btnOpenPubModal">
+          <span>+ Publicar Vaga</span>
+        </button>
+        <a href="index.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderPortalAluna" title="Voltar ao portal da aluna">
+          Portal Aluna
+        </a>
+
+        <!-- Botão Toggle de Modo Escuro -->
+        <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
+          <span class="theme-icon-sun">☀️</span>
+          <span class="theme-icon-moon">🌙</span>
+        </button>
+
+        <!-- Botão Hamburger Mobile -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <section class="sponsor-page-section">
+      <div class="container sponsor-container">
+        
+        <!-- ====================================================================
+             2. TELA / HERO INICIAL DE APRESENTAÇÃO DO PATROCINADOR
+             ==================================================================== -->
+        <div class="sponsor-hero-card" id="sponsorHeroSection">
+          <div class="sponsor-hero-content">
+            <div class="sponsor-badge-tag">
+              <span class="sponsor-badge-dot"></span>
+              <span>Área Exclusiva de Empresas Parceiras</span>
+            </div>
+            <h1 class="sponsor-hero-title">Conecte sua empresa a novos talentos</h1>
+            <p class="sponsor-hero-desc">
+              Encontre perfis, divulgue oportunidades e conecte-se com alunas e ex-alunas da AFESU capacitadas com excelência técnica e humana.
+            </p>
+            <div class="sponsor-hero-actions">
+              <button type="button" class="btn btn-primary btn-lg" id="btnEnterSponsor">
+                <span>Entrar como patrocinador</span>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+              </button>
+              <button type="button" class="btn btn-outline btn-lg" id="btnLearnSponsor" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.4);">
+                <span>Conhecer a plataforma</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="sponsor-hero-visual">
+            <div class="sponsor-preview-card">
+              <div class="sponsor-preview-metric">
+                <span style="font-weight: 700; font-size: 0.95rem;">Impacto AFESU</span>
+                <span class="sponsor-metric-badge">+60 anos de história</span>
+              </div>
+              <p style="font-size: 0.875rem; line-height: 1.5; color: rgba(255, 255, 255, 0.85); margin: 0;">
+                Milhares de mulheres formadas com autonomia, ética e protagonismo profissional prontos para transformar sua organização.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             3. PAINEL / DASHBOARD DO PATROCINADOR
+             ==================================================================== -->
+        <div class="sponsor-dashboard-wrap" id="sponsorDashboardWrap">
+          
+          <!-- Cabeçalho do Dashboard -->
+          <div class="sponsor-dash-header">
+            <div class="sponsor-dash-greeting">
+              <h2>Olá, Empresa Parceira!</h2>
+              <p>Acompanhe suas vagas, avalie candidatas qualificadas e impulsione novas carreiras.</p>
+            </div>
+            <div class="sponsor-dash-actions">
+              <a href="oportunidades.html" class="btn btn-outline">
+                <span>🔍 Ver Mural Público</span>
+              </a>
+              <button type="button" class="btn btn-primary" onclick="document.getElementById('btnOpenPubModal').click()">
+                <span>+ Publicar oportunidade</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cards de Resumo (KPIs) -->
+          <div class="sponsor-kpi-grid">
+            
+            <div class="kpi-card kpi-purple">
+              <div class="kpi-icon-box">💼</div>
+              <div class="kpi-info">
+                <span class="kpi-number" id="kpiOppsCount">3</span>
+                <span class="kpi-label">Oportunidades publicadas</span>
+              </div>
+            </div>
+
+            <div class="kpi-card kpi-pink">
+              <div class="kpi-icon-box">📨</div>
+              <div class="kpi-info">
+                <span class="kpi-number" id="kpiCandsCount">29</span>
+                <span class="kpi-label">Candidaturas recebidas</span>
+              </div>
+            </div>
+
+            <div class="kpi-card kpi-orange">
+              <div class="kpi-icon-box">👩‍🎓</div>
+              <div class="kpi-info">
+                <span class="kpi-number" id="kpiProfilesCount">23</span>
+                <span class="kpi-label">Perfis encontrados</span>
+              </div>
+            </div>
+
+            <div class="kpi-card kpi-yellow">
+              <div class="kpi-icon-box">📚</div>
+              <div class="kpi-info">
+                <span class="kpi-number" id="kpiCoursesCount">1</span>
+                <span class="kpi-label">Cursos publicados</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               4. SEÇÃO: MINHAS OPORTUNIDADES
+               ================================================================== -->
+          <div class="sponsor-section-card" id="minhasOportunidadesSection">
+            <div class="section-card-header">
+              <div class="section-card-title-group">
+                <h3>Minhas Oportunidades</h3>
+                <span class="section-card-tag">Painel de Controle</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('btnOpenPubModal').click()">
+                + Nova Vaga / Curso
+              </button>
+            </div>
+
+            <!-- Grade com os cards de oportunidades do patrocinador -->
+            <div class="sponsor-opps-grid" id="sponsorOppsList">
+              <!-- Renderizado dinamicamente via JS -->
+            </div>
+          </div>
+
+          <!-- ==================================================================
+               5. SEÇÃO: CANDIDATURAS RECEBIDAS
+               ================================================================== -->
+          <div class="sponsor-section-card" id="candidaturasSection">
+            <div class="section-card-header">
+              <div class="section-card-title-group">
+                <h3>Candidaturas Recebidas</h3>
+                <span class="section-card-tag">Banco de Talentos</span>
+              </div>
+            </div>
+
+            <!-- Barra de Pesquisa e Filtros de Candidatas -->
+            <div class="sponsor-candidates-filterbar">
+              
+              <!-- Busca por Texto -->
+              <div class="candidates-search-wrap">
+                <svg class="candidates-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="searchCandidateInput" class="candidates-search-input" placeholder="Buscar candidata por nome, habilidade, formação ou vaga...">
+              </div>
+
+              <!-- Filtros Selecionáveis -->
+              <div class="candidates-filters-grid">
+                
+                <!-- Área -->
+                <select id="filterCandArea" class="candidate-filter-select">
+                  <option value="ALL">Todas as Áreas</option>
+                  <option value="Administração">Administração</option>
+                  <option value="Tecnologia">Tecnologia</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="Atendimento">Atendimento</option>
+                </select>
+
+                <!-- Formação -->
+                <select id="filterCandFormation" class="candidate-filter-select">
+                  <option value="ALL">Todas as Formações</option>
+                  <option value="Administração">Técnico em Administração</option>
+                  <option value="Tecnologia">Técnico em TI / Web</option>
+                  <option value="Comunicação">Técnico em Comunicação</option>
+                  <option value="Médio">Ensino Médio</option>
+                </select>
+
+                <!-- Tipo de Oportunidade -->
+                <select id="filterCandType" class="candidate-filter-select">
+                  <option value="ALL">Todos os Tipos</option>
+                  <option value="Emprego">Emprego</option>
+                  <option value="Estágio">Estágio</option>
+                  <option value="Curso">Curso</option>
+                </select>
+
+                <!-- Localização -->
+                <select id="filterCandLocation" class="candidate-filter-select">
+                  <option value="ALL">Todas as Cidades</option>
+                  <option value="São Paulo">São Paulo, SP</option>
+                  <option value="Osasco">Osasco, SP</option>
+                  <option value="Santo André">Santo André, SP</option>
+                </select>
+
+                <!-- Habilidades -->
+                <select id="filterCandSkill" class="candidate-filter-select">
+                  <option value="ALL">Todas as Habilidades</option>
+                  <option value="Excel">Excel</option>
+                  <option value="Comunicação">Comunicação</option>
+                  <option value="HTML & CSS">HTML & CSS</option>
+                  <option value="Power BI">Power BI</option>
+                  <option value="Organização">Organização</option>
+                </select>
+
+                <!-- Limpar -->
+                <button type="button" class="btn btn-outline btn-sm" id="btnResetCandFilters">
+                  Limpar
+                </button>
+
+              </div>
+
+            </div>
+
+            <!-- Grade de Candidatas -->
+            <div class="candidates-grid" id="candidatesList">
+              <!-- Renderizado dinamicamente via JS -->
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       MODAL: PUBLICAR / EDITAR OPORTUNIDADE & CURSO
+       ======================================================================== -->
+  <div class="modal-overlay" id="pubModal" role="dialog" aria-modal="true" aria-labelledby="pubModalTitle">
+    <div class="modal-container pub-modal-container">
+      <button class="modal-close" id="btnClosePubModal" aria-label="Fechar formulário">✕</button>
+      
+      <div class="pub-modal-header">
+        <h3 id="pubModalTitle">+ Publicar Nova Oportunidade</h3>
+        <p>Divulgue vagas de emprego, estágios ou cursos exclusivos para os talentos da AFESU.</p>
+      </div>
+
+      <form id="formPublishOpp">
+        <input type="hidden" id="pubEditingId" value="">
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="inputOppTitle">Título da Oportunidade <span class="required-star">*</span></label>
+            <input type="text" id="inputOppTitle" class="form-control" placeholder="Ex: Assistente de Recursos Humanos" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inputOppCompany">Empresa / Instituição <span class="required-star">*</span></label>
+            <input type="text" id="inputOppCompany" class="form-control" value="Empresa Parceira AFESU" required>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="inputOppType">Tipo de Oportunidade <span class="required-star">*</span></label>
+            <select id="inputOppType" class="form-control" required>
+              <option value="Emprego">Emprego (CLT / Efetivo)</option>
+              <option value="Estágio">Estágio</option>
+              <option value="Curso">Curso / Capacitação</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inputOppArea">Área de Atuação <span class="required-star">*</span></label>
+            <select id="inputOppArea" class="form-control" required>
+              <option value="Administração">Administração</option>
+              <option value="Tecnologia">Tecnologia</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Atendimento">Atendimento</option>
+              <option value="Recursos Humanos">Recursos Humanos</option>
+              <option value="Finanças">Finanças</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="inputOppLocation">Localização (Cidade, UF) <span class="required-star">*</span></label>
+            <input type="text" id="inputOppLocation" class="form-control" value="São Paulo, SP" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inputOppFormat">Formato de Trabalho <span class="required-star">*</span></label>
+            <select id="inputOppFormat" class="form-control" required>
+              <option value="Híbrido">Híbrido</option>
+              <option value="Presencial">Presencial</option>
+              <option value="Remoto">Remoto / Online</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ================================================================
+             CAMPOS ESPECÍFICOS PARA CURSOS (EXIBIDOS CONDICIONALMENTE)
+             ================================================================ -->
+        <div class="course-extra-fields" id="courseExtraFields">
+          <h4 style="font-size: 1rem; color: var(--color-orange-700); margin-bottom: 0.75rem; font-weight: 700;">
+            📚 Informações Exclusivas do Curso / Capacitação
+          </h4>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="inputCourseDuration">Duração Prevista</label>
+              <input type="text" id="inputCourseDuration" class="form-control" placeholder="Ex: 4 semanas">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputCourseHours">Carga Horária Total (horas)</label>
+              <input type="number" id="inputCourseHours" class="form-control" placeholder="Ex: 40">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="inputCourseFormat">Modalidade das Aulas</label>
+              <input type="text" id="inputCourseFormat" class="form-control" placeholder="Ex: Aulas online ao vivo via Zoom">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputCourseCert">Emissão de Certificado?</label>
+              <select id="inputCourseCert" class="form-control">
+                <option value="Sim">Sim, com emissão de certificado</option>
+                <option value="Não">Não</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inputCourseContent">Conteúdo Programático do Curso</label>
+            <textarea id="inputCourseContent" class="form-control" rows="2" placeholder="Ex: Módulo 1: Introdução; Módulo 2: Exercícios Práticos; Módulo 3: Projeto Final"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="inputOppDesc">Descrição Completa da Oportunidade <span class="required-star">*</span></label>
+          <textarea id="inputOppDesc" class="form-control" rows="3" placeholder="Descreva as responsabilidades, o ambiente de trabalho e o propósito da vaga..." required></textarea>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="inputOppReqs">Requisitos</label>
+            <textarea id="inputOppReqs" class="form-control" rows="2" placeholder="Ex: Conhecimento em Excel; Boa comunicação; Cursando formação na AFESU"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inputOppBenefits">Benefícios Oferecidos</label>
+            <textarea id="inputOppBenefits" class="form-control" rows="2" placeholder="Ex: Vale Refeição (R$ 38/dia); Vale Transporte; Mentoria"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="inputOppDeadline">Data de Encerramento das Inscrições</label>
+          <input type="date" id="inputOppDeadline" class="form-control">
+        </div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem; justify-content: flex-end;">
+          <button type="button" class="btn btn-outline" onclick="document.getElementById('pubModal').classList.remove('active')">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary btn-lg">
+            <span>Publicar oportunidade</span>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: VISUALIZAÇÃO DO CURRÍCULO DIGITAL DA CANDIDATA
+       ======================================================================== -->
+  <div class="modal-overlay" id="candResumeModal" role="dialog" aria-modal="true" aria-labelledby="candResumeModalTitle">
+    <div class="modal-container cand-cv-modal-container">
+      <button class="modal-close" id="btnCloseCandResumeModal" aria-label="Fechar currículo da candidata">✕</button>
+      
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border-subtle);">
+        <h3 id="candResumeModalTitle" style="font-family: var(--font-family-display); font-size: 1.3rem; color: var(--color-purple-900); margin: 0;">
+          Perfil Profissional da Candidata
+        </h3>
+        <button type="button" class="btn btn-primary btn-sm" id="btnContactCandidate">
+          ✉️ Entrar em contato
+        </button>
+      </div>
+
+      <div id="candResumeBody">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: CONTATO FUTURO COM A CANDIDATA
+       ======================================================================== -->
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+    <div class="modal-container cv-action-modal">
+      <div class="cv-modal-icon-wrap" style="background: var(--color-purple-50); color: var(--color-purple-600); border-color: var(--color-purple-100);">
+        💬
+      </div>
+      <h3 class="cv-modal-title" id="contactModalTitle">Contato Direto com a Candidata</h3>
+      <p class="cv-modal-body-text">
+        Em uma versão futura, o patrocinador poderá entrar em contato diretamente com a candidata.
+      </p>
+      <div class="cv-modal-badge-note">
+        ✨ O ecossistema AFESU Conecta oferecerá agendamento de entrevistas, mensagens integradas e feedback de processos seletivos.
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <button type="button" class="btn btn-primary" id="btnCloseContactModal">
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Padronizado AFESU CONECTA -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col-main">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 42px; height: 42px; object-fit: contain;">
+            <div class="brand-logo-text">
+              <span class="brand-name">AFESU</span>
+              <span class="brand-tagline">CONECTA</span>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            Conectando talentos, oportunidades e novos caminhos para transformar futuros através da educação e empregabilidade.
+          </p>
+          <div class="footer-social-links" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-toolbar-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Instagram</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn-toolbar-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Navegação</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="oportunidades.html">Oportunidades</a></li>
+            <li><a href="oportunidades.html?cat=CURSO">Cursos</a></li>
+            <li><a href="index.html#como-funciona">Como funciona</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Para Alunas</h4>
+          <ul class="footer-links-list">
+            <li><a href="criar-perfil.html">Criar Perfil</a></li>
+            <li><a href="perfil.html">Meu Perfil</a></li>
+            <li><a href="curriculo.html">Currículo Digital</a></li>
+            <li><a href="oportunidades.html?view=candidaturas">Minhas Candidaturas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Para Empresas</h4>
+          <ul class="footer-links-list">
+            <li><a href="patrocinador.html">Área do Patrocinador</a></li>
+            <li><a href="#minhasOportunidadesSection">Publicar Vaga</a></li>
+            <li><a href="#candidaturasSection">Banco de Talentos</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AFESU Conecta. Todos os direitos reservados.</p>
+        <div class="footer-bottom-badge">
+          <span>Desenvolvido para alunas e parceiros AFESU</span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/patrocinador.js"></script>
+</body>
+</html>

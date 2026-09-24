@@ -1,0 +1,975 @@
+/* ==========================================================================
+   AFESU CONECTA — ESTILOS DO CURRÍCULO DIGITAL (MODERNO, ELEGANTE & PROFISSIONAL)
+   Paleta: Roxo (#5B21B6), Rosa (#E11D74), Laranja (#F97316), Amarelo (#F59E0B)
+   ========================================================================== */
+
+/* --- Container e Layout Geral da Página de Currículo --- */
+.cv-page-section {
+  padding: 2.5rem 0 5rem;
+  background-color: var(--color-bg-main);
+  min-height: calc(100vh - 160px);
+}
+
+.cv-page-container {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* --- Barra de Ações & Navegação Superior do Currículo --- */
+.cv-top-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--color-bg-card);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+  transition: var(--transition-normal);
+}
+
+.cv-toolbar-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cv-toolbar-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn-toolbar-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-toolbar-ghost:hover {
+  background: #FFFFFF;
+  color: var(--color-purple-600);
+  border-color: var(--color-purple-400);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-toolbar-ghost svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+.btn-toolbar-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(91, 33, 182, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.btn-toolbar-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(91, 33, 182, 0.35);
+  filter: brightness(1.05);
+}
+
+.btn-toolbar-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: var(--gradient-accent);
+  border: none;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(225, 29, 116, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.btn-toolbar-accent:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(225, 29, 116, 0.35);
+  filter: brightness(1.05);
+}
+
+/* ==========================================================================
+   A FOLHA DIGITAL DO CURRÍCULO (ESTILO PROFISSIONAL CENTRALIZADO)
+   ========================================================================== */
+.cv-digital-sheet {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(91, 33, 182, 0.12);
+  box-shadow: 0 12px 36px -6px rgba(30, 27, 75, 0.08), 0 4px 12px -2px rgba(30, 27, 75, 0.03);
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-normal);
+  animation: cvFadeUp 0.6s ease-out;
+}
+
+@keyframes cvFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Faixa decorativa superior com gradiente oficial */
+.cv-sheet-topbar {
+  height: 8px;
+  background: var(--gradient-full);
+  width: 100%;
+}
+
+/* --- Cabeçalho do Currículo Digital --- */
+.cv-header-area {
+  padding: 2.5rem 3rem 2rem;
+  background: linear-gradient(180deg, rgba(245, 243, 255, 0.6) 0%, #FFFFFF 100%);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cv-avatar-wrapper {
+  position: relative;
+}
+
+.cv-avatar-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-family: var(--font-family-display);
+  font-size: 2.25rem;
+  font-weight: 800;
+  border: 4px solid #FFFFFF;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.cv-avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cv-seal-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--color-pink-500);
+  color: #FFFFFF;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 900;
+  border: 2px solid #FFFFFF;
+  box-shadow: var(--shadow-sm);
+}
+
+.cv-identity-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cv-brand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-purple-700);
+  background: var(--color-purple-50);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-purple-100);
+  width: fit-content;
+}
+
+.cv-brand-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-pink-500);
+}
+
+.cv-candidate-name {
+  font-family: var(--font-family-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.cv-headline-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-purple-600);
+}
+
+.cv-contact-items-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.cv-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cv-contact-item svg {
+  width: 15px;
+  height: 15px;
+  color: var(--color-purple-500);
+  flex-shrink: 0;
+}
+
+/* Indicador de Perfil Completo no Cabeçalho */
+.cv-completeness-box {
+  background: #FFFFFF;
+  border: 1px solid var(--color-purple-100);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+  min-width: 190px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cv-completeness-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-purple-900);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+
+.cv-completeness-val {
+  font-family: var(--font-family-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-pink-600);
+  line-height: 1;
+}
+
+.cv-progress-track {
+  width: 100%;
+  height: 7px;
+  background: var(--color-purple-50);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--color-purple-100);
+}
+
+.cv-progress-bar {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Corpo do Currículo: Estrutura em Grid --- */
+.cv-sheet-body {
+  padding: 2.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 310px;
+  gap: 2.5rem;
+}
+
+.cv-main-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.cv-side-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+/* --- Estilização de Seções do Currículo --- */
+.cv-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cv-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-family-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-purple-900);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-purple-100);
+  position: relative;
+}
+
+.cv-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 45px;
+  height: 2px;
+  background: var(--gradient-accent);
+  border-radius: 2px;
+}
+
+.cv-title-icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-pink-600);
+  flex-shrink: 0;
+}
+
+.cv-title-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+}
+
+/* --- Destaque: Objetivo Profissional --- */
+.cv-objective-card {
+  background: linear-gradient(135deg, rgba(245, 243, 255, 0.7) 0%, rgba(253, 242, 248, 0.7) 100%);
+  border-left: 4px solid var(--color-pink-500);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.15rem 1.35rem;
+  color: var(--color-purple-900);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 500;
+  box-shadow: var(--shadow-xs);
+}
+
+.cv-objective-quote {
+  font-style: italic;
+}
+
+/* --- Seção: Sobre Mim --- */
+.cv-about-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* --- Timeline de Formação & Experiência --- */
+.cv-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.cv-timeline::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--color-purple-100);
+}
+
+.cv-timeline-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cv-timeline-node::before {
+  content: '';
+  position: absolute;
+  left: -1.25rem;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-purple-600);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 2px var(--color-purple-400);
+}
+
+.cv-timeline-node:nth-child(2n)::before {
+  background: var(--color-pink-500);
+  box-shadow: 0 0 0 2px var(--color-pink-400);
+}
+
+.cv-timeline-role {
+  font-family: var(--font-family-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.cv-timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-purple-700);
+  font-weight: 600;
+}
+
+.cv-timeline-period-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-bg-subtle);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.cv-timeline-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin-top: 0.35rem;
+}
+
+/* --- Banner Positivo: Primeira Oportunidade --- */
+.cv-first-opp-banner {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: linear-gradient(135deg, var(--color-purple-50) 0%, var(--color-pink-50) 100%);
+  border: 1px solid var(--color-purple-100);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+}
+
+.cv-first-opp-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-sun);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.cv-first-opp-content h4 {
+  font-family: var(--font-family-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-purple-900);
+  margin-bottom: 0.3rem;
+}
+
+.cv-first-opp-content p {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- Cursos e Certificações --- */
+.cv-courses-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.cv-course-card {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transition: transform var(--transition-fast);
+}
+
+.cv-course-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-purple-400);
+}
+
+.cv-course-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.cv-course-info {
+  font-size: 0.825rem;
+  color: var(--color-text-secondary);
+}
+
+.cv-cert-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-pink-700);
+  background: var(--color-pink-50);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-pink-100);
+  white-space: nowrap;
+}
+
+/* --- Nuvem de Habilidades (Tags Elegantes) --- */
+.cv-skills-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cv-skill-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.825rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast);
+  cursor: default;
+}
+
+.cv-skill-chip:hover {
+  transform: translateY(-1px);
+}
+
+.cv-skill-chip.chip-purple {
+  background: var(--color-purple-50);
+  color: var(--color-purple-700);
+  border: 1px solid var(--color-purple-100);
+}
+
+.cv-skill-chip.chip-pink {
+  background: var(--color-pink-50);
+  color: var(--color-pink-700);
+  border: 1px solid var(--color-pink-100);
+}
+
+.cv-skill-chip.chip-orange {
+  background: var(--color-orange-50);
+  color: var(--color-orange-700);
+  border: 1px solid var(--color-orange-100);
+}
+
+.cv-skill-chip.chip-yellow {
+  background: var(--color-yellow-50);
+  color: var(--color-yellow-600);
+  border: 1px solid var(--color-yellow-100);
+}
+
+/* --- Áreas de Interesse & Preferências --- */
+.cv-pref-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.cv-pref-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed var(--color-border-subtle);
+}
+
+.cv-pref-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.cv-pref-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.cv-pref-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.cv-interest-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.cv-interest-pill {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-purple-800);
+  background: var(--color-purple-50);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-purple-100);
+}
+
+/* --- Rodapé da Folha do Currículo (Assinatura / Marca AFESU) --- */
+.cv-sheet-footer {
+  padding: 1.5rem 3rem;
+  background: #FAFAFC;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.cv-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--color-purple-900);
+}
+
+.cv-footer-brand img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.cv-footer-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #FFFFFF;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-subtle);
+  font-weight: 600;
+  color: var(--color-purple-700);
+}
+
+/* --- Estados Vazios Elegantes --- */
+.cv-empty-hint {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  padding: 0.75rem 1rem;
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border-subtle);
+}
+
+/* ==========================================================================
+   MODO DE VISUALIZAÇÃO LIMPA (CLEAN VIEW)
+   ========================================================================== */
+body.clean-view-active .site-header,
+body.clean-view-active .site-footer,
+body.clean-view-active .cv-top-toolbar {
+  display: none !important;
+}
+
+body.clean-view-active .cv-page-section {
+  padding: 1.5rem 0;
+  background-color: #E2E8F0;
+}
+
+.clean-view-floating-bar {
+  display: none;
+}
+
+body.clean-view-active .clean-view-floating-bar {
+  display: flex;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  gap: 0.75rem;
+  background: rgba(30, 27, 75, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ==========================================================================
+   MODAIS DE FEEDBACK (CANDIDATURA & COMPARTILHAMENTO)
+   ========================================================================== */
+.cv-action-modal {
+  max-width: 480px;
+  text-align: center;
+  padding: 2.25rem 2rem;
+}
+
+.cv-modal-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: var(--color-purple-50);
+  color: var(--color-purple-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-size: 1.75rem;
+  border: 2px solid var(--color-purple-100);
+}
+
+.cv-modal-title {
+  font-family: var(--font-family-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.cv-modal-body-text {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.cv-modal-badge-note {
+  background: var(--color-yellow-50);
+  border: 1px solid var(--color-yellow-100);
+  color: var(--color-yellow-600);
+  font-size: 0.825rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .cv-header-area {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .cv-avatar-wrapper {
+    margin: 0 auto;
+  }
+
+  .cv-brand-tag {
+    margin: 0 auto;
+  }
+
+  .cv-contact-items-row {
+    justify-content: center;
+  }
+
+  .cv-completeness-box {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .cv-completeness-label {
+    justify-content: center;
+  }
+
+  .cv-sheet-body {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .cv-sheet-footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cv-page-section {
+    padding: 1.25rem 0 3rem;
+  }
+
+  .cv-page-container {
+    padding: 0 0.75rem;
+  }
+
+  .cv-top-toolbar {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cv-toolbar-nav,
+  .cv-toolbar-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-toolbar-ghost,
+  .btn-toolbar-primary,
+  .btn-toolbar-accent {
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .cv-candidate-name {
+    font-size: 1.6rem;
+  }
+
+  .cv-header-area,
+  .cv-sheet-body {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   ESTILOS DE IMPRESSÃO PROFISSIONAL (@MEDIA PRINT)
+   ========================================================================== */
+@media print {
+  /* Ocultar elementos irrelevantes de UI da plataforma */
+  .site-header,
+  .site-footer,
+  .cv-top-toolbar,
+  .modal-overlay,
+  .clean-view-floating-bar,
+  #btnOpenCvModal,
+  .menu-toggle {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #1E1B4B !important;
+    font-size: 11pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cv-page-section {
+    padding: 0 !important;
+    background: transparent !important;
+    min-height: auto !important;
+  }
+
+  .cv-page-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .cv-digital-sheet {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .cv-header-area {
+    padding: 1.5rem 2rem 1rem !important;
+    background: #FFFFFF !important;
+    border-bottom: 2px solid #5B21B6 !important;
+  }
+
+  .cv-sheet-body {
+    padding: 1.5rem 2rem !important;
+    gap: 2rem !important;
+  }
+
+  /* Evitar quebras de página desagradáveis */
+  .cv-section-block,
+  .cv-timeline-node,
+  .cv-course-card,
+  .cv-first-opp-banner,
+  .cv-objective-card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Garantir impressão com fidelidade de cores */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
