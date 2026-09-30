@@ -901,7 +901,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 8. CONTROLE DE NAVEGAÇÃO POR ABAS EXCLUSIVAS (ISOLAMENTO TOTAL) ---
-  const switchSponsorTab = (targetTabId) => {
+  window.switchSponsorTab = (targetTabId) => {
     // 1. Alternar painéis
     const tabPanes = document.querySelectorAll('.sponsor-tab-content-pane');
     tabPanes.forEach(pane => {
@@ -915,7 +915,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. Atualizar links do cabeçalho
-    document.querySelectorAll('.sponsor-tab-link').forEach(link => {
+    document.querySelectorAll('.sponsor-tab-link, [data-tab]').forEach(link => {
       if (link.getAttribute('data-tab') === targetTabId) {
         link.classList.add('active');
       } else {
@@ -924,34 +924,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Cliques nos links do cabeçalho
-  document.querySelectorAll('.sponsor-tab-link').forEach(link => {
-    link.addEventListener('click', (e) => {
+  // Delegação global de cliques para garantir funcionamento de qualquer aba
+  document.addEventListener('click', (e) => {
+    const tabLink = e.target.closest('.sponsor-tab-link, [data-tab]');
+    if (tabLink) {
       e.preventDefault();
-      const target = link.getAttribute('data-tab');
+      const target = tabLink.getAttribute('data-tab');
       if (target) {
-        switchSponsorTab(target);
-        if (sponsorDashboardWrap) sponsorDashboardWrap.scrollIntoView({ behavior: 'smooth' });
+        window.switchSponsorTab(target);
+        if (sponsorDashboardWrap) {
+          sponsorDashboardWrap.scrollIntoView({ behavior: 'smooth' });
+        }
       }
-    });
+    }
   });
 
   // Vincular botão de abrir modal de publicação
-  const btnOpenPub = document.getElementById('btnOpenPubModal');
-  if (btnOpenPub && pubModal) {
-    btnOpenPub.addEventListener('click', () => {
+  document.addEventListener('click', (e) => {
+    const btnPub = e.target.closest('#btnOpenPubModal, [data-action="open-pub-modal"]');
+    if (btnPub) {
+      e.preventDefault();
       if (formPublishOpp) formPublishOpp.reset();
       const editingId = document.getElementById('pubEditingId');
       if (editingId) editingId.value = '';
       const pubTitle = document.getElementById('pubModalTitle');
       if (pubTitle) pubTitle.textContent = '+ Publicar Nova Oportunidade';
       if (courseExtraFields) courseExtraFields.classList.remove('active');
-      pubModal.classList.add('active');
-    });
-  }
+      if (pubModal) pubModal.classList.add('active');
+    }
+  });
 
   // Inicialização
   updatePartnerAuthState(true);
-  switchSponsorTab('tabGeral');
+  window.switchSponsorTab('tabGeral');
   filterAndRenderCandidates();
 });
