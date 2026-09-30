@@ -561,52 +561,68 @@
   <!-- Footer Padronizado AFESU CONECTA -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-top">
         
-        <div class="footer-col-main">
+        <!-- Coluna 1: Marca & Social -->
+        <div class="footer-brand">
           <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-flex;">
-            <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 42px; height: 42px; object-fit: contain;">
+            <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 44px; height: 44px; object-fit: contain;">
             <div class="brand-logo-text">
               <span class="brand-name">AFESU</span>
               <span class="brand-tagline">CONECTA</span>
             </div>
           </a>
-          <p class="footer-brand-desc">
+          <p class="footer-tagline">
             Conectando talentos, oportunidades e novos caminhos para transformar futuros através da educação e empregabilidade.
           </p>
-          <div class="footer-social-links" style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-toolbar-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Instagram</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn-toolbar-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">LinkedIn</a>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram da AFESU">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn da AFESU">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
           </div>
         </div>
 
-        <div class="footer-col">
-          <h4 class="footer-heading">Navegação</h4>
+        <!-- Coluna 2: Navegação -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Navegação</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html#sobre">Sobre</a></li>
-            <li><a href="index.html#como-funciona">Como funciona</a></li>
-            <li><a href="index.html#parceiros">Conexão com parceiros</a></li>
-            <li><a href="criar-perfil.html">Área da Aluna</a></li>
-            <li><a href="patrocinador.html">Área da Empresa</a></li>
+            <li><a href="index.html#sobre" class="footer-link">Sobre</a></li>
+            <li><a href="index.html#como-funciona" class="footer-link">Como funciona</a></li>
+            <li><a href="index.html#parceiros" class="footer-link">Conexão com parceiros</a></li>
+            <li><a href="criar-perfil.html" class="footer-link">Área da Aluna</a></li>
+            <li><a href="patrocinador.html" class="footer-link">Área da Empresa</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4 class="footer-heading">Para Alunas</h4>
+        <!-- Coluna 3: Para Alunas -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Para Alunas</h4>
           <ul class="footer-links-list">
-            <li><a href="criar-perfil.html">Criar Perfil</a></li>
-            <li><a href="perfil.html">Meu Perfil</a></li>
-            <li><a href="curriculo.html">Currículo Digital</a></li>
-            <li><a href="oportunidades.html?view=candidaturas">Minhas Candidaturas</a></li>
+            <li><a href="criar-perfil.html" class="footer-link">Criar Perfil</a></li>
+            <li><a href="perfil.html" class="footer-link">Meu Perfil</a></li>
+            <li><a href="curriculo.html" class="footer-link">Currículo Digital</a></li>
+            <li><a href="oportunidades.html?cat=CANDIDATURAS" class="footer-link">Minhas Candidaturas</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4 class="footer-heading">Para Empresas</h4>
+        <!-- Coluna 4: Para Empresas -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Para Empresas</h4>
           <ul class="footer-links-list">
-            <li><a href="patrocinador.html">Área da Empresa</a></li>
-            <li><a href="#minhasOportunidadesSection">Publicar Vaga</a></li>
-            <li><a href="#candidaturasSection">Banco de Talentos</a></li>
+            <li><a href="patrocinador.html" class="footer-link">Área da Empresa</a></li>
+            <li><a href="patrocinador.html" onclick="if(window.openPubModal) window.openPubModal()" class="footer-link">Publicar Oportunidade</a></li>
+            <li><a href="patrocinador.html" onclick="if(window.switchSponsorTab) window.switchSponsorTab('tabTalentos')" class="footer-link">Banco de Talentos</a></li>
           </ul>
         </div>
 
