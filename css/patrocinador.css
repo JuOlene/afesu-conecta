@@ -791,12 +791,15 @@
    6. MODAL DE PUBLICAÇÃO DE OPORTUNIDADES & CURSOS
    ========================================================================== */
 .pub-modal-container {
-  max-width: 720px;
-  width: 100%;
+  max-width: 740px;
+  width: 95%;
   max-height: 90vh;
   overflow-y: auto;
   padding: 2.25rem 2.5rem;
   border-radius: var(--radius-2xl);
+  background: #FFFFFF;
+  box-shadow: 0 25px 50px -12px rgba(91, 33, 182, 0.25);
+  border: 1px solid var(--color-purple-100);
 }
 
 .pub-modal-header {
@@ -807,16 +810,62 @@
 
 .pub-modal-header h3 {
   font-family: var(--font-family-display);
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   font-weight: 800;
   color: var(--color-purple-900);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
 }
 
 .pub-modal-header p {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--color-text-secondary);
   margin: 0;
+  line-height: 1.5;
+}
+
+#formPublishOpp .form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 0;
+}
+
+#formPublishOpp .form-group {
+  margin-bottom: 1.15rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#formPublishOpp .form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+#formPublishOpp .form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  outline: none;
+  box-sizing: border-box;
+}
+
+#formPublishOpp .form-control:focus {
+  border-color: var(--color-purple-500);
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12);
+}
+
+#formPublishOpp textarea.form-control {
+  font-family: var(--font-family-base);
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
 }
 
 /* Campos Específicos para Cursos (Exibidos Condicionalmente) */
@@ -824,8 +873,8 @@
   display: none;
   background: var(--color-orange-50);
   border: 1px solid var(--color-orange-100);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
+  border-radius: var(--radius-xl);
+  padding: 1.35rem;
   margin-bottom: 1.25rem;
 }
 

@@ -846,6 +846,79 @@
   height: 1.15rem;
 }
 
+/* --- 7. Formulários Universais e Inputs --- */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.45rem;
+}
+
+.form-label .required-star {
+  color: var(--color-pink-600);
+  margin-left: 0.2rem;
+  font-weight: 700;
+}
+
+.form-label .optional-tag {
+  font-size: 0.775rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-left: 0.4rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  transition: all var(--transition-fast);
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.form-control:focus {
+  border-color: var(--color-purple-500);
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12);
+}
+
+select.form-control {
+  cursor: pointer;
+  appearance: auto;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
 /* ==========================================================================
    BOTÃO DE ALTERNÂNCIA DE TEMA (DARK MODE TOGGLE)
    ========================================================================== */
