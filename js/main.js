@@ -94,16 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <span>👥</span>
           <span>Banco de Talentos</span>
         </a>
-        <a href="#sobre-afesu" class="nav-link sponsor-tab-link" data-tab="tabSobre" title="Sobre o Instituto AFESU">
-          <span>🏛️</span>
-          <span>Sobre a AFESU</span>
-        </a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
           <a href="#geral" class="nav-link sponsor-tab-link" data-tab="tabGeral">📊 Visão Geral</a>
           <a href="#talentos" class="nav-link sponsor-tab-link" data-tab="tabTalentos">👥 Banco de Talentos</a>
-          <a href="#sobre-afesu" class="nav-link sponsor-tab-link" data-tab="tabSobre">🏛️ Sobre a AFESU</a>
           <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('btnOpenPubModal') && document.getElementById('btnOpenPubModal').click()" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
             ✨ + Adicionar Vaga
           </button>
