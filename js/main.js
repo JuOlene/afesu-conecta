@@ -187,20 +187,17 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="${currentPath === 'index.html' ? '#sobre' : 'index.html#sobre'}" class="nav-link">ℹ️ Sobre</a>
           <a href="${currentPath === 'index.html' ? '#como-funciona' : 'index.html#como-funciona'}" class="nav-link">⚙️ Como funciona</a>
           <a href="${currentPath === 'index.html' ? '#parceiros' : 'index.html#parceiros'}" class="nav-link">🤝 Conexões com parceiros</a>
-          <a href="patrocinador.html" class="nav-portal-empresa" style="width: 100%; justify-content: center;">🏢 Área da Empresa</a>
           ${isStudentLoggedIn ? `
             <a href="perfil.html" class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center;">👤 Meu Perfil</a>
             <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200);">🚪 Sair da Conta</button>
           ` : `
             <a href="criar-perfil.html" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">✨ Cadastro de Alunas</a>
           `}
+          <a href="patrocinador.html" class="nav-portal-empresa" style="width: 100%; justify-content: center;">🏢 Área da Empresa</a>
         </div>
       `;
 
       headerActions.innerHTML = `
-        <a href="patrocinador.html" class="nav-portal-empresa nav-desktop-btn" id="btnHeaderSponsor">
-          🏢 Área da Empresa
-        </a>
         ${isStudentLoggedIn ? `
           <a href="perfil.html" class="btn btn-secondary btn-sm nav-desktop-btn" title="Meu Perfil">
             👤 ${authUser.name ? authUser.name.split(' ')[0] : 'Minha Conta'}
@@ -213,6 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ✨ Cadastro de Alunas
           </a>
         `}
+        <a href="patrocinador.html" class="nav-portal-empresa nav-desktop-btn" id="btnHeaderSponsor">
+          🏢 Área da Empresa
+        </a>
 
         <!-- Botão Toggle de Modo Escuro -->
         <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
