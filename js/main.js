@@ -97,6 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
 
       headerActions.innerHTML = `
+        <button type="button" class="btn btn-primary btn-sm nav-desktop-btn" id="btnOpenPubModal">
+          <span>+ Adicionar Vaga</span>
+        </button>
         <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogout" title="Encerrar sessão da empresa" style="color: var(--color-pink-600); border-color: var(--color-pink-200);">
           🚪 Sair
         </button>
@@ -220,6 +223,16 @@ document.addEventListener('DOMContentLoaded', () => {
         logout();
       };
     });
+
+    // Vincular ação de abrir modal de publicação se existir
+    const btnPub = document.getElementById('btnOpenPubModal');
+    if (btnPub) {
+      btnPub.onclick = (e) => {
+        e.preventDefault();
+        const pubModal = document.getElementById('pubModal');
+        if (pubModal) pubModal.classList.add('active');
+      };
+    }
 
     // Reinicializar eventos de tema
     initThemeToggle();

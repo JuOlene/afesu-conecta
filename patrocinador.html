@@ -271,83 +271,82 @@
               <div class="section-card-header">
                 <div class="section-card-title-group">
                   <h3>Candidaturas e Banco de Talentos</h3>
-                  <span class="section-card-tag">Perfis Qualificados</span>
+                  <span class="section-card-tag">Perfis Qualificados AFESU</span>
                 </div>
               </div>
-            </div>
 
-            <!-- Barra de Pesquisa e Filtros de Candidatas -->
-            <div class="sponsor-candidates-filterbar">
-              
-              <!-- Busca por Texto -->
-              <div class="candidates-search-wrap">
-                <svg class="candidates-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" id="searchCandidateInput" class="candidates-search-input" placeholder="Buscar candidata por nome, habilidade, formação ou vaga...">
-              </div>
-
-              <!-- Filtros Selecionáveis -->
-              <div class="candidates-filters-grid">
+              <!-- Barra de Pesquisa e Filtros de Candidatas -->
+              <div class="sponsor-candidates-filterbar">
                 
-                <!-- Área -->
-                <select id="filterCandArea" class="candidate-filter-select">
-                  <option value="ALL">Todas as Áreas</option>
-                  <option value="Administração">Administração</option>
-                  <option value="Tecnologia">Tecnologia</option>
-                  <option value="Marketing">Marketing</option>
-                  <option value="Atendimento">Atendimento</option>
-                </select>
+                <!-- Busca por Texto -->
+                <div class="candidates-search-wrap">
+                  <svg class="candidates-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" id="searchCandidateInput" class="candidates-search-input" placeholder="Buscar candidata por nome, habilidade, formação ou vaga...">
+                </div>
 
-                <!-- Formação -->
-                <select id="filterCandFormation" class="candidate-filter-select">
-                  <option value="ALL">Todas as Formações</option>
-                  <option value="Administração">Técnico em Administração</option>
-                  <option value="Tecnologia">Técnico em TI / Web</option>
-                  <option value="Comunicação">Técnico em Comunicação</option>
-                  <option value="Médio">Ensino Médio</option>
-                </select>
+                <!-- Filtros Selecionáveis -->
+                <div class="candidates-filters-grid">
+                  
+                  <!-- Área -->
+                  <select id="filterCandArea" class="candidate-filter-select">
+                    <option value="ALL">Todas as Áreas</option>
+                    <option value="Administração">Administração</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Atendimento">Atendimento</option>
+                  </select>
 
-                <!-- Tipo de Oportunidade -->
-                <select id="filterCandType" class="candidate-filter-select">
-                  <option value="ALL">Todos os Tipos</option>
-                  <option value="Emprego">Emprego</option>
-                  <option value="Estágio">Estágio</option>
-                  <option value="Curso">Curso</option>
-                </select>
+                  <!-- Formação -->
+                  <select id="filterCandFormation" class="candidate-filter-select">
+                    <option value="ALL">Todas as Formações</option>
+                    <option value="Administração">Técnico em Administração</option>
+                    <option value="Tecnologia">Técnico em TI / Web</option>
+                    <option value="Comunicação">Técnico em Comunicação</option>
+                    <option value="Médio">Ensino Médio</option>
+                  </select>
 
-                <!-- Localização -->
-                <select id="filterCandLocation" class="candidate-filter-select">
-                  <option value="ALL">Todas as Cidades</option>
-                  <option value="São Paulo">São Paulo, SP</option>
-                  <option value="Osasco">Osasco, SP</option>
-                  <option value="Santo André">Santo André, SP</option>
-                </select>
+                  <!-- Tipo de Oportunidade -->
+                  <select id="filterCandType" class="candidate-filter-select">
+                    <option value="ALL">Todos os Tipos</option>
+                    <option value="Emprego">Emprego</option>
+                    <option value="Estágio">Estágio</option>
+                    <option value="Curso">Curso</option>
+                  </select>
 
-                <!-- Habilidades -->
-                <select id="filterCandSkill" class="candidate-filter-select">
-                  <option value="ALL">Todas as Habilidades</option>
-                  <option value="Excel">Excel</option>
-                  <option value="Comunicação">Comunicação</option>
-                  <option value="HTML & CSS">HTML & CSS</option>
-                  <option value="Power BI">Power BI</option>
-                  <option value="Organização">Organização</option>
-                </select>
+                  <!-- Localização -->
+                  <select id="filterCandLocation" class="candidate-filter-select">
+                    <option value="ALL">Todas as Cidades</option>
+                    <option value="São Paulo">São Paulo, SP</option>
+                    <option value="Osasco">Osasco, SP</option>
+                    <option value="Santo André">Santo André, SP</option>
+                  </select>
 
-                <!-- Limpar -->
-                <button type="button" class="btn btn-outline btn-sm" id="btnResetCandFilters">
-                  Limpar
-                </button>
+                  <!-- Habilidades -->
+                  <select id="filterCandSkill" class="candidate-filter-select">
+                    <option value="ALL">Todas as Habilidades</option>
+                    <option value="Excel">Excel</option>
+                    <option value="Comunicação">Comunicação</option>
+                    <option value="HTML & CSS">HTML & CSS</option>
+                    <option value="Power BI">Power BI</option>
+                    <option value="Organização">Organização</option>
+                  </select>
+
+                  <!-- Limpar -->
+                  <button type="button" class="btn btn-outline btn-sm" id="btnResetCandFilters">
+                    Limpar
+                  </button>
+
+                </div>
 
               </div>
 
-            </div>
+              <!-- Grade de Candidatas -->
+              <div class="candidates-grid" id="candidatesList">
+                <!-- Renderizado dinamicamente via JS -->
+              </div>
 
-            <!-- Grade de Candidatas -->
-            <div class="candidates-grid" id="candidatesList">
-              <!-- Renderizado dinamicamente via JS -->
             </div>
-
           </div>
-        </div>
 
       </div>
     </div>
