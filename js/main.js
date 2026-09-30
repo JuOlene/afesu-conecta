@@ -83,21 +83,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- CENÁRIO 1: ÁREA DA EMPRESA / PATROCINADOR (Isolada da Aluna) ---
     if (isSponsorLoggedIn) {
+      const companyName = authUser && authUser.name ? authUser.name : 'Empresa Parceira';
       navMenu.setAttribute('aria-label', 'Navegação da Empresa');
       navMenu.innerHTML = `
-        <a href="#geral" class="nav-link sponsor-tab-link active" data-tab="tabGeral">📊 Geral</a>
-        <a href="#talentos" class="nav-link sponsor-tab-link" data-tab="tabTalentos">👥 Candidaturas e Talentos</a>
+        <a href="#geral" class="nav-link sponsor-tab-link active" data-tab="tabGeral">
+          <span>📊</span>
+          <span>Visão Geral</span>
+        </a>
+        <a href="#talentos" class="nav-link sponsor-tab-link" data-tab="tabTalentos">
+          <span>👥</span>
+          <span>Banco de Talentos</span>
+        </a>
+        <a href="index.html#sobre" class="nav-link" title="Sobre o Instituto AFESU">
+          <span>🏛️</span>
+          <span>Sobre a AFESU</span>
+        </a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="#geral" class="nav-link sponsor-tab-link" data-tab="tabGeral">📊 Geral</a>
-          <a href="#talentos" class="nav-link sponsor-tab-link" data-tab="tabTalentos">👥 Candidaturas e Talentos</a>
+          <a href="#geral" class="nav-link sponsor-tab-link" data-tab="tabGeral">📊 Visão Geral</a>
+          <a href="#talentos" class="nav-link sponsor-tab-link" data-tab="tabTalentos">👥 Banco de Talentos</a>
+          <a href="index.html#sobre" class="nav-link">🏛️ Sobre a AFESU</a>
+          <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('btnOpenPubModal') && document.getElementById('btnOpenPubModal').click()" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+            ✨ + Adicionar Vaga
+          </button>
           <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200); margin-top: 0.5rem;">🚪 Sair do Painel</button>
         </div>
       `;
 
       headerActions.innerHTML = `
-        <button type="button" class="btn btn-primary btn-sm nav-desktop-btn" id="btnOpenPubModal">
+        <div class="sponsor-session-chip nav-desktop-btn" style="background: var(--color-purple-50); border: 1px solid var(--color-purple-200); color: var(--color-purple-800); font-weight: 700; font-size: 0.8rem; padding: 0.4rem 0.8rem; border-radius: var(--radius-full); display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+          <span>${companyName}</span>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm nav-desktop-btn" id="btnOpenPubModal" style="box-shadow: 0 4px 12px rgba(147, 51, 234, 0.25);">
           <span>+ Adicionar Vaga</span>
         </button>
         <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogout" title="Encerrar sessão da empresa" style="color: var(--color-pink-600); border-color: var(--color-pink-200);">
