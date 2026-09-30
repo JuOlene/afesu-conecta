@@ -45,22 +45,16 @@
         </div>
       </a>
 
-      <!-- Menu de Navegação do Patrocinador -->
+      <!-- Menu de Navegação do Patrocinador (Abas Isoladas) -->
       <nav class="nav-menu" id="navMenu" aria-label="Navegação do Patrocinador">
-        <a href="#sponsorDashboardWrap" class="nav-link active">Geral</a>
-        <a href="#minhasOportunidadesSection" class="nav-link">Minhas Oportunidades</a>
-        <a href="#candidaturasSection" class="nav-link">Candidaturas e Talentos</a>
-        <a href="javascript:void(0)" class="nav-link" onclick="document.getElementById('btnOpenPubModal').click()">+ Publicar Vaga</a>
+        <a href="#geral" class="nav-link sponsor-tab-link active" data-tab="tabGeral">📊 Geral</a>
+        <a href="#talentos" class="nav-link sponsor-tab-link" data-tab="tabTalentos">👥 Candidaturas e Talentos</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="#sponsorDashboardWrap" class="nav-link">📊 Geral</a>
-          <a href="#minhasOportunidadesSection" class="nav-link">💼 Minhas Oportunidades</a>
-          <a href="#candidaturasSection" class="nav-link">👥 Candidaturas e Talentos</a>
-          <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('btnOpenPubModal').click()">
-            ✨ + Publicar Oportunidade
-          </button>
-          <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" id="btnDrawerSponsorLogout" style="color: var(--color-pink-600); border-color: var(--color-pink-200);">
+          <a href="#geral" class="nav-link sponsor-tab-link" data-tab="tabGeral">📊 Geral</a>
+          <a href="#talentos" class="nav-link sponsor-tab-link" data-tab="tabTalentos">👥 Candidaturas e Talentos</a>
+          <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" id="btnDrawerSponsorLogout" style="color: var(--color-pink-600); border-color: var(--color-pink-200); margin-top: 0.5rem;">
             🚪 Sair do Painel
           </button>
         </div>
@@ -68,9 +62,6 @@
 
       <!-- Botões de Ação do Header -->
       <div class="header-actions">
-        <button type="button" class="btn btn-primary btn-sm nav-desktop-btn" id="btnOpenPubModal">
-          <span>+ Publicar Vaga</span>
-        </button>
         <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderSponsorLogout" title="Sair do painel corporativo" style="color: var(--color-pink-600); border-color: var(--color-pink-200);">
           🚪 Sair
         </button>
@@ -191,97 +182,104 @@
         </div>
 
         <!-- ====================================================================
-             3. PAINEL / DASHBOARD DO PATROCINADOR
+             3. PAINEL DO PATROCINADOR COM ABAS ISOLADAS
              ==================================================================== -->
         <div class="sponsor-dashboard-wrap" id="sponsorDashboardWrap">
           
-          <!-- Cabeçalho do Dashboard -->
+          <!-- Cabeçalho do Painel -->
           <div class="sponsor-dash-header">
             <div class="sponsor-dash-greeting">
               <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem; flex-wrap: wrap;">
                 <h2 id="sponsorGreetingTitle" style="margin-bottom: 0;">Olá, Empresa Parceira!</h2>
                 <span class="sponsor-session-badge"><span class="dot"></span> Sessão Ativa</span>
               </div>
-              <p id="sponsorGreetingSub">Acompanhe suas vagas, avalie candidatas qualificadas e impulsione novas carreiras.</p>
+              <p id="sponsorGreetingSub">Acompanhe métricas corporativas, candidaturas e perfis de alunas AFESU.</p>
             </div>
             <div class="sponsor-dash-actions">
-              <a href="oportunidades.html" class="btn btn-outline">
-                <span>🔍 Ver Mural Público</span>
-              </a>
-              <button type="button" class="btn btn-primary" onclick="document.getElementById('btnOpenPubModal').click()">
-                <span>+ Publicar oportunidade</span>
-              </button>
               <button type="button" class="btn btn-outline btn-sm" id="btnSponsorLogout" style="color: var(--color-pink-600); border-color: var(--color-pink-200);" title="Encerrar sessão de parceiro">
                 <span>🚪 Sair</span>
               </button>
             </div>
           </div>
 
-          <!-- Cards de Resumo (KPIs) -->
-          <div class="sponsor-kpi-grid">
-            
-            <div class="kpi-card kpi-purple">
-              <div class="kpi-icon-box">💼</div>
-              <div class="kpi-info">
-                <span class="kpi-number" id="kpiOppsCount">3</span>
-                <span class="kpi-label">Oportunidades publicadas</span>
-              </div>
-            </div>
-
-            <div class="kpi-card kpi-pink">
-              <div class="kpi-icon-box">📨</div>
-              <div class="kpi-info">
-                <span class="kpi-number" id="kpiCandsCount">29</span>
-                <span class="kpi-label">Candidaturas recebidas</span>
-              </div>
-            </div>
-
-            <div class="kpi-card kpi-orange">
-              <div class="kpi-icon-box">👩‍🎓</div>
-              <div class="kpi-info">
-                <span class="kpi-number" id="kpiProfilesCount">23</span>
-                <span class="kpi-label">Perfis encontrados</span>
-              </div>
-            </div>
-
-            <div class="kpi-card kpi-yellow">
-              <div class="kpi-icon-box">📚</div>
-              <div class="kpi-info">
-                <span class="kpi-number" id="kpiCoursesCount">1</span>
-                <span class="kpi-label">Cursos publicados</span>
-              </div>
-            </div>
-
+          <!-- Barra de Abas do Painel -->
+          <div class="sponsor-tab-nav-bar" style="display: flex; gap: 0.75rem; margin-bottom: 2rem; border-bottom: 1px solid var(--color-border-subtle); padding-bottom: 0.75rem;">
+            <button type="button" class="btn sponsor-tab-pill active" data-tab-target="tabGeral" style="padding: 0.6rem 1.25rem; font-weight: 700;">
+              📊 Geral
+            </button>
+            <button type="button" class="btn sponsor-tab-pill" data-tab-target="tabTalentos" style="padding: 0.6rem 1.25rem; font-weight: 700;">
+              👥 Candidaturas e Talentos
+            </button>
           </div>
 
           <!-- ==================================================================
-               4. SEÇÃO: MINHAS OPORTUNIDADES
+               ABA 1: GERAL (DASHBOARDS E KPIS)
                ================================================================== -->
-          <div class="sponsor-section-card" id="minhasOportunidadesSection">
-            <div class="section-card-header">
-              <div class="section-card-title-group">
-                <h3>Minhas Oportunidades</h3>
-                <span class="section-card-tag">Painel de Controle</span>
+          <div class="sponsor-tab-content-pane active" id="tabGeral">
+            <!-- Cards de Resumo (KPIs) -->
+            <div class="sponsor-kpi-grid">
+              
+              <div class="kpi-card kpi-purple">
+                <div class="kpi-icon-box">💼</div>
+                <div class="kpi-info">
+                  <span class="kpi-number" id="kpiOppsCount">3</span>
+                  <span class="kpi-label">Oportunidades em aberto</span>
+                </div>
               </div>
-              <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('btnOpenPubModal').click()">
-                + Nova Vaga / Curso
+
+              <div class="kpi-card kpi-pink">
+                <div class="kpi-icon-box">📨</div>
+                <div class="kpi-info">
+                  <span class="kpi-number" id="kpiCandsCount">29</span>
+                  <span class="kpi-label">Candidaturas recebidas</span>
+                </div>
+              </div>
+
+              <div class="kpi-card kpi-orange">
+                <div class="kpi-icon-box">👩‍🎓</div>
+                <div class="kpi-info">
+                  <span class="kpi-number" id="kpiProfilesCount">23</span>
+                  <span class="kpi-label">Perfis no Banco de Talentos</span>
+                </div>
+              </div>
+
+              <div class="kpi-card kpi-yellow">
+                <div class="kpi-icon-box">📚</div>
+                <div class="kpi-info">
+                  <span class="kpi-number" id="kpiCoursesCount">1</span>
+                  <span class="kpi-label">Cursos e capacitações</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Resumo Institucional e Atalho -->
+            <div class="sponsor-section-card" style="margin-top: 1.5rem;">
+              <div class="section-card-header">
+                <div class="section-card-title-group">
+                  <h3>Visão Geral do Programa Parceiro</h3>
+                  <span class="section-card-tag">AFESU Conecta</span>
+                </div>
+              </div>
+              <p style="color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+                Bem-vindo ao espaço exclusivo da empresa. Aqui você acompanha em tempo real o engajamento das alunas nas capacitações e tem acesso direto ao Banco de Talentos qualificado.
+              </p>
+              <button type="button" class="btn btn-primary" onclick="document.querySelector('[data-tab-target=tabTalentos]').click()">
+                👥 Acessar Banco de Talentos e Candidaturas
               </button>
             </div>
-
-            <!-- Grade com os cards de oportunidades do patrocinador -->
-            <div class="sponsor-opps-grid" id="sponsorOppsList">
-              <!-- Renderizado dinamicamente via JS -->
-            </div>
           </div>
 
           <!-- ==================================================================
-               5. SEÇÃO: CANDIDATURAS RECEBIDAS
+               ABA 2: CANDIDATURAS E TALENTOS (ISOLADA)
                ================================================================== -->
-          <div class="sponsor-section-card" id="candidaturasSection">
-            <div class="section-card-header">
-              <div class="section-card-title-group">
-                <h3>Candidaturas Recebidas</h3>
-                <span class="section-card-tag">Banco de Talentos</span>
+          <div class="sponsor-tab-content-pane" id="tabTalentos" style="display: none;">
+            <div class="sponsor-section-card" id="candidaturasSection">
+              <div class="section-card-header">
+                <div class="section-card-title-group">
+                  <h3>Candidaturas e Banco de Talentos</h3>
+                  <span class="section-card-tag">Perfis Qualificados</span>
+                </div>
               </div>
             </div>
 
@@ -356,11 +354,11 @@
             </div>
 
           </div>
-
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
   </main>
 
   <!-- ========================================================================

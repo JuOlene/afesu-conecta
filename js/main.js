@@ -85,27 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isSponsorLoggedIn) {
       navMenu.setAttribute('aria-label', 'Navegação da Empresa');
       navMenu.innerHTML = `
-        <a href="patrocinador.html#sponsorDashboardWrap" class="nav-link active">Geral</a>
-        <a href="patrocinador.html#minhasOportunidadesSection" class="nav-link">Minhas Oportunidades</a>
-        <a href="patrocinador.html#candidaturasSection" class="nav-link">Candidaturas e Talentos</a>
-        <a href="javascript:void(0)" class="nav-link" id="navBtnPublishJob" onclick="document.getElementById('btnOpenPubModal') && document.getElementById('btnOpenPubModal').click()">+ Publicar Vaga</a>
+        <a href="#geral" class="nav-link sponsor-tab-link active" data-tab="tabGeral">📊 Geral</a>
+        <a href="#talentos" class="nav-link sponsor-tab-link" data-tab="tabTalentos">👥 Candidaturas e Talentos</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="patrocinador.html#sponsorDashboardWrap" class="nav-link">📊 Geral</a>
-          <a href="patrocinador.html#minhasOportunidadesSection" class="nav-link">💼 Minhas Vagas</a>
-          <a href="patrocinador.html#candidaturasSection" class="nav-link">👥 Talentos</a>
-          <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('btnOpenPubModal') && document.getElementById('btnOpenPubModal').click()">
-            ✨ + Publicar Oportunidade
-          </button>
+          <a href="#geral" class="nav-link sponsor-tab-link" data-tab="tabGeral">📊 Geral</a>
+          <a href="#talentos" class="nav-link sponsor-tab-link" data-tab="tabTalentos">👥 Candidaturas e Talentos</a>
           <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200); margin-top: 0.5rem;">🚪 Sair do Painel</button>
         </div>
       `;
 
       headerActions.innerHTML = `
-        <button type="button" class="btn btn-primary btn-sm nav-desktop-btn" onclick="document.getElementById('btnOpenPubModal') && document.getElementById('btnOpenPubModal').click()">
-          <span>+ Publicar Vaga</span>
-        </button>
         <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogout" title="Encerrar sessão da empresa" style="color: var(--color-pink-600); border-color: var(--color-pink-200);">
           🚪 Sair
         </button>

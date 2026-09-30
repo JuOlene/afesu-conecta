@@ -900,8 +900,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- 8. CONTROLE DE NAVEGAÇÃO POR ABAS EXCLUSIVAS (ISOLAMENTO TOTAL) ---
+  const switchSponsorTab = (targetTabId) => {
+    // 1. Alternar painéis
+    const tabPanes = document.querySelectorAll('.sponsor-tab-content-pane');
+    tabPanes.forEach(pane => {
+      if (pane.id === targetTabId) {
+        pane.style.display = 'block';
+        pane.classList.add('active');
+      } else {
+        pane.style.display = 'none';
+        pane.classList.remove('active');
+      }
+    });
+
+    // 2. Atualizar pílulas e botões de navegação
+    document.querySelectorAll('.sponsor-tab-pill').forEach(btn => {
+      if (btn.getAttribute('data-tab-target') === targetTabId) {
+        btn.classList.add('active', 'btn-primary');
+        btn.classList.remove('btn-outline');
+      } else {
+        btn.classList.remove('active', 'btn-primary');
+        btn.classList.add('btn-outline');
+      }
+    });
+
+    // 3. Atualizar links do cabeçalho
+    document.querySelectorAll('.sponsor-tab-link').forEach(link => {
+      if (link.getAttribute('data-tab') === targetTabId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  };
+
+  // Cliques nas abas da barra interna
+  document.querySelectorAll('.sponsor-tab-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-tab-target');
+      if (target) switchSponsorTab(target);
+    });
+  });
+
+  // Cliques nos links do cabeçalho
+  document.querySelectorAll('.sponsor-tab-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = link.getAttribute('data-tab');
+      if (target) {
+        switchSponsorTab(target);
+        if (sponsorDashboardWrap) sponsorDashboardWrap.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
   // Inicialização
   updatePartnerAuthState(true);
-  renderSponsorOpps();
+  switchSponsorTab('tabGeral');
   filterAndRenderCandidates();
 });
