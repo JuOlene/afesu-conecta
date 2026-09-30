@@ -184,8 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="perfil.html" class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center;">👤 Meu Perfil</a>
             <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200);">🚪 Sair da Conta</button>
           ` : `
-            <a href="login.html" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">🔐 Entrar</a>
-            <a href="criar-perfil.html" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">✨ Criar Perfil</a>
+            <a href="criar-perfil.html" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">✨ Cadastro de Alunas</a>
           `}
         </div>
       `;
@@ -202,11 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
             🚪 Sair
           </button>
         ` : `
-          <a href="login.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogin">
-            🔐 Entrar
-          </a>
           <a href="criar-perfil.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSignup">
-            ✨ Criar Perfil
+            ✨ Cadastro de Alunas
           </a>
         `}
 
