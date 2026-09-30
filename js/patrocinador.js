@@ -565,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="candidate-identity">
               <div class="candidate-name">${cand.socialName || cand.name}</div>
               <div class="candidate-location">📍 ${cand.city}, ${cand.state} • ${cand.area}</div>
-              <span class="candidate-target-opp">Vaga: ${cand.targetOpp}</span>
+              <span class="candidate-target-opp">Vaga de interesse: ${cand.targetOpp}</span>
             </div>
           </div>
 
@@ -582,13 +582,16 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="candidate-footer-row">
           <span>📅 Candidatou-se em ${cand.appliedAt}</span>
           <button type="button" class="btn btn-primary btn-sm" onclick="window.openCandidateResume('${cand.id}')">
-            Ver perfil
+            📄 Ver Currículo Completo
           </button>
         </div>
       `;
       candidatesContainer.appendChild(card);
     });
   };
+
+  // Executar renderização imediata do banco de talentos
+  filterAndRenderCandidates();
 
   // Eventos de Busca & Filtro
   [searchCandidateInput, filterCandArea, filterCandFormation, filterCandType, filterCandLocation, filterCandSkill].forEach(el => {
