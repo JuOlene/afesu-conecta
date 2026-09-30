@@ -43,16 +43,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const authUser = getAuthUser();
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
-  // Proteção de rotas internas para visitantes
-  const protectedPages = ['oportunidades.html', 'perfil.html', 'curriculo.html', 'patrocinador.html'];
+  // Controle rigoroso de isolamento de papéis (Role-Based Access Control)
+  const isSponsorPage = currentPath === 'patrocinador.html' || currentPath.includes('patrocinador');
+  const isStudentPage = ['perfil.html', 'curriculo.html', 'criar-perfil.html'].includes(currentPath);
+
+  // 1. Se um Patrocinador tentar acessar páginas exclusivas da Aluna
+  if (authUser && authUser.role === 'sponsor' && isStudentPage) {
+    alert('Acesso Restrito: Esta área é exclusiva para Alunas da AFESU. Redirecionando para o Painel da Empresa.');
+    window.location.href = 'patrocinador.html';
+    return;
+  }
+
+  // 2. Se uma Aluna tentar acessar a Área Corporativa do Patrocinador
+  if (authUser && authUser.role !== 'sponsor' && isSponsorPage) {
+    alert('Acesso Restrito: A Área da Empresa é exclusiva para Patrocinadores e Parceiros corporativos.');
+    window.location.href = 'perfil.html';
+    return;
+  }
+
+  // 3. Proteção de páginas privadas de Alunas para visitantes não autenticados
+  const protectedPages = ['perfil.html', 'curriculo.html'];
   if (protectedPages.includes(currentPath) && !authUser) {
-    // Redireciona com parâmetro de retorno amigável
     window.location.href = `login.html?redirect=${encodeURIComponent(currentPath)}&access=required`;
     return;
   }
 
   // =========================================================================
-  // 2. Construção Dinâmica da Barra de Navegação (Visitante vs Logado)
+  // 2. Construção Dinâmica da Barra de Navegação (Isolamento Total de Papéis)
   // =========================================================================
   const navMenu = document.getElementById('navMenu');
   const headerActions = document.querySelector('.header-actions');
@@ -60,112 +77,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderNavigation = () => {
     if (!navMenu || !headerActions) return;
 
-    // --- CENÁRIO A: VISITANTE (NÃO LOGADO) ---
-    if (!authUser) {
-      navMenu.setAttribute('aria-label', 'Navegação Institucional');
+    const isCandidaturas = window.location.search.toLowerCase().includes('candidaturas');
+    const isStudentLoggedIn = authUser && authUser.role !== 'sponsor';
+    const isSponsorLoggedIn = (authUser && authUser.role === 'sponsor') || isSponsorPage;
+
+    // --- CENÁRIO 1: ÁREA DA EMPRESA / PATROCINADOR (Isolada da Aluna) ---
+    if (isSponsorLoggedIn) {
+      navMenu.setAttribute('aria-label', 'Navegação da Empresa');
       navMenu.innerHTML = `
-        <a href="index.html#inicio" class="nav-link active">Início</a>
-        <a href="index.html#quem-somos" class="nav-link">Quem Somos / Sobre</a>
-        <a href="index.html#como-funciona" class="nav-link">Como Funciona</a>
-        <a href="index.html#parceiros" class="nav-link">Parcerias</a>
-
-        <div class="mobile-menu-actions">
-          <a href="criar-perfil.html" class="btn btn-primary btn-sm">✨ Criar Perfil</a>
-          <a href="login.html" class="btn btn-outline btn-sm">🔐 Entrar / Login</a>
-        </div>
-      `;
-
-      headerActions.innerHTML = `
-        <a href="criar-perfil.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSignup">
-          Criar Perfil
-        </a>
-        <a href="login.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogin">
-          Entrar
-        </a>
-
-        <!-- Botão Toggle de Modo Escuro (Atrás do Criar Perfil e Entrar) -->
-        <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
-          <span class="theme-icon-sun">☀️</span>
-          <span class="theme-icon-moon">🌙</span>
-        </button>
-
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      `;
-    }
-    // --- CENÁRIO B: ALUNA LOGADA ---
-    else if (authUser.role === 'student') {
-      const initials = (authUser.name || 'Aluna').split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase();
-      const firstName = (authUser.name || 'Aluna').split(' ')[0];
-
-      navMenu.setAttribute('aria-label', 'Navegação da Aluna');
-      navMenu.innerHTML = `
-        <a href="index.html" class="nav-link">Início</a>
-        <a href="oportunidades.html" class="nav-link">Oportunidades</a>
-        <a href="oportunidades.html?cat=CURSO" class="nav-link">Cursos</a>
-        <a href="perfil.html" class="nav-link">Meu Perfil</a>
-        <a href="curriculo.html" class="nav-link">Meu Currículo</a>
-        <a href="oportunidades.html?view=candidaturas" class="nav-link">Minhas Candidaturas</a>
-        <a href="patrocinador.html" class="nav-link">Área Patrocinador</a>
-
-        <div class="mobile-menu-actions">
-          <a href="perfil.html" class="btn btn-primary btn-sm">👤 Ver Meu Perfil</a>
-          <a href="curriculo.html" class="btn btn-secondary btn-sm">📄 Ver Meu Currículo</a>
-          <a href="patrocinador.html" class="btn btn-outline btn-sm">🏢 Área Patrocinador</a>
-          <button type="button" class="btn btn-outline btn-sm" id="btnMobileLogout">🚪 Sair da Conta</button>
-        </div>
-      `;
-
-      headerActions.innerHTML = `
-        <a href="perfil.html" class="user-session-badge nav-desktop-btn" title="Acessar meu perfil">
-          <span class="user-session-avatar">${initials}</span>
-          <span>${firstName}</span>
-        </a>
-
-        <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogout" title="Sair da conta">
-          Sair
-        </button>
-
-        <!-- Botão Toggle de Modo Escuro -->
-        <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
-          <span class="theme-icon-sun">☀️</span>
-          <span class="theme-icon-moon">🌙</span>
-        </button>
-
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      `;
-    }
-    // --- CENÁRIO C: PATROCINADOR / EMPRESA LOGADA ---
-    else if (authUser.role === 'sponsor') {
-      navMenu.setAttribute('aria-label', 'Navegação do Patrocinador');
-      navMenu.innerHTML = `
-        <a href="patrocinador.html#sponsorDashboardWrap" class="nav-link active">Dashboard</a>
+        <a href="patrocinador.html#sponsorDashboardWrap" class="nav-link active">Geral</a>
         <a href="patrocinador.html#minhasOportunidadesSection" class="nav-link">Minhas Oportunidades</a>
         <a href="patrocinador.html#candidaturasSection" class="nav-link">Candidaturas e Talentos</a>
-        <a href="javascript:void(0)" class="nav-link" id="navPubOppTrigger">+ Publicar Vaga</a>
-        <a href="index.html" class="nav-link">Portal Aluna</a>
+        <a href="javascript:void(0)" class="nav-link" id="navBtnPublishJob" onclick="document.getElementById('btnOpenPubModal') && document.getElementById('btnOpenPubModal').click()">+ Publicar Vaga</a>
 
+        <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <button type="button" class="btn btn-primary btn-sm" id="btnMobilePubOpp">✨ + Publicar Oportunidade</button>
-          <a href="index.html" class="btn btn-outline btn-sm">🏛️ Portal Aluna / Institucional</a>
-          <button type="button" class="btn btn-outline btn-sm" id="btnMobileLogout">🚪 Sair da Conta</button>
+          <a href="patrocinador.html#sponsorDashboardWrap" class="nav-link">📊 Geral</a>
+          <a href="patrocinador.html#minhasOportunidadesSection" class="nav-link">💼 Minhas Vagas</a>
+          <a href="patrocinador.html#candidaturasSection" class="nav-link">👥 Talentos</a>
+          <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('btnOpenPubModal') && document.getElementById('btnOpenPubModal').click()">
+            ✨ + Publicar Oportunidade
+          </button>
+          <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200); margin-top: 0.5rem;">🚪 Sair do Painel</button>
         </div>
       `;
 
       headerActions.innerHTML = `
-        <button type="button" class="btn btn-primary btn-sm nav-desktop-btn" id="btnDesktopPubOpp">
-          + Publicar Vaga
+        <button type="button" class="btn btn-primary btn-sm nav-desktop-btn" onclick="document.getElementById('btnOpenPubModal') && document.getElementById('btnOpenPubModal').click()">
+          <span>+ Publicar Vaga</span>
         </button>
-
-        <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogout" title="Sair da conta">
-          Sair
+        <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogout" title="Encerrar sessão da empresa" style="color: var(--color-pink-600); border-color: var(--color-pink-200);">
+          🚪 Sair
         </button>
 
         <!-- Botão Toggle de Modo Escuro -->
@@ -174,6 +116,107 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="theme-icon-moon">🌙</span>
         </button>
 
+        <!-- Botão Hamburger Mobile -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      `;
+    }
+    // --- CENÁRIO 2: ÁREA DA ALUNA (Isolada da Empresa) ---
+    else if (isStudentLoggedIn) {
+      const studentFirstName = authUser.name ? authUser.name.split(' ')[0] : 'Minha Conta';
+      navMenu.setAttribute('aria-label', 'Navegação da Aluna');
+      navMenu.innerHTML = `
+        <a href="oportunidades.html" class="nav-link ${currentPath === 'oportunidades.html' && !isCandidaturas ? 'active' : ''}">💼 Oportunidades</a>
+        <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link ${isCandidaturas ? 'active' : ''}">📋 Candidaturas</a>
+        <a href="perfil.html" class="nav-link ${currentPath === 'perfil.html' ? 'active' : ''}">👤 Meu Perfil</a>
+        <a href="curriculo.html" class="nav-link ${currentPath === 'curriculo.html' ? 'active' : ''}">📄 Currículo</a>
+
+        <!-- Ações no Drawer Mobile -->
+        <div class="mobile-menu-actions">
+          <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+          <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link">📋 Minhas Candidaturas</a>
+          <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
+          <a href="curriculo.html" class="nav-link">📄 Currículo Digital</a>
+          <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200); margin-top: 0.5rem;">🚪 Sair da Conta</button>
+        </div>
+      `;
+
+      headerActions.innerHTML = `
+        <a href="perfil.html" class="btn btn-secondary btn-sm nav-desktop-btn" title="Meu Perfil">
+          👤 ${studentFirstName}
+        </a>
+        <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogout" title="Encerrar sessão">
+          🚪 Sair
+        </button>
+
+        <!-- Botão Toggle de Modo Escuro -->
+        <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
+          <span class="theme-icon-sun">☀️</span>
+          <span class="theme-icon-moon">🌙</span>
+        </button>
+
+        <!-- Botão Hamburger Mobile -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      `;
+    }
+    // --- CENÁRIO 3: INÍCIO / INSTITUCIONAL (Antes do Cadastro ou Página Inicial) ---
+    else {
+      navMenu.setAttribute('aria-label', 'Navegação Principal');
+      navMenu.innerHTML = `
+        <a href="${currentPath === 'index.html' ? '#sobre' : 'index.html#sobre'}" class="nav-link">Sobre</a>
+        <a href="${currentPath === 'index.html' ? '#como-funciona' : 'index.html#como-funciona'}" class="nav-link">Como funciona</a>
+        <a href="${currentPath === 'index.html' ? '#parceiros' : 'index.html#parceiros'}" class="nav-link">Conexões com parceiros</a>
+
+        <!-- Ações no Drawer Mobile -->
+        <div class="mobile-menu-actions">
+          <a href="${currentPath === 'index.html' ? '#sobre' : 'index.html#sobre'}" class="nav-link">ℹ️ Sobre</a>
+          <a href="${currentPath === 'index.html' ? '#como-funciona' : 'index.html#como-funciona'}" class="nav-link">⚙️ Como funciona</a>
+          <a href="${currentPath === 'index.html' ? '#parceiros' : 'index.html#parceiros'}" class="nav-link">🤝 Conexões com parceiros</a>
+          <a href="patrocinador.html" class="nav-portal-empresa" style="width: 100%; justify-content: center;">🏢 Área da Empresa</a>
+          ${isStudentLoggedIn ? `
+            <a href="perfil.html" class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center;">👤 Meu Perfil</a>
+            <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200);">🚪 Sair da Conta</button>
+          ` : `
+            <a href="login.html" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">🔐 Entrar</a>
+            <a href="criar-perfil.html" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">✨ Criar Perfil</a>
+          `}
+        </div>
+      `;
+
+      headerActions.innerHTML = `
+        <a href="patrocinador.html" class="nav-portal-empresa nav-desktop-btn" id="btnHeaderSponsor">
+          🏢 Área da Empresa
+        </a>
+        ${isStudentLoggedIn ? `
+          <a href="perfil.html" class="btn btn-secondary btn-sm nav-desktop-btn" title="Meu Perfil">
+            👤 ${authUser.name ? authUser.name.split(' ')[0] : 'Minha Conta'}
+          </a>
+          <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogout" title="Encerrar sessão">
+            🚪 Sair
+          </button>
+        ` : `
+          <a href="login.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogin">
+            🔐 Entrar
+          </a>
+          <a href="criar-perfil.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSignup">
+            ✨ Criar Perfil
+          </a>
+        `}
+
+        <!-- Botão Toggle de Modo Escuro -->
+        <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
+          <span class="theme-icon-sun">☀️</span>
+          <span class="theme-icon-moon">🌙</span>
+        </button>
+
+        <!-- Botão Hamburger Mobile -->
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
           <span></span>
           <span></span>
@@ -182,23 +225,17 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
-    // Reinicializar eventos de tema e logout
-    initThemeToggle();
-
-    document.querySelectorAll('#btnHeaderLogout, #btnMobileLogout').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    // Vincular ação de logout
+    const logoutBtns = document.querySelectorAll('#btnHeaderLogout, .btn-drawer-logout');
+    logoutBtns.forEach(btn => {
+      btn.onclick = (e) => {
         e.preventDefault();
         logout();
-      });
+      };
     });
 
-    // Gatilho de publicação de vaga no patrocinador
-    document.querySelectorAll('#navPubOppTrigger, #btnDesktopPubOpp, #btnMobilePubOpp').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const modalBtn = document.getElementById('btnOpenPubModal');
-        if (modalBtn) modalBtn.click();
-      });
-    });
+    // Reinicializar eventos de tema
+    initThemeToggle();
   };
 
   renderNavigation();

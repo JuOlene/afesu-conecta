@@ -12,12 +12,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Estilos CSS Modulares -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/variables.css?v=10">
+  <link rel="stylesheet" href="css/base.css?v=10">
+  <link rel="stylesheet" href="css/components.css?v=10">
+  <link rel="stylesheet" href="css/layout.css?v=10">
+  <link rel="stylesheet" href="css/animations.css?v=10">
+  <link rel="stylesheet" href="css/responsive.css?v=10">
   <script>
     (function() {
       const savedTheme = localStorage.getItem('afesu_theme') || 'light';
@@ -42,31 +42,36 @@
         </div>
       </a>
 
-      <!-- Menu de Navegação Institucional / Visitante -->
-      <nav class="nav-menu" id="navMenu" aria-label="Navegação Institucional">
-        <a href="#inicio" class="nav-link active">Início</a>
-        <a href="#quem-somos" class="nav-link">Quem Somos</a>
+      <!-- Menu de Navegação Principal -->
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
         <a href="#sobre" class="nav-link">Sobre</a>
-        <a href="#como-funciona" class="nav-link">Como Funciona</a>
-        <a href="#parceiros" class="nav-link">Parcerias</a>
+        <a href="#como-funciona" class="nav-link">Como funciona</a>
+        <a href="#parceiros" class="nav-link">Conexões com parceiros</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="criar-perfil.html" class="btn btn-primary btn-sm">✨ Criar Perfil</a>
-          <a href="login.html" class="btn btn-outline btn-sm">🔐 Entrar / Login</a>
+          <a href="#sobre" class="nav-link">ℹ️ Sobre</a>
+          <a href="#como-funciona" class="nav-link">⚙️ Como funciona</a>
+          <a href="#parceiros" class="nav-link">🤝 Conexões com parceiros</a>
+          <a href="patrocinador.html" class="nav-portal-empresa" style="width: 100%; justify-content: center;">🏢 Área da Empresa</a>
+          <a href="login.html" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">🔐 Entrar</a>
+          <a href="criar-perfil.html" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">✨ Criar Perfil</a>
         </div>
       </nav>
 
-      <!-- Botões de Ação do Header: [...menu...] [Criar Perfil] [Entrar] [☀️/🌙 Modo Claro/Escuro] -->
+      <!-- Botões de Ação do Header (Acessos Principais com Destaque Visual) -->
       <div class="header-actions">
-        <a href="criar-perfil.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSignup">
-          Criar Perfil
+        <a href="patrocinador.html" class="nav-portal-empresa nav-desktop-btn" id="btnHeaderSponsor">
+          🏢 Área da Empresa
         </a>
         <a href="login.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogin">
-          Entrar
+          🔐 Entrar
+        </a>
+        <a href="criar-perfil.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSignup">
+          ✨ Criar Perfil
         </a>
 
-        <!-- Botão Toggle de Modo Escuro (Posicionado à direita / após os botões de ação) -->
+        <!-- Botão Toggle de Modo Escuro -->
         <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
           <span class="theme-icon-sun">☀️</span>
           <span class="theme-icon-moon">🌙</span>
@@ -101,25 +106,13 @@
           </div>
 
           <h1 class="hero-title">
-            Seu próximo passo <br>
-            <span class="text-gradient">começa aqui.</span>
+            Conectando talentos femininos <br>
+            <span class="text-gradient">a grandes oportunidades.</span>
           </h1>
 
           <p class="hero-subtitle">
-            O <strong>AFESU Conecta</strong> é a plataforma oficial que conecta alunas e ex-alunas formadas pela AFESU a oportunidades de <strong>estágio</strong>, <strong>emprego</strong> e <strong>capacitações</strong> oferecidas por empresas parceiras.
+            O <strong>AFESU Conecta</strong> é a plataforma oficial que une alunas formadas com excelência técnica e humana a empresas comprometidas com diversidade, inclusão e futuro.
           </p>
-
-          <div class="hero-actions">
-            <a href="criar-perfil.html" class="btn btn-primary btn-lg" id="btnHeroProfile">
-              <span>Criar meu perfil</span>
-              <svg viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </a>
-            <a href="login.html" class="btn btn-outline btn-lg" id="btnHeroLogin">
-              Acessar conta
-            </a>
-          </div>
 
           <!-- Prova Social Integrada -->
           <div class="hero-proof">
@@ -131,7 +124,7 @@
             </div>
             <div class="hero-proof-text">
               <strong>+500 alunas conectadas</strong>
-              <span>Acelerando trajetórias profissionais</span>
+              <span>Acelerando trajetórias e impulsionando carreiras</span>
             </div>
           </div>
         </div>
@@ -149,8 +142,8 @@
                 </svg>
               </div>
               <div class="floating-text-group">
-                <span class="floating-text-title">Vaga Tech Júnior</span>
-                <span class="floating-text-sub">Empresa Parceira • Remoto</span>
+                <span class="floating-text-title">Vagas & Estágios</span>
+                <span class="floating-text-sub">Empresas Parceiras AFESU</span>
               </div>
             </div>
 
@@ -214,7 +207,7 @@
               </div>
               <div class="floating-text-group">
                 <span class="floating-text-title">Formação AFESU</span>
-                <span class="floating-text-sub">Perfil Verificado & Recomendado</span>
+                <span class="floating-text-sub">Perfil Verificado & Qualificado</span>
               </div>
             </div>
 
@@ -225,19 +218,20 @@
     </section>
 
     <!-- ========================================================================
-         3. SEÇÃO “QUEM SOMOS” (PROPÓSITO & ORIGEM DO PROJETO)
+         3. SEÇÃO “SOBRE” (PROPÓSITO, ORIGEM & ESTRUTURA DA PLATAFORMA)
          ======================================================================== -->
-    <section class="section section-about" id="quem-somos">
+    <section class="section section-about-topics" id="sobre">
       <div class="container">
         
         <div class="section-header reveal">
-          <span class="section-tag purple">Quem Somos</span>
+          <span class="section-tag purple">Sobre o Projeto</span>
           <h2 class="section-title">O que é a AFESU Conecta?</h2>
           <p class="section-description">
             A ponte digital que valoriza a dedicação de mulheres e transforma sua formação em oportunidades reais de crescimento profissional.
           </p>
         </div>
 
+        <!-- Box de Propósito e Estatísticas -->
         <div class="about-intro-box reveal">
           <div class="about-intro-grid">
             <div class="about-intro-content">
@@ -269,23 +263,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ========================================================================
-         4. SEÇÃO “SOBRE A PLATAFORMA” (ESTRUTURA DETALHADA E ORGANIZADA)
-         ======================================================================== -->
-    <section class="section section-about-topics" id="sobre">
-      <div class="container">
-        
-        <div class="section-header reveal">
-          <span class="section-tag pink">Sobre a Plataforma</span>
-          <h2 class="section-title">Como o AFESU Conecta funciona e apoia você</h2>
-          <p class="section-description">
-            Conheça os detalhes de como nossa plataforma atua para unir alunas dedicadas a organizações comprometidas com o desenvolvimento social.
-          </p>
         </div>
 
         <div class="about-topics-grid">
@@ -562,6 +539,14 @@
           </div>
         </div>
 
+        <!-- Acesso Direto para Empresas Parceiras -->
+        <div style="text-align: center; margin-top: 2.5rem;" class="reveal reveal-delay-2">
+          <a href="patrocinador.html" class="btn btn-primary btn-lg" id="btnPartnerAccessHome">
+            <span>🏢 Acessar Área da Empresa</span>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -578,14 +563,14 @@
           <div class="cta-content">
             <h2 class="cta-title">Pronta para dar o próximo passo?</h2>
             <p class="cta-text">
-              Crie seu perfil em poucos minutos ou acesse sua conta para explorar todas as oportunidades e cursos disponíveis.
+              Acesse a plataforma para explorar oportunidades ou cadastrar as vagas da sua empresa.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
               <a href="criar-perfil.html" class="btn btn-white btn-lg" id="btnFinalCtaSignup">
-                <span>✨ Criar meu perfil</span>
+                <span>👩‍🎓 Área da Aluna</span>
               </a>
-              <a href="login.html" class="btn btn-outline btn-lg" id="btnFinalCtaLogin" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.6);">
-                <span>🔐 Acessar conta</span>
+              <a href="patrocinador.html" class="btn btn-outline btn-lg" id="btnFinalCtaEmpresa" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.8);">
+                <span>🏢 Área da Empresa</span>
               </a>
             </div>
           </div>
@@ -641,22 +626,22 @@
         <div class="footer-links-col">
           <h4 class="footer-col-title">Navegação</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html" class="footer-link">Início</a></li>
-            <li><a href="oportunidades.html" class="footer-link">Oportunidades</a></li>
-            <li><a href="oportunidades.html?cat=CURSO" class="footer-link">Cursos</a></li>
-            <li><a href="#como-funciona" class="footer-link">Como funciona</a></li>
             <li><a href="#sobre" class="footer-link">Sobre</a></li>
+            <li><a href="#como-funciona" class="footer-link">Como funciona</a></li>
+            <li><a href="#parceiros" class="footer-link">Conexão com parceiros</a></li>
+            <li><a href="criar-perfil.html" class="footer-link">Área da Aluna</a></li>
+            <li><a href="patrocinador.html" class="footer-link">Área da Empresa</a></li>
           </ul>
         </div>
 
-        <!-- Coluna 3: Oportunidades -->
+        <!-- Coluna 3: Plataforma -->
         <div class="footer-links-col">
-          <h4 class="footer-col-title">Oportunidades</h4>
+          <h4 class="footer-col-title">Plataforma</h4>
           <ul class="footer-links-list">
-            <li><a href="oportunidades.html?cat=EMPREGO" class="footer-link">Empregos</a></li>
-            <li><a href="oportunidades.html?cat=ESTAGIO" class="footer-link">Vagas de Estágio</a></li>
-            <li><a href="oportunidades.html?cat=CURSO" class="footer-link">Capacitações</a></li>
-            <li><a href="#sobre" class="footer-link">Perfil Profissional</a></li>
+            <li><a href="oportunidades.html" class="footer-link">Oportunidades & Vagas</a></li>
+            <li><a href="oportunidades.html?cat=CURSO" class="footer-link">Cursos & Capacitações</a></li>
+            <li><a href="criar-perfil.html" class="footer-link">Cadastro de Currículo</a></li>
+            <li><a href="login.html" class="footer-link">Acesso à Conta</a></li>
           </ul>
         </div>
 
@@ -711,13 +696,7 @@
         <p class="modal-subtitle" id="modalSubtitle">Dê o próximo passo rumo ao seu crescimento profissional.</p>
       </div>
 
-      <!-- Abas de Seleção: Aluna / Empresa -->
-      <div class="modal-tabs">
-        <button type="button" class="modal-tab-btn active" id="tabStudent">Sou Aluna / Ex-Aluna</button>
-        <button type="button" class="modal-tab-btn" id="tabPartner">Sou Empresa Parceira</button>
-      </div>
-
-      <!-- Formulário com Feedback Amigável -->
+      <!-- Formulário de Cadastro da Aluna -->
       <form id="authForm">
         <div class="modal-form-group">
           <label class="modal-label" for="inputName">Nome Completo</label>
@@ -739,13 +718,17 @@
         <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" id="formSubmitBtn">
           Criar meu perfil
         </button>
+
+        <div style="margin-top: 1rem; text-align: center; font-size: 0.85rem; color: var(--color-text-muted);">
+          É uma empresa parceira? <a href="patrocinador.html" style="color: var(--color-purple-600); font-weight: 700; text-decoration: none;">Acessar Área do Parceiro</a>
+        </div>
       </form>
 
     </div>
   </div>
 
   <!-- Scripts JavaScript -->
-  <script src="js/animations.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/animations.js?v=10"></script>
+  <script src="js/main.js?v=10"></script>
 </body>
 </html>

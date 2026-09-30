@@ -12,13 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/opportunities.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/variables.css?v=10">
+  <link rel="stylesheet" href="css/base.css?v=10">
+  <link rel="stylesheet" href="css/components.css?v=10">
+  <link rel="stylesheet" href="css/layout.css?v=10">
+  <link rel="stylesheet" href="css/opportunities.css?v=10">
+  <link rel="stylesheet" href="css/animations.css?v=10">
+  <link rel="stylesheet" href="css/responsive.css?v=10">
   <script>
     (function() {
       const savedTheme = localStorage.getItem('afesu_theme') || 'light';
@@ -47,29 +47,24 @@
       </a>
 
       <!-- Menu de Navegação da Aluna -->
-      <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
-        <a href="index.html" class="nav-link">Início</a>
-        <a href="oportunidades.html" class="nav-link active">Oportunidades</a>
-        <a href="oportunidades.html?cat=CURSO" class="nav-link">Cursos</a>
-        <a href="perfil.html" class="nav-link">Meu Perfil</a>
-        <a href="curriculo.html" class="nav-link">Meu Currículo</a>
-        <a href="oportunidades.html?view=candidaturas" class="nav-link">Minhas Candidaturas</a>
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação da Aluna">
+        <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
+        <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+        <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link">📋 Candidaturas</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="login.html" class="btn btn-outline btn-sm">🔐 Acessar Conta / Login</a>
-          <a href="criar-perfil.html" class="btn btn-primary btn-sm">✨ Criar Perfil</a>
-          <a href="patrocinador.html" class="btn btn-secondary btn-sm">🏢 Área Patrocinador</a>
+          <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
+          <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+          <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link">📋 Candidaturas</a>
+          <a href="curriculo.html" class="nav-link">📄 Meu Currículo</a>
         </div>
       </nav>
 
       <!-- Botões de Ação do Header -->
       <div class="header-actions">
-        <a href="login.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogin">
-          Entrar
-        </a>
-        <a href="patrocinador.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSponsor">
-          Área Patrocinador
+        <a href="perfil.html" class="btn btn-secondary btn-sm nav-desktop-btn" title="Acessar meu perfil">
+          👤 Meu Perfil
         </a>
 
         <!-- Botão Toggle de Modo Escuro -->
@@ -341,11 +336,11 @@
         <div class="footer-links-col">
           <h4 class="footer-col-title">Navegação</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html" class="footer-link">Início</a></li>
-            <li><a href="oportunidades.html" class="footer-link">Oportunidades</a></li>
-            <li><a href="oportunidades.html?cat=CURSO" class="footer-link">Cursos</a></li>
-            <li><a href="index.html#como-funciona" class="footer-link">Como funciona</a></li>
             <li><a href="index.html#sobre" class="footer-link">Sobre</a></li>
+            <li><a href="index.html#como-funciona" class="footer-link">Como funciona</a></li>
+            <li><a href="index.html#parceiros" class="footer-link">Conexão com parceiros</a></li>
+            <li><a href="criar-perfil.html" class="footer-link">Área da Aluna</a></li>
+            <li><a href="patrocinador.html" class="footer-link">Área da Empresa</a></li>
           </ul>
         </div>
 
@@ -482,13 +477,7 @@
         <p class="modal-subtitle" id="modalSubtitle">Dê o próximo passo rumo ao seu crescimento profissional.</p>
       </div>
 
-      <!-- Abas de Seleção: Aluna / Empresa -->
-      <div class="modal-tabs">
-        <button type="button" class="modal-tab-btn active" id="tabStudent">Sou Aluna / Ex-Aluna</button>
-        <button type="button" class="modal-tab-btn" id="tabPartner">Sou Empresa Parceira</button>
-      </div>
-
-      <!-- Formulário com Feedback Amigável -->
+      <!-- Formulário de Cadastro da Aluna -->
       <form id="authForm">
         <div class="modal-form-group">
           <label class="modal-label" for="inputName">Nome Completo</label>
@@ -510,15 +499,19 @@
         <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" id="formSubmitBtn">
           Criar meu perfil
         </button>
+
+        <div style="margin-top: 1rem; text-align: center; font-size: 0.85rem; color: var(--color-text-muted);">
+          É uma empresa parceira? <a href="patrocinador.html" style="color: var(--color-purple-600); font-weight: 700; text-decoration: none;">Acessar Área do Parceiro</a>
+        </div>
       </form>
 
     </div>
   </div>
 
   <!-- Scripts -->
-  <script src="js/animations.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/opportunities-data.js"></script>
-  <script src="js/opportunities.js"></script>
+  <script src="js/animations.js?v=10"></script>
+  <script src="js/main.js?v=10"></script>
+  <script src="js/opportunities-data.js?v=10"></script>
+  <script src="js/opportunities.js?v=10"></script>
 </body>
 </html>

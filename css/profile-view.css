@@ -454,6 +454,76 @@
   margin-top: 0.25rem;
 }
 
+/* --- Card Destaque: Meu Currículo Digital dentro do Perfil --- */
+.profile-cv-highlight-card {
+  background: linear-gradient(135deg, rgba(91, 33, 182, 0.04) 0%, rgba(225, 29, 116, 0.06) 100%), var(--color-bg-card);
+  border: 1.5px solid var(--color-purple-200);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(91, 33, 182, 0.08);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.profile-cv-highlight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(91, 33, 182, 0.14);
+  border-color: var(--color-purple-300);
+}
+
+.cv-highlight-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.cv-highlight-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 1.35rem;
+  box-shadow: 0 4px 10px rgba(91, 33, 182, 0.25);
+  flex-shrink: 0;
+}
+
+.cv-highlight-title-group h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-purple-900);
+  margin-bottom: 0.15rem;
+}
+
+.cv-highlight-title-group span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-purple-600);
+  background: var(--color-purple-50);
+  padding: 0.1rem 0.5rem;
+  border-radius: var(--radius-full);
+  display: inline-block;
+}
+
+.cv-highlight-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+
+.cv-highlight-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 /* --- 4. Responsividade do Perfil --- */
 @media (max-width: 860px) {
   .profile-hero-main {

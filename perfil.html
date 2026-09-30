@@ -12,13 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/profile-view.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/variables.css?v=10">
+  <link rel="stylesheet" href="css/base.css?v=10">
+  <link rel="stylesheet" href="css/components.css?v=10">
+  <link rel="stylesheet" href="css/layout.css?v=10">
+  <link rel="stylesheet" href="css/profile-view.css?v=10">
+  <link rel="stylesheet" href="css/animations.css?v=10">
+  <link rel="stylesheet" href="css/responsive.css?v=10">
   <script>
     (function() {
       const savedTheme = localStorage.getItem('afesu_theme') || 'light';
@@ -47,30 +47,24 @@
       </a>
 
       <!-- Menu de Navegação da Aluna -->
-      <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
-        <a href="index.html" class="nav-link">Início</a>
-        <a href="oportunidades.html" class="nav-link">Oportunidades</a>
-        <a href="oportunidades.html?cat=CURSO" class="nav-link">Cursos</a>
-        <a href="perfil.html" class="nav-link active">Meu Perfil</a>
-        <a href="curriculo.html" class="nav-link">Meu Currículo</a>
-        <a href="oportunidades.html?view=candidaturas" class="nav-link">Minhas Candidaturas</a>
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação da Aluna">
+        <a href="perfil.html" class="nav-link active">👤 Meu Perfil</a>
+        <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+        <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link">📋 Candidaturas</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="curriculo.html" class="btn btn-outline btn-sm">📄 Ver Currículo</a>
-          <a href="criar-perfil.html" class="btn btn-primary btn-sm">✏️ Editar Perfil</a>
-          <a href="patrocinador.html" class="btn btn-secondary btn-sm">🏢 Área Patrocinador</a>
-          <a href="login.html" class="btn btn-outline btn-sm">🔐 Acessar / Sair</a>
+          <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
+          <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+          <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link">📋 Candidaturas</a>
+          <a href="curriculo.html" class="nav-link">📄 Currículo Digital</a>
         </div>
       </nav>
 
       <!-- Botões de Ação do Header -->
       <div class="header-actions">
-        <a href="curriculo.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderCV">
-          Ver Currículo
-        </a>
-        <a href="patrocinador.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSponsor">
-          Área Patrocinador
+        <a href="curriculo.html" class="btn btn-outline btn-sm nav-desktop-btn" title="Ver meu currículo">
+          📄 Meu Currículo
         </a>
 
         <!-- Botão Toggle de Modo Escuro -->
@@ -132,11 +126,11 @@
 
             <!-- Botões de Ação do Perfil -->
             <div class="profile-actions-group">
-              <a href="criar-perfil.html" class="btn btn-primary" id="btnEditProfile">
-                <span>✏️ Editar perfil</span>
+              <a href="curriculo.html" class="btn btn-primary" id="btnOpenCvPage">
+                <span>📄 Visualizar Meu Currículo</span>
               </a>
-              <a href="curriculo.html" class="btn btn-outline" id="btnOpenCvPage">
-                <span>📄 Visualizar currículo</span>
+              <a href="criar-perfil.html" class="btn btn-outline" id="btnEditProfile">
+                <span>✏️ Editar Perfil</span>
               </a>
             </div>
           </div>
@@ -222,6 +216,28 @@
           <!-- Coluna Lateral (Direita) -->
           <div class="profile-side-col">
             
+            <!-- Card Destaque: Meu Currículo Digital -->
+            <div class="profile-cv-highlight-card">
+              <div class="cv-highlight-header">
+                <div class="cv-highlight-icon-box">📄</div>
+                <div class="cv-highlight-title-group">
+                  <h4>Currículo Digital</h4>
+                  <span>Selo Verificado AFESU</span>
+                </div>
+              </div>
+              <p class="cv-highlight-desc">
+                Seu currículo oficial padronizado com selo institucional de formação, pronto para envio e impressão em PDF.
+              </p>
+              <div class="cv-highlight-actions">
+                <a href="curriculo.html" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">
+                  <span>Visualizar Currículo Completo</span>
+                  <svg viewBox="0 0 20 20" fill="currentColor" style="width: 16px; height: 16px;">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
             <!-- Card: Habilidades -->
             <div class="profile-card">
               <div class="profile-card-header">
@@ -324,11 +340,11 @@
         <div class="footer-col">
           <h4 class="footer-heading">Navegação</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="oportunidades.html">Oportunidades</a></li>
-            <li><a href="oportunidades.html?cat=CURSO">Cursos</a></li>
-            <li><a href="index.html#como-funciona">Como funciona</a></li>
             <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#como-funciona">Como funciona</a></li>
+            <li><a href="index.html#parceiros">Conexão com parceiros</a></li>
+            <li><a href="criar-perfil.html">Área da Aluna</a></li>
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
           </ul>
         </div>
 
@@ -345,7 +361,7 @@
         <div class="footer-col">
           <h4 class="footer-heading">Para Empresas</h4>
           <ul class="footer-links-list">
-            <li><a href="patrocinador.html">Área do Patrocinador</a></li>
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
             <li><a href="patrocinador.html#minhasOportunidadesSection">Publicar Vaga</a></li>
             <li><a href="patrocinador.html#candidaturasSection">Banco de Talentos</a></li>
           </ul>
@@ -364,8 +380,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/animations.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/profile-view.js"></script>
+  <script src="js/animations.js?v=10"></script>
+  <script src="js/main.js?v=10"></script>
+  <script src="js/profile-view.js?v=10"></script>
 </body>
 </html>

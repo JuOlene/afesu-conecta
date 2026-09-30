@@ -12,13 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/profile-form.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/variables.css?v=10">
+  <link rel="stylesheet" href="css/base.css?v=10">
+  <link rel="stylesheet" href="css/components.css?v=10">
+  <link rel="stylesheet" href="css/layout.css?v=10">
+  <link rel="stylesheet" href="css/profile-form.css?v=10">
+  <link rel="stylesheet" href="css/animations.css?v=10">
+  <link rel="stylesheet" href="css/responsive.css?v=10">
   <script>
     (function() {
       const savedTheme = localStorage.getItem('afesu_theme') || 'light';
@@ -46,43 +46,22 @@
         </div>
       </a>
 
-      <!-- Menu de Navegação da Aluna -->
-      <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
-        <a href="index.html" class="nav-link">Início</a>
-        <a href="oportunidades.html" class="nav-link">Oportunidades</a>
-        <a href="oportunidades.html?cat=CURSO" class="nav-link">Cursos</a>
-        <a href="perfil.html" class="nav-link">Meu Perfil</a>
-        <a href="curriculo.html" class="nav-link">Meu Currículo</a>
-        <a href="oportunidades.html?view=candidaturas" class="nav-link">Minhas Candidaturas</a>
+      <!-- Menu de Navegação Oculto no Cadastro -->
+      <nav class="nav-menu" id="navMenu" style="display: none;"></nav>
 
-        <!-- Ações no Drawer Mobile -->
-        <div class="mobile-menu-actions">
-          <a href="perfil.html" class="btn btn-outline btn-sm">👤 Ver Meu Perfil</a>
-          <a href="patrocinador.html" class="btn btn-secondary btn-sm">🏢 Área Patrocinador</a>
-          <a href="login.html" class="btn btn-outline btn-sm">🔐 Acessar / Sair</a>
-        </div>
-      </nav>
-
-      <!-- Botões de Ação do Header -->
+      <!-- Botões de Ação do Header no Cadastro -->
       <div class="header-actions">
-        <a href="perfil.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderProfile">
-          Meu Perfil
+        <a href="login.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogin">
+          🔐 Já tenho conta / Login
         </a>
-        <a href="patrocinador.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSponsor">
-          Área Patrocinador
+        <a href="patrocinador.html" class="nav-portal-empresa nav-desktop-btn" id="btnHeaderSponsor">
+          🏢 Área da Empresa
         </a>
 
         <!-- Botão Toggle de Modo Escuro -->
         <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
           <span class="theme-icon-sun">☀️</span>
           <span class="theme-icon-moon">🌙</span>
-        </button>
-
-        <!-- Botão Hamburger Mobile -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
         </button>
       </div>
 
@@ -100,6 +79,14 @@
           <p class="onboarding-subtitle">
             Conte um pouco sobre você, sua formação, suas habilidades e seus objetivos. Seu perfil ajudará você a encontrar oportunidades que combinam com o seu caminho profissional.
           </p>
+
+          <!-- Opção de Fazer Login -->
+          <div class="onboarding-login-bar" style="margin-top: 1.25rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; background: var(--color-purple-50); border: 1px solid var(--color-purple-200); padding: 0.6rem 1.25rem; border-radius: var(--radius-full); font-size: 0.92rem; color: var(--color-purple-900);">
+            <span>Já possui uma conta ou perfil cadastrado?</span>
+            <a href="login.html" class="btn btn-primary btn-sm" style="padding: 0.35rem 0.9rem; font-size: 0.85rem; text-decoration: none;">
+              🔐 Fazer Login
+            </a>
+          </div>
         </div>
 
         <!-- Indicador de Progresso das Etapas -->
@@ -765,11 +752,11 @@
         <div class="footer-col">
           <h4 class="footer-heading">Navegação</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="oportunidades.html">Oportunidades</a></li>
-            <li><a href="oportunidades.html?cat=CURSO">Cursos</a></li>
-            <li><a href="index.html#como-funciona">Como funciona</a></li>
             <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#como-funciona">Como funciona</a></li>
+            <li><a href="index.html#parceiros">Conexão com parceiros</a></li>
+            <li><a href="criar-perfil.html">Área da Aluna</a></li>
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
           </ul>
         </div>
 
@@ -786,7 +773,7 @@
         <div class="footer-col">
           <h4 class="footer-heading">Para Empresas</h4>
           <ul class="footer-links-list">
-            <li><a href="patrocinador.html">Área do Patrocinador</a></li>
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
             <li><a href="patrocinador.html#minhasOportunidadesSection">Publicar Vaga</a></li>
             <li><a href="patrocinador.html#candidaturasSection">Banco de Talentos</a></li>
           </ul>
@@ -805,8 +792,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/animations.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/profile-form.js"></script>
+  <script src="js/animations.js?v=10"></script>
+  <script src="js/main.js?v=10"></script>
+  <script src="js/profile-form.js?v=10"></script>
 </body>
 </html>

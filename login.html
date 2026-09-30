@@ -12,12 +12,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/variables.css?v=10">
+  <link rel="stylesheet" href="css/base.css?v=10">
+  <link rel="stylesheet" href="css/components.css?v=10">
+  <link rel="stylesheet" href="css/layout.css?v=10">
+  <link rel="stylesheet" href="css/animations.css?v=10">
+  <link rel="stylesheet" href="css/responsive.css?v=10">
 
   <style>
     .login-section {
@@ -184,29 +184,28 @@
         </div>
       </a>
 
-      <!-- Menu de Navegação da Aluna -->
+      <!-- Menu de Navegação Principal -->
       <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
-        <a href="index.html" class="nav-link">Início</a>
-        <a href="oportunidades.html" class="nav-link">Oportunidades</a>
-        <a href="oportunidades.html?cat=CURSO" class="nav-link">Cursos</a>
-        <a href="perfil.html" class="nav-link">Meu Perfil</a>
-        <a href="curriculo.html" class="nav-link">Meu Currículo</a>
-        <a href="oportunidades.html?view=candidaturas" class="nav-link">Minhas Candidaturas</a>
+        <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
+        <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+        <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link">📋 Candidaturas</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="criar-perfil.html" class="btn btn-primary btn-sm">✨ Criar Perfil</a>
-          <a href="patrocinador.html" class="btn btn-secondary btn-sm">🏢 Área Patrocinador</a>
+          <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
+          <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+          <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link">📋 Candidaturas</a>
+          <a href="patrocinador.html" class="nav-portal-empresa" style="width: 100%; justify-content: center;">🏢 Área da Empresa</a>
         </div>
       </nav>
 
-      <!-- Botões de Ação do Header -->
+      <!-- Botões de Ação do Header (Acessos Principais) -->
       <div class="header-actions">
-        <a href="criar-perfil.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSignup">
-          Criar Perfil
+        <a href="patrocinador.html" class="nav-portal-empresa nav-desktop-btn" id="btnHeaderSponsor">
+          🏢 Área da Empresa
         </a>
 
-        <!-- Botão Toggle de Modo Escuro (Atrás de Criar Perfil) -->
+        <!-- Botão Toggle de Modo Escuro -->
         <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
           <span class="theme-icon-sun">☀️</span>
           <span class="theme-icon-moon">🌙</span>
@@ -229,20 +228,20 @@
         <div class="login-card-topbar"></div>
 
         <div class="login-header">
-          <div class="login-badge">Acesso à Plataforma</div>
-          <h1 class="login-title">Bem-vinda ao AFESU Conecta</h1>
-          <p class="login-subtitle">Escolha seu tipo de perfil para acessar sua área personalizada.</p>
+          <div class="login-badge">Área da Plataforma</div>
+          <h1 class="login-title">Acesso ao AFESU Conecta</h1>
+          <p class="login-subtitle">Escolha seu tipo de acesso para entrar na sua área personalizada.</p>
         </div>
 
         <!-- Seletor de Tipo de Usuário -->
         <div class="user-type-selector">
           <button type="button" class="user-type-btn active" id="btnTypeStudent">
             <span>👩‍🎓</span>
-            <span>Aluna</span>
+            <span>Aluna / Usuária</span>
           </button>
           <button type="button" class="user-type-btn" id="btnTypeSponsor">
             <span>🏢</span>
-            <span>Patrocinador</span>
+            <span>Empresa / Patrocinador</span>
           </button>
         </div>
 
@@ -281,7 +280,7 @@
             Não tem uma conta de aluna? <a href="criar-perfil.html">Criar meu perfil</a>
           </div>
           <div>
-            Empresa parceira ou patrocinador? <a href="patrocinador.html" id="linkGoSponsor">Acessar Área do Patrocinador</a>
+            Empresa parceira ou patrocinador? <a href="patrocinador.html" id="linkGoSponsor">Acessar Área da Empresa</a>
           </div>
         </div>
 
@@ -316,11 +315,11 @@
         <div class="footer-col">
           <h4 class="footer-heading">Navegação</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="oportunidades.html">Oportunidades</a></li>
-            <li><a href="oportunidades.html?cat=CURSO">Cursos</a></li>
-            <li><a href="index.html#como-funciona">Como funciona</a></li>
             <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#como-funciona">Como funciona</a></li>
+            <li><a href="index.html#parceiros">Conexão com parceiros</a></li>
+            <li><a href="criar-perfil.html">Área da Aluna</a></li>
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
           </ul>
         </div>
 
@@ -337,7 +336,7 @@
         <div class="footer-col">
           <h4 class="footer-heading">Para Empresas</h4>
           <ul class="footer-links-list">
-            <li><a href="patrocinador.html">Área do Patrocinador</a></li>
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
             <li><a href="patrocinador.html#minhasOportunidadesSection">Publicar Vaga</a></li>
             <li><a href="patrocinador.html#candidaturasSection">Banco de Talentos</a></li>
           </ul>
@@ -356,8 +355,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/animations.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/animations.js?v=10"></script>
+  <script src="js/main.js?v=10"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);

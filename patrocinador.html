@@ -12,15 +12,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/profile-view.css">
-  <link rel="stylesheet" href="css/curriculo.css">
-  <link rel="stylesheet" href="css/patrocinador.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/variables.css?v=10">
+  <link rel="stylesheet" href="css/base.css?v=10">
+  <link rel="stylesheet" href="css/components.css?v=10">
+  <link rel="stylesheet" href="css/layout.css?v=10">
+  <link rel="stylesheet" href="css/profile-view.css?v=10">
+  <link rel="stylesheet" href="css/curriculo.css?v=10">
+  <link rel="stylesheet" href="css/patrocinador.css?v=10">
+  <link rel="stylesheet" href="css/animations.css?v=10">
+  <link rel="stylesheet" href="css/responsive.css?v=10">
   <script>
     (function() {
       const savedTheme = localStorage.getItem('afesu_theme') || 'light';
@@ -47,18 +47,22 @@
 
       <!-- Menu de Navegação do Patrocinador -->
       <nav class="nav-menu" id="navMenu" aria-label="Navegação do Patrocinador">
-        <a href="#sponsorDashboardWrap" class="nav-link active">Dashboard</a>
+        <a href="#sponsorDashboardWrap" class="nav-link active">Geral</a>
         <a href="#minhasOportunidadesSection" class="nav-link">Minhas Oportunidades</a>
         <a href="#candidaturasSection" class="nav-link">Candidaturas e Talentos</a>
         <a href="javascript:void(0)" class="nav-link" onclick="document.getElementById('btnOpenPubModal').click()">+ Publicar Vaga</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
+          <a href="#sponsorDashboardWrap" class="nav-link">📊 Geral</a>
+          <a href="#minhasOportunidadesSection" class="nav-link">💼 Minhas Oportunidades</a>
+          <a href="#candidaturasSection" class="nav-link">👥 Candidaturas e Talentos</a>
           <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('btnOpenPubModal').click()">
             ✨ + Publicar Oportunidade
           </button>
-          <a href="index.html" class="btn btn-outline btn-sm">👩‍🎓 Portal da Aluna</a>
-          <a href="login.html" class="btn btn-outline btn-sm">🔐 Acessar / Trocar Perfil</a>
+          <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" id="btnDrawerSponsorLogout" style="color: var(--color-pink-600); border-color: var(--color-pink-200);">
+            🚪 Sair do Painel
+          </button>
         </div>
       </nav>
 
@@ -67,9 +71,9 @@
         <button type="button" class="btn btn-primary btn-sm nav-desktop-btn" id="btnOpenPubModal">
           <span>+ Publicar Vaga</span>
         </button>
-        <a href="index.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderPortalAluna" title="Voltar ao portal da aluna">
-          Portal Aluna
-        </a>
+        <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderSponsorLogout" title="Sair do painel corporativo" style="color: var(--color-pink-600); border-color: var(--color-pink-200);">
+          🚪 Sair
+        </button>
 
         <!-- Botão Toggle de Modo Escuro -->
         <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
@@ -130,6 +134,63 @@
         </div>
 
         <!-- ====================================================================
+             2.1. SESSÃO DE LOGIN EXCLUSIVA PARA EMPRESAS PARCEIRAS
+             ==================================================================== -->
+        <div class="sponsor-login-section" id="sponsorLoginSection">
+          <div class="sponsor-login-card">
+            
+            <div class="sponsor-login-info">
+              <span class="section-tag purple" style="margin-bottom: 0.75rem;">Acesso Corporativo</span>
+              <h2>Login da Empresa Parceira</h2>
+              <p>
+                Acesse o ambiente exclusivo para parceiros e patrocinadores da AFESU para encontrar perfis de alunas, gerenciar candidaturas e divulgar oportunidades de emprego, estágio e cursos.
+              </p>
+              
+              <div class="sponsor-login-features">
+                <div class="sponsor-login-feat-item">
+                  <span class="sponsor-login-feat-icon">👩‍🎓</span>
+                  <span>Busca avançada e filtros no Banco de Talentos das alunas</span>
+                </div>
+                <div class="sponsor-login-feat-item">
+                  <span class="sponsor-login-feat-icon">📄</span>
+                  <span>Visualização de currículos digitais com competências técnicas e humanas</span>
+                </div>
+                <div class="sponsor-login-feat-item">
+                  <span class="sponsor-login-feat-icon">💼</span>
+                  <span>Publicação e controle de vagas e capacitações corporativas</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sponsor-login-form-wrap">
+              <h3>Entrar no Painel do Parceiro</h3>
+              <form id="formSponsorLogin">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label class="form-label" for="sponsorEmail">E-mail Corporativo <span class="required-star">*</span></label>
+                  <input type="email" id="sponsorEmail" class="form-control" placeholder="contato@empresa-parceira.com.br" value="contato@empresa-parceira.com.br" required>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                  <label class="form-label" for="sponsorPassword">Senha de Acesso <span class="required-star">*</span></label>
+                  <input type="password" id="sponsorPassword" class="form-control" placeholder="••••••••" value="123456" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" id="btnSubmitSponsorLogin" style="width: 100%;">
+                  <span>Acessar Banco de Talentos</span>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                </button>
+
+                <div class="login-demo-notice" style="margin-top: 1rem; padding: 0.6rem 0.8rem; font-size: 0.8rem;">
+                  <span>💡</span>
+                  <div><strong>Modo Demonstração:</strong> Credenciais pré-configuradas para teste imediato.</div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ====================================================================
              3. PAINEL / DASHBOARD DO PATROCINADOR
              ==================================================================== -->
         <div class="sponsor-dashboard-wrap" id="sponsorDashboardWrap">
@@ -137,8 +198,11 @@
           <!-- Cabeçalho do Dashboard -->
           <div class="sponsor-dash-header">
             <div class="sponsor-dash-greeting">
-              <h2>Olá, Empresa Parceira!</h2>
-              <p>Acompanhe suas vagas, avalie candidatas qualificadas e impulsione novas carreiras.</p>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem; flex-wrap: wrap;">
+                <h2 id="sponsorGreetingTitle" style="margin-bottom: 0;">Olá, Empresa Parceira!</h2>
+                <span class="sponsor-session-badge"><span class="dot"></span> Sessão Ativa</span>
+              </div>
+              <p id="sponsorGreetingSub">Acompanhe suas vagas, avalie candidatas qualificadas e impulsione novas carreiras.</p>
             </div>
             <div class="sponsor-dash-actions">
               <a href="oportunidades.html" class="btn btn-outline">
@@ -146,6 +210,9 @@
               </a>
               <button type="button" class="btn btn-primary" onclick="document.getElementById('btnOpenPubModal').click()">
                 <span>+ Publicar oportunidade</span>
+              </button>
+              <button type="button" class="btn btn-outline btn-sm" id="btnSponsorLogout" style="color: var(--color-pink-600); border-color: var(--color-pink-200);" title="Encerrar sessão de parceiro">
+                <span>🚪 Sair</span>
               </button>
             </div>
           </div>
@@ -509,11 +576,11 @@
         <div class="footer-col">
           <h4 class="footer-heading">Navegação</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="oportunidades.html">Oportunidades</a></li>
-            <li><a href="oportunidades.html?cat=CURSO">Cursos</a></li>
-            <li><a href="index.html#como-funciona">Como funciona</a></li>
             <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#como-funciona">Como funciona</a></li>
+            <li><a href="index.html#parceiros">Conexão com parceiros</a></li>
+            <li><a href="criar-perfil.html">Área da Aluna</a></li>
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
           </ul>
         </div>
 
@@ -530,7 +597,7 @@
         <div class="footer-col">
           <h4 class="footer-heading">Para Empresas</h4>
           <ul class="footer-links-list">
-            <li><a href="patrocinador.html">Área do Patrocinador</a></li>
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
             <li><a href="#minhasOportunidadesSection">Publicar Vaga</a></li>
             <li><a href="#candidaturasSection">Banco de Talentos</a></li>
           </ul>
@@ -549,8 +616,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/animations.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/patrocinador.js"></script>
+  <script src="js/animations.js?v=10"></script>
+  <script src="js/main.js?v=10"></script>
+  <script src="js/patrocinador.js?v=10"></script>
 </body>
 </html>

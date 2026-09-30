@@ -12,14 +12,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/profile-view.css">
-  <link rel="stylesheet" href="css/curriculo.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/variables.css?v=10">
+  <link rel="stylesheet" href="css/base.css?v=10">
+  <link rel="stylesheet" href="css/components.css?v=10">
+  <link rel="stylesheet" href="css/layout.css?v=10">
+  <link rel="stylesheet" href="css/profile-view.css?v=10">
+  <link rel="stylesheet" href="css/curriculo.css?v=10">
+  <link rel="stylesheet" href="css/animations.css?v=10">
+  <link rel="stylesheet" href="css/responsive.css?v=10">
   <script>
     (function() {
       const savedTheme = localStorage.getItem('afesu_theme') || 'light';
@@ -45,29 +45,24 @@
       </a>
 
       <!-- Menu de Navegação da Aluna -->
-      <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
-        <a href="index.html" class="nav-link">Início</a>
-        <a href="oportunidades.html" class="nav-link">Oportunidades</a>
-        <a href="oportunidades.html?cat=CURSO" class="nav-link">Cursos</a>
-        <a href="perfil.html" class="nav-link">Meu Perfil</a>
-        <a href="curriculo.html" class="nav-link active">Meu Currículo</a>
-        <a href="oportunidades.html?view=candidaturas" class="nav-link">Minhas Candidaturas</a>
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação da Aluna">
+        <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
+        <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+        <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link">📋 Candidaturas</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="perfil.html" class="btn btn-outline btn-sm">👤 Ver Meu Perfil</a>
-          <a href="criar-perfil.html" class="btn btn-primary btn-sm">✏️ Editar Perfil</a>
-          <a href="patrocinador.html" class="btn btn-secondary btn-sm">🏢 Área Patrocinador</a>
+          <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
+          <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+          <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link">📋 Candidaturas</a>
+          <a href="curriculo.html" class="nav-link active">📄 Meu Currículo</a>
         </div>
       </nav>
 
       <!-- Botões de Ação do Header -->
       <div class="header-actions">
-        <a href="perfil.html" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderProfile">
-          Meu Perfil
-        </a>
-        <a href="patrocinador.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSponsor">
-          Área Patrocinador
+        <a href="perfil.html" class="btn btn-outline btn-sm nav-desktop-btn" title="Voltar ao Perfil">
+          👤 Voltar ao Perfil
         </a>
 
         <!-- Botão Toggle de Modo Escuro -->
@@ -430,11 +425,11 @@
         <div class="footer-col">
           <h4 class="footer-heading">Navegação</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="oportunidades.html">Oportunidades</a></li>
-            <li><a href="oportunidades.html?cat=CURSO">Cursos</a></li>
-            <li><a href="index.html#como-funciona">Como funciona</a></li>
             <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#como-funciona">Como funciona</a></li>
+            <li><a href="index.html#parceiros">Conexão com parceiros</a></li>
+            <li><a href="criar-perfil.html">Área da Aluna</a></li>
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
           </ul>
         </div>
 
@@ -451,7 +446,7 @@
         <div class="footer-col">
           <h4 class="footer-heading">Para Empresas</h4>
           <ul class="footer-links-list">
-            <li><a href="patrocinador.html">Área do Patrocinador</a></li>
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
             <li><a href="patrocinador.html#minhasOportunidadesSection">Publicar Vaga</a></li>
             <li><a href="patrocinador.html#candidaturasSection">Banco de Talentos</a></li>
           </ul>
@@ -470,8 +465,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/animations.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/curriculo.js"></script>
+  <script src="js/animations.js?v=10"></script>
+  <script src="js/main.js?v=10"></script>
+  <script src="js/curriculo.js?v=10"></script>
 </body>
 </html>

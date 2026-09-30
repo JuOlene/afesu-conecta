@@ -134,6 +134,121 @@
 }
 
 /* ==========================================================================
+   1.1. SESSÃO DE LOGIN EXCLUSIVA DO PARCEIRO
+   ========================================================================== */
+.sponsor-login-section {
+  margin-bottom: 2.5rem;
+}
+
+.sponsor-login-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-2xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--color-purple-600), var(--color-pink-500), var(--color-orange-500));
+}
+
+.sponsor-login-info h2 {
+  font-family: var(--font-family-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-purple-900);
+  margin-bottom: 0.75rem;
+}
+
+.sponsor-login-info p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.sponsor-login-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sponsor-login-feat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.sponsor-login-feat-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-purple-50);
+  color: var(--color-purple-600);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.sponsor-login-form-wrap {
+  background: var(--color-bg-main);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+}
+
+.sponsor-login-form-wrap h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 1rem;
+}
+
+.sponsor-session-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-purple-50);
+  border: 1px solid var(--color-purple-200);
+  color: var(--color-purple-700);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.sponsor-session-badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+}
+
+@media (max-width: 900px) {
+  .sponsor-login-card {
+    grid-template-columns: 1fr;
+    padding: 1.75rem;
+  }
+}
+
+/* ==========================================================================
    2. DASHBOARD DO PATROCINADOR
    ========================================================================== */
 .sponsor-dashboard-wrap {

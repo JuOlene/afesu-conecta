@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Padronizar objetos customizados para serem compatíveis
     const normalizedCustom = custom.map(c => ({
       id: c.id,
-      category: c.category || (c.type === 'Curso' ? 'CURSO' : (c.type === 'Estágio' ? 'ESTAGIO' : 'EMPREGO')),
+      category: c.category === 'ESTAGIO' ? 'ESTÁGIO' : (c.category || (c.type === 'Curso' ? 'CURSO' : (c.type === 'Estágio' ? 'ESTÁGIO' : 'EMPREGO'))),
       type: c.type,
       title: c.title,
       company: c.company,

@@ -772,16 +772,124 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- 8. BOTÕES DE ENTRADA HERO ---
+  // --- 8. GERENCIAMENTO DE LOGIN & SESSÃO DO PARCEIRO ---
+  const sponsorLoginSection = document.getElementById('sponsorLoginSection');
+  const formSponsorLogin = document.getElementById('formSponsorLogin');
+  const sponsorEmail = document.getElementById('sponsorEmail');
+  const btnSubmitSponsorLogin = document.getElementById('btnSubmitSponsorLogin');
+  const btnSponsorLogout = document.getElementById('btnSponsorLogout');
+  const sponsorDashboardWrap = document.getElementById('sponsorDashboardWrap');
   const btnEnterSponsor = document.getElementById('btnEnterSponsor');
   const btnLearnSponsor = document.getElementById('btnLearnSponsor');
-  const sponsorHeroSection = document.getElementById('sponsorHeroSection');
-  const sponsorDashboardWrap = document.getElementById('sponsorDashboardWrap');
+  const sponsorGreetingTitle = document.getElementById('sponsorGreetingTitle');
 
+  const checkPartnerAuth = () => {
+    try {
+      const auth = localStorage.getItem('afesu_auth_user');
+      if (auth) {
+        const parsed = JSON.parse(auth);
+        return parsed && parsed.role === 'sponsor' ? parsed : null;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return null;
+  };
+
+  const updatePartnerAuthState = (isInitial = false) => {
+    const partnerUser = checkPartnerAuth();
+
+    if (partnerUser) {
+      // Parceiro autenticado
+      if (sponsorLoginSection) sponsorLoginSection.style.display = 'none';
+      if (sponsorDashboardWrap) sponsorDashboardWrap.style.display = 'flex';
+      if (sponsorGreetingTitle) {
+        sponsorGreetingTitle.textContent = `Olá, ${partnerUser.name || 'Empresa Parceira'}!`;
+      }
+      if (btnEnterSponsor) {
+        btnEnterSponsor.innerHTML = `
+          <span>Acessar Banco de Talentos</span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+        `;
+      }
+    } else {
+      // Parceiro não autenticado - exibe sessão de login
+      if (sponsorLoginSection) sponsorLoginSection.style.display = 'block';
+      if (sponsorDashboardWrap) sponsorDashboardWrap.style.display = 'none';
+      if (btnEnterSponsor) {
+        btnEnterSponsor.innerHTML = `
+          <span>Fazer Login como Parceiro</span>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+        `;
+      }
+    }
+  };
+
+  // Submissão do Formulário de Login do Parceiro
+  if (formSponsorLogin) {
+    formSponsorLogin.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (btnSubmitSponsorLogin) {
+        btnSubmitSponsorLogin.innerHTML = '<span>Entrando...</span>';
+        btnSubmitSponsorLogin.style.opacity = '0.8';
+      }
+
+      const emailVal = sponsorEmail ? sponsorEmail.value.trim() : 'contato@empresa-parceira.com.br';
+      const userObj = {
+        role: 'sponsor',
+        name: 'Empresa Parceira AFESU',
+        email: emailVal,
+        loginTime: new Date().toISOString()
+      };
+
+      try {
+        localStorage.setItem('afesu_auth_user', JSON.stringify(userObj));
+      } catch (err) {
+        console.error('Erro ao salvar sessão de parceiro:', err);
+      }
+
+      setTimeout(() => {
+        if (btnSubmitSponsorLogin) {
+          btnSubmitSponsorLogin.innerHTML = `
+            <span>Acessar Banco de Talentos</span>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+          `;
+          btnSubmitSponsorLogin.style.opacity = '1';
+        }
+        updatePartnerAuthState();
+        if (sponsorDashboardWrap) {
+          sponsorDashboardWrap.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 400);
+    });
+  }
+
+  // Logout do Parceiro
+  if (btnSponsorLogout) {
+    btnSponsorLogout.addEventListener('click', () => {
+      if (confirm('Deseja encerrar a sessão de empresa parceira?')) {
+        localStorage.removeItem('afesu_auth_user');
+        updatePartnerAuthState();
+        if (sponsorLoginSection) {
+          sponsorLoginSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  }
+
+  // Botões de Entrada Hero
   if (btnEnterSponsor) {
     btnEnterSponsor.addEventListener('click', () => {
-      if (sponsorDashboardWrap) {
-        sponsorDashboardWrap.scrollIntoView({ behavior: 'smooth' });
+      const partnerUser = checkPartnerAuth();
+      if (partnerUser) {
+        if (sponsorDashboardWrap) {
+          sponsorDashboardWrap.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        if (sponsorLoginSection) {
+          sponsorLoginSection.scrollIntoView({ behavior: 'smooth' });
+          if (sponsorEmail) sponsorEmail.focus();
+        }
       }
     });
   }
@@ -793,6 +901,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Inicialização
+  updatePartnerAuthState(true);
   renderSponsorOpps();
   filterAndRenderCandidates();
 });
