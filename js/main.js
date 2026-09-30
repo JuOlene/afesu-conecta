@@ -132,12 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="perfil.html" class="nav-link ${currentPath === 'perfil.html' ? 'active' : ''}">👤 Meu Perfil</a>
         <a href="curriculo.html" class="nav-link ${currentPath === 'curriculo.html' ? 'active' : ''}">📄 Currículo</a>
         <a href="oportunidades.html" class="nav-link ${currentPath === 'oportunidades.html' ? 'active' : ''}">💼 Oportunidades</a>
+        <a href="candidaturas.html" class="nav-link ${currentPath === 'candidaturas.html' ? 'active' : ''}">📋 Minhas Candidaturas</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
           <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
           <a href="curriculo.html" class="nav-link">📄 Currículo Digital</a>
           <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+          <a href="candidaturas.html" class="nav-link">📋 Minhas Candidaturas</a>
           <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200); margin-top: 0.5rem;">🚪 Sair da Conta</button>
         </div>
       `;

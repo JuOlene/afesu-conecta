@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Candidaturas — AFESU Conecta</title>
+  <meta name="description" content="Acompanhe o status e histórico de todas as suas candidaturas a vagas de emprego, estágios e cursos na AFESU.">
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/variables.css?v=11">
+  <link rel="stylesheet" href="css/base.css?v=11">
+  <link rel="stylesheet" href="css/components.css?v=11">
+  <link rel="stylesheet" href="css/layout.css?v=11">
+  <link rel="stylesheet" href="css/opportunities.css?v=11">
+  <link rel="stylesheet" href="css/animations.css?v=11">
+  <link rel="stylesheet" href="css/responsive.css?v=11">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('afesu_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+  <style>
+    .candidaturas-hero-section {
+      background: var(--gradient-hero-bg), var(--color-bg-main);
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--color-border-subtle);
+      text-align: center;
+    }
+    .candidaturas-header-title {
+      font-family: var(--font-family-display);
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--color-text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .candidaturas-header-subtitle {
+      font-size: 1.05rem;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .candidaturas-stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      box-shadow: var(--shadow-xs);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .candidaturas-list-section {
+      padding: 3rem 0;
+      min-height: 50vh;
+    }
+    .candidatura-card-item {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      transition: all var(--transition-normal);
+    }
+    .candidatura-card-item:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-purple-200);
+      transform: translateY(-2px);
+    }
+    .candidatura-status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .status-em-analise {
+      background: var(--color-yellow-50);
+      color: var(--color-yellow-700);
+      border: 1px solid var(--color-yellow-200);
+    }
+    .status-aprovada {
+      background: var(--color-green-50);
+      color: #047857;
+      border: 1px solid #A7F3D0;
+    }
+    @media (max-width: 768px) {
+      .candidatura-card-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. HEADER / NAVBAR SUPERIOR
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      
+      <!-- Logotipo Oficial AFESU CONECTA -->
+      <a href="index.html" class="brand-logo" aria-label="AFESU Conecta — Início">
+        <img src="assets/images/logo.png" alt="AFESU Conecta Logo" class="brand-icon-img" style="width: 42px; height: 42px; object-fit: contain;">
+        <div class="brand-logo-text">
+          <span class="brand-name">AFESU</span>
+          <span class="brand-tagline">CONECTA</span>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação da Aluna -->
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação da Aluna">
+        <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
+        <a href="curriculo.html" class="nav-link">📄 Currículo</a>
+        <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+        <a href="candidaturas.html" class="nav-link active">📋 Minhas Candidaturas</a>
+
+        <!-- Ações no Drawer Mobile -->
+        <div class="mobile-menu-actions">
+          <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
+          <a href="curriculo.html" class="nav-link">📄 Currículo Digital</a>
+          <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+          <a href="candidaturas.html" class="nav-link active">📋 Minhas Candidaturas</a>
+        </div>
+      </nav>
+
+      <!-- Botões de Ação do Header -->
+      <div class="header-actions">
+        <a href="perfil.html" class="btn btn-secondary btn-sm nav-desktop-btn" title="Acessar meu perfil">
+          👤 Meu Perfil
+        </a>
+
+        <!-- Botão Toggle de Modo Escuro -->
+        <button type="button" class="btn-theme-toggle" id="btnThemeToggle" aria-label="Alternar modo escuro" title="Alternar tema claro/escuro">
+          <span class="theme-icon-sun">☀️</span>
+          <span class="theme-icon-moon">🌙</span>
+        </button>
+
+        <!-- Botão Hamburger Mobile -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- Topo da Página -->
+    <section class="candidaturas-hero-section">
+      <div class="container">
+        <span class="section-tag purple">Área da Aluna</span>
+        <h1 class="candidaturas-header-title">Minhas Candidaturas</h1>
+        <p class="candidaturas-header-subtitle">
+          Acompanhe aqui o andamento e retorno das oportunidades e cursos aos quais você se candidatou.
+        </p>
+
+        <div class="candidaturas-stats-bar">
+          <div class="stat-pill">
+            <span>📋 Total de Inscrições:</span>
+            <strong id="totalAppsCount">0</strong>
+          </div>
+          <div class="stat-pill">
+            <span>⏳ Em Análise:</span>
+            <strong id="pendingAppsCount">0</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de Candidaturas -->
+    <section class="candidaturas-list-section">
+      <div class="container">
+        <div id="candidaturasListContainer">
+          <!-- Renderizado via JavaScript -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Padronizado AFESU CONECTA -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col-main">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <img src="assets/images/logo.png" alt="AFESU Conecta Logo" style="width: 42px; height: 42px; object-fit: contain;">
+            <div class="brand-logo-text">
+              <span class="brand-name">AFESU</span>
+              <span class="brand-tagline">CONECTA</span>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            Conectando talentos, oportunidades e novos caminhos para transformar futuros através da educação e empregabilidade.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Para Alunas</h4>
+          <ul class="footer-links-list">
+            <li><a href="perfil.html">Meu Perfil</a></li>
+            <li><a href="curriculo.html">Currículo Digital</a></li>
+            <li><a href="oportunidades.html">Mural de Vagas</a></li>
+            <li><a href="candidaturas.html">Minhas Candidaturas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Para Empresas</h4>
+          <ul class="footer-links-list">
+            <li><a href="patrocinador.html">Área da Empresa</a></li>
+            <li><a href="patrocinador.html#minhasOportunidadesSection">Publicar Vaga</a></li>
+            <li><a href="patrocinador.html#candidaturasSection">Banco de Talentos</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AFESU Conecta. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/opportunities-data.js?v=11"></script>
+  <script src="js/animations.js?v=11"></script>
+  <script src="js/main.js?v=11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('candidaturasListContainer');
+      const totalCountEl = document.getElementById('totalAppsCount');
+      const pendingCountEl = document.getElementById('pendingAppsCount');
+
+      let savedApps = [];
+      try {
+        const stored = localStorage.getItem('afesu_applications');
+        if (stored) {
+          savedApps = JSON.parse(stored);
+        } else {
+          // Candidaturas demonstrativas padrão
+          savedApps = [
+            {
+              id: 'opp-1',
+              title: 'Assistente Administrativo Júnior',
+              company: 'Empresa Parceira AFESU',
+              type: 'Emprego',
+              location: 'São Paulo, SP (Híbrido)',
+              appliedAt: '2026-09-24',
+              status: 'Em Análise'
+            },
+            {
+              id: 'opp-3',
+              title: 'Estágio em TI & Desenvolvimento Web',
+              company: 'Tech Solutions Brasil',
+              type: 'Estágio',
+              location: 'São Paulo, SP (Remoto)',
+              appliedAt: '2026-09-26',
+              status: 'Currículo Visualizado'
+            }
+          ];
+          localStorage.setItem('afesu_applications', JSON.stringify(savedApps));
+        }
+      } catch (e) {
+        savedApps = [];
+      }
+
+      totalCountEl.textContent = savedApps.length;
+      pendingCountEl.textContent = savedApps.length;
+
+      if (savedApps.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 4rem 1.5rem; background: var(--color-bg-card); border-radius: var(--radius-2xl); border: 1px dashed var(--color-border-subtle);">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">📋</div>
+            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-text-primary);">Nenhuma candidatura ativa</h3>
+            <p style="color: var(--color-text-secondary); max-width: 480px; margin: 0 auto 1.5rem;">
+              Você ainda não se candidatou a nenhuma vaga. Acesse o Mural de Oportunidades para encontrar vagas e cursos compatíveis com o seu perfil.
+            </p>
+            <a href="oportunidades.html" class="btn btn-primary btn-lg">
+              💼 Ver Oportunidades Disponíveis
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = savedApps.map(app => `
+        <div class="candidatura-card-item">
+          <div>
+            <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem;">
+              <span class="sponsor-opp-type-badge ${app.type === 'Estágio' ? 'badge-estagio' : (app.type === 'Curso' ? 'badge-curso' : 'badge-emprego')}">${app.type || 'Vaga'}</span>
+              <span style="font-size: 0.8rem; color: var(--color-text-muted);">Inscrição enviada em ${app.appliedAt || 'Recentemente'}</span>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.35rem;">${app.title}</h3>
+            <div style="font-size: 0.9rem; color: var(--color-text-secondary);">
+              🏢 <strong>${app.company}</strong> • 📍 ${app.location}
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <span class="candidatura-status-tag status-em-analise">
+              <span>⏳</span>
+              <span>${app.status || 'Em Análise pela Empresa'}</span>
+            </span>
+            <a href="oportunidades.html" class="btn btn-outline btn-sm">
+              Ver Vagas
+            </a>
+          </div>
+        </div>
+      `).join('');
+    });
+  </script>
+</body>
+</html>
