@@ -914,18 +914,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // 2. Atualizar pílulas e botões de navegação
-    document.querySelectorAll('.sponsor-tab-pill').forEach(btn => {
-      if (btn.getAttribute('data-tab-target') === targetTabId) {
-        btn.classList.add('active', 'btn-primary');
-        btn.classList.remove('btn-outline');
-      } else {
-        btn.classList.remove('active', 'btn-primary');
-        btn.classList.add('btn-outline');
-      }
-    });
-
-    // 3. Atualizar links do cabeçalho
+    // 2. Atualizar links do cabeçalho
     document.querySelectorAll('.sponsor-tab-link').forEach(link => {
       if (link.getAttribute('data-tab') === targetTabId) {
         link.classList.add('active');
@@ -934,14 +923,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   };
-
-  // Cliques nas abas da barra interna
-  document.querySelectorAll('.sponsor-tab-pill').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.getAttribute('data-tab-target');
-      if (target) switchSponsorTab(target);
-    });
-  });
 
   // Cliques nos links do cabeçalho
   document.querySelectorAll('.sponsor-tab-link').forEach(link => {
@@ -954,6 +935,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Vincular botão de abrir modal de publicação
+  const btnOpenPub = document.getElementById('btnOpenPubModal');
+  if (btnOpenPub && pubModal) {
+    btnOpenPub.addEventListener('click', () => {
+      if (formPublishOpp) formPublishOpp.reset();
+      const editingId = document.getElementById('pubEditingId');
+      if (editingId) editingId.value = '';
+      const pubTitle = document.getElementById('pubModalTitle');
+      if (pubTitle) pubTitle.textContent = '+ Publicar Nova Oportunidade';
+      if (courseExtraFields) courseExtraFields.classList.remove('active');
+      pubModal.classList.add('active');
+    });
+  }
 
   // Inicialização
   updatePartnerAuthState(true);
