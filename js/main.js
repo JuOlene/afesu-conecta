@@ -129,17 +129,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const studentFirstName = authUser.name ? authUser.name.split(' ')[0] : 'Minha Conta';
       navMenu.setAttribute('aria-label', 'Navegação da Aluna');
       navMenu.innerHTML = `
-        <a href="oportunidades.html" class="nav-link ${currentPath === 'oportunidades.html' && !isCandidaturas ? 'active' : ''}">💼 Oportunidades</a>
-        <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link ${isCandidaturas ? 'active' : ''}">📋 Candidaturas</a>
         <a href="perfil.html" class="nav-link ${currentPath === 'perfil.html' ? 'active' : ''}">👤 Meu Perfil</a>
         <a href="curriculo.html" class="nav-link ${currentPath === 'curriculo.html' ? 'active' : ''}">📄 Currículo</a>
+        <a href="oportunidades.html" class="nav-link ${currentPath === 'oportunidades.html' ? 'active' : ''}">💼 Oportunidades</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
-          <a href="oportunidades.html?cat=CANDIDATURAS" class="nav-link">📋 Minhas Candidaturas</a>
           <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
           <a href="curriculo.html" class="nav-link">📄 Currículo Digital</a>
+          <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
           <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200); margin-top: 0.5rem;">🚪 Sair da Conta</button>
         </div>
       `;
