@@ -227,90 +227,41 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.setAttribute('aria-label', 'Navegação Principal');
       navMenu.innerHTML = `
         <a href="${currentPath === 'index.html' ? '#sobre' : 'index.html#sobre'}" class="nav-link">
-          <span>ℹ️</span>
           <span>Sobre</span>
         </a>
         <a href="${currentPath === 'index.html' ? '#como-funciona' : 'index.html#como-funciona'}" class="nav-link">
-          <span>⚙️</span>
           <span>Como funciona</span>
         </a>
-        
-        <!-- Menu Suspenso de Oportunidades -->
-        <div class="nav-dropdown" id="oppNavDropdown">
-          <button type="button" class="nav-link nav-dropdown-toggle ${currentPath === 'oportunidades.html' ? 'active' : ''}" id="btnOppDropdown" aria-expanded="false" aria-haspopup="true">
-            <span>💼 Oportunidades</span>
-            <svg class="nav-dropdown-icon" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
-          </button>
-          <div class="nav-dropdown-menu" id="oppDropdownMenu">
-            <a href="oportunidades.html?cat=ALL" class="nav-dropdown-item" data-nav-cat="ALL">
-              <div class="nav-dropdown-item-icon icon-bg-all">✨</div>
-              <div class="nav-dropdown-item-info">
-                <span class="nav-dropdown-item-title">Todas as Oportunidades</span>
-                <span class="nav-dropdown-item-sub">Mural completo</span>
-              </div>
-            </a>
-            <a href="oportunidades.html?cat=EMPREGO" class="nav-dropdown-item" data-nav-cat="EMPREGO">
-              <div class="nav-dropdown-item-icon icon-bg-purple">💼</div>
-              <div class="nav-dropdown-item-info">
-                <span class="nav-dropdown-item-title">Vagas de Emprego</span>
-                <span class="nav-dropdown-item-sub">CLT e contratos formais</span>
-              </div>
-              <span class="nav-dropdown-tag">Vagas</span>
-            </a>
-            <a href="oportunidades.html?cat=ESTÁGIO" class="nav-dropdown-item" data-nav-cat="ESTÁGIO">
-              <div class="nav-dropdown-item-icon icon-bg-pink">🚀</div>
-              <div class="nav-dropdown-item-info">
-                <span class="nav-dropdown-item-title">Programas de Estágio</span>
-                <span class="nav-dropdown-item-sub">Início de carreira & mentoria</span>
-              </div>
-              <span class="nav-dropdown-tag" style="background: var(--color-pink-100); color: var(--color-pink-800);">Estágios</span>
-            </a>
-            <a href="oportunidades.html?cat=CURSO" class="nav-dropdown-item" data-nav-cat="CURSO">
-              <div class="nav-dropdown-item-icon icon-bg-orange">🎓</div>
-              <div class="nav-dropdown-item-info">
-                <span class="nav-dropdown-item-title">Cursos & Capacitações</span>
-                <span class="nav-dropdown-item-sub">Workshops com certificado</span>
-              </div>
-              <span class="nav-dropdown-tag" style="background: var(--color-orange-100); color: var(--color-orange-800);">Cursos</span>
-            </a>
-          </div>
-        </div>
-
         <a href="${currentPath === 'index.html' ? '#parceiros' : 'index.html#parceiros'}" class="nav-link">
-          <span>🤝</span>
           <span>Conexões com parceiros</span>
         </a>
 
         <!-- Ações e Acessos no Drawer Mobile -->
         <div class="mobile-menu-actions">
           <a href="criar-perfil.html" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center; margin-top: 0.25rem;">
-            ✨ Cadastro de Alunas
+            Cadastro de Alunas
           </a>
           <a href="patrocinador.html" class="nav-portal-empresa" style="width: 100%; justify-content: center;">
-            🏢 Área da Empresa
+            Área da Empresa
           </a>
         </div>
       `;
 
-
-
       headerActions.innerHTML = `
         ${isStudentLoggedIn ? `
           <a href="perfil.html" class="btn btn-secondary btn-sm nav-desktop-btn" title="Meu Perfil">
-            👤 ${authUser.name ? authUser.name.split(' ')[0] : 'Minha Conta'}
+            ${authUser.name ? authUser.name.split(' ')[0] : 'Minha Conta'}
           </a>
           <button type="button" class="btn btn-outline btn-sm nav-desktop-btn" id="btnHeaderLogout" title="Encerrar sessão">
-            🚪 Sair
+            Sair
           </button>
         ` : `
           <a href="criar-perfil.html" class="btn btn-primary btn-sm nav-desktop-btn" id="btnHeaderSignup">
-            ✨ Cadastro de Alunas
+            Cadastro de Alunas
           </a>
         `}
         <a href="patrocinador.html" class="nav-portal-empresa nav-desktop-btn" id="btnHeaderSponsor">
-          🏢 Área da Empresa
+          Área da Empresa
         </a>
 
         <!-- Botão Toggle de Modo Escuro -->
