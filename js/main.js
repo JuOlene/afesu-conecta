@@ -283,15 +283,14 @@ document.addEventListener('DOMContentLoaded', () => {
           <span>Conexões com parceiros</span>
         </a>
 
-        <!-- Ações no Drawer Mobile -->
+        <!-- Ações e Acessos no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          ${isStudentLoggedIn ? `
-            <a href="perfil.html" class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center;">👤 Meu Perfil</a>
-            <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200);">🚪 Sair da Conta</button>
-          ` : `
-            <a href="criar-perfil.html" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">✨ Cadastro de Alunas</a>
-          `}
-          <a href="patrocinador.html" class="nav-portal-empresa" style="width: 100%; justify-content: center;">🏢 Área da Empresa</a>
+          <a href="criar-perfil.html" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center; margin-top: 0.25rem;">
+            ✨ Cadastro de Alunas
+          </a>
+          <a href="patrocinador.html" class="nav-portal-empresa" style="width: 100%; justify-content: center;">
+            🏢 Área da Empresa
+          </a>
         </div>
       `;
 
