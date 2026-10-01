@@ -937,12 +937,82 @@
     grid-template-columns: 1fr;
   }
 
-  .candidates-filters-grid {
-    grid-template-columns: 1fr;
-  }
-
   .pub-modal-container,
   .cand-cv-modal-container {
     padding: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   SUPORTE A TEMA ESCURO (PAINEL CORPORATIVO & PATROCINADORES)
+   ========================================================================== */
+[data-theme="dark"] .sponsor-hero-card {
+  background: linear-gradient(135deg, #1E1338 0%, #161228 100%) !important;
+  border-color: var(--color-border-subtle) !important;
+}
+
+[data-theme="dark"] .sponsor-login-card,
+[data-theme="dark"] .sponsor-login-form-wrap,
+[data-theme="dark"] .kpi-card,
+[data-theme="dark"] .sponsor-opp-card,
+[data-theme="dark"] .candidate-card,
+[data-theme="dark"] .pub-modal-container,
+[data-theme="dark"] .cand-cv-modal-container,
+[data-theme="dark"] .sponsor-quick-stat-card {
+  background: var(--color-bg-card) !important;
+  border-color: var(--color-border-subtle) !important;
+}
+
+[data-theme="dark"] .sponsor-login-info h2,
+[data-theme="dark"] .sponsor-login-form-wrap h3,
+[data-theme="dark"] .cand-card-name,
+[data-theme="dark"] .sponsor-opp-title {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .sponsor-opp-desc,
+[data-theme="dark"] .cand-card-summary,
+[data-theme="dark"] .sponsor-login-info p {
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .candidates-search-bar {
+  background: var(--color-bg-card) !important;
+  border-color: var(--color-border-subtle) !important;
+}
+
+[data-theme="dark"] .sponsor-section-card,
+[data-theme="dark"] .sponsor-candidates-filterbar,
+[data-theme="dark"] .candidates-search-input,
+[data-theme="dark"] .candidate-filter-select,
+[data-theme="dark"] #formPublishOpp .form-control,
+[data-theme="dark"] .form-control {
+  background: var(--color-bg-card) !important;
+  border-color: var(--color-border-subtle) !important;
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .course-extra-fields {
+  background: rgba(249, 115, 22, 0.1) !important;
+  border-color: rgba(249, 115, 22, 0.3) !important;
+}
+
+[data-theme="dark"] .section-card-tag,
+[data-theme="dark"] .sponsor-badge-tag {
+  background: rgba(91, 33, 182, 0.3) !important;
+  color: var(--color-purple-300) !important;
+  border-color: rgba(91, 33, 182, 0.5) !important;
+}
+
+[data-theme="dark"] .btn-card-mini {
+  background: var(--color-bg-subtle) !important;
+  border-color: var(--color-border-subtle) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .btn-card-mini:hover {
+  background: var(--color-purple-900) !important;
+  color: #FFFFFF !important;
+}
+
+

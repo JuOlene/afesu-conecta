@@ -906,6 +906,73 @@ body.clean-view-active .clean-view-floating-bar {
 }
 
 /* ==========================================================================
+   SUPORTE A TEMA ESCURO (CURRÍCULO DIGITAL)
+   ========================================================================== */
+[data-theme="dark"] .cv-digital-sheet {
+  background: var(--color-bg-card) !important;
+  border-color: var(--color-border-subtle) !important;
+  box-shadow: 0 12px 36px -6px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .cv-header-area {
+  background: linear-gradient(180deg, #1F1A38 0%, #161228 100%) !important;
+  border-bottom-color: var(--color-border-subtle) !important;
+}
+
+[data-theme="dark"] .cv-candidate-name {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .cv-headline {
+  color: var(--color-purple-300) !important;
+}
+
+[data-theme="dark"] .cv-contact-item {
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .cv-section-title {
+  color: var(--color-purple-300) !important;
+  border-bottom-color: var(--color-border-subtle) !important;
+}
+
+[data-theme="dark"] .cv-objective-card,
+[data-theme="dark"] .cv-course-card,
+[data-theme="dark"] .cv-completeness-box,
+[data-theme="dark"] .cv-empty-hint {
+  background: var(--color-bg-subtle) !important;
+  border-color: var(--color-border-subtle) !important;
+}
+
+[data-theme="dark"] .cv-first-opp-banner {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+[data-theme="dark"] .cv-skill-tag {
+  background: var(--color-bg-subtle) !important;
+  border-color: var(--color-border-subtle) !important;
+  color: var(--color-purple-300) !important;
+}
+
+[data-theme="dark"] .cv-lang-item {
+  background: var(--color-bg-subtle) !important;
+  border-color: var(--color-border-subtle) !important;
+}
+
+[data-theme="dark"] .btn-toolbar-ghost {
+  background: var(--color-bg-card) !important;
+  border-color: var(--color-border-subtle) !important;
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .cv-action-modal {
+  background: var(--color-bg-card) !important;
+  border: 1px solid var(--color-border-subtle) !important;
+}
+
+
+/* ==========================================================================
    ESTILOS DE IMPRESSÃO PROFISSIONAL (@MEDIA PRINT)
    ========================================================================== */
 @media print {

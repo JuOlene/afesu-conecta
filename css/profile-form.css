@@ -793,3 +793,37 @@
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   SUPORTE A TEMA ESCURO (CRIAR PERFIL & ONBOARDING)
+   ========================================================================== */
+[data-theme="dark"] .steps-progress-card,
+[data-theme="dark"] .form-step-card,
+[data-theme="dark"] .dynamic-item-card,
+[data-theme="dark"] .completeness-gauge-card,
+[data-theme="dark"] .review-block-card,
+[data-theme="dark"] .success-modal-container {
+  background: var(--color-bg-card) !important;
+  border-color: var(--color-border-subtle) !important;
+}
+
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .form-textarea,
+[data-theme="dark"] .interest-checkbox-card {
+  background: var(--color-bg-main) !important;
+  border-color: var(--color-border-subtle) !important;
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .step-nav-btn {
+  background: var(--color-bg-subtle) !important;
+  border-color: var(--color-border-subtle) !important;
+  color: var(--color-text-muted) !important;
+}
+
+[data-theme="dark"] .step-nav-btn.active {
+  background: var(--gradient-primary) !important;
+  color: #FFFFFF !important;
+}
+

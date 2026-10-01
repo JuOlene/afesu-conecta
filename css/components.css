@@ -1277,5 +1277,28 @@ textarea.form-control {
 [data-theme="dark"] .chip,
 [data-theme="dark"] .opp-tag,
 [data-theme="dark"] .filter-chip {
-  border-color: #382F60;
+  background: var(--color-bg-subtle) !important;
+  border-color: #382F60 !important;
+  color: var(--color-text-secondary) !important;
 }
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .dropdown-menu {
+  background: var(--color-bg-card) !important;
+  border-color: var(--color-border-subtle) !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: var(--color-bg-card);
+  border-color: var(--color-border-subtle);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .empty-results-state {
+  background: var(--color-bg-card) !important;
+  border-color: var(--color-border-subtle) !important;
+}
+

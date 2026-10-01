@@ -139,14 +139,61 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.innerHTML = `
         <a href="perfil.html" class="nav-link ${currentPath === 'perfil.html' ? 'active' : ''}">👤 Meu Perfil</a>
         <a href="curriculo.html" class="nav-link ${currentPath === 'curriculo.html' ? 'active' : ''}">📄 Currículo</a>
-        <a href="oportunidades.html" class="nav-link ${currentPath === 'oportunidades.html' ? 'active' : ''}">💼 Oportunidades</a>
+        
+        <!-- Menu Suspenso de Oportunidades -->
+        <div class="nav-dropdown" id="oppNavDropdown">
+          <button type="button" class="nav-link nav-dropdown-toggle ${currentPath === 'oportunidades.html' ? 'active' : ''}" id="btnOppDropdown" aria-expanded="false" aria-haspopup="true">
+            <span>💼 Oportunidades</span>
+            <svg class="nav-dropdown-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu" id="oppDropdownMenu">
+            <a href="oportunidades.html?cat=ALL" class="nav-dropdown-item" data-nav-cat="ALL">
+              <div class="nav-dropdown-item-icon icon-bg-all">✨</div>
+              <div class="nav-dropdown-item-info">
+                <span class="nav-dropdown-item-title">Todas as Oportunidades</span>
+                <span class="nav-dropdown-item-sub">Mural completo</span>
+              </div>
+            </a>
+            <a href="oportunidades.html?cat=EMPREGO" class="nav-dropdown-item" data-nav-cat="EMPREGO">
+              <div class="nav-dropdown-item-icon icon-bg-purple">💼</div>
+              <div class="nav-dropdown-item-info">
+                <span class="nav-dropdown-item-title">Vagas de Emprego</span>
+                <span class="nav-dropdown-item-sub">CLT e contratos formais</span>
+              </div>
+              <span class="nav-dropdown-tag">Vagas</span>
+            </a>
+            <a href="oportunidades.html?cat=ESTÁGIO" class="nav-dropdown-item" data-nav-cat="ESTÁGIO">
+              <div class="nav-dropdown-item-icon icon-bg-pink">🚀</div>
+              <div class="nav-dropdown-item-info">
+                <span class="nav-dropdown-item-title">Programas de Estágio</span>
+                <span class="nav-dropdown-item-sub">Início de carreira & mentoria</span>
+              </div>
+              <span class="nav-dropdown-tag" style="background: var(--color-pink-100); color: var(--color-pink-800);">Estágios</span>
+            </a>
+            <a href="oportunidades.html?cat=CURSO" class="nav-dropdown-item" data-nav-cat="CURSO">
+              <div class="nav-dropdown-item-icon icon-bg-orange">🎓</div>
+              <div class="nav-dropdown-item-info">
+                <span class="nav-dropdown-item-title">Cursos & Capacitações</span>
+                <span class="nav-dropdown-item-sub">Workshops com certificado</span>
+              </div>
+              <span class="nav-dropdown-tag" style="background: var(--color-orange-100); color: var(--color-orange-800);">Cursos</span>
+            </a>
+          </div>
+        </div>
+
         <a href="candidaturas.html" class="nav-link ${currentPath === 'candidaturas.html' ? 'active' : ''}">📋 Minhas Candidaturas</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
           <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
           <a href="curriculo.html" class="nav-link">📄 Currículo Digital</a>
-          <a href="oportunidades.html" class="nav-link">💼 Oportunidades</a>
+          <div style="padding: 0.5rem 0.85rem; font-weight: 800; font-size: 0.8rem; color: var(--color-purple-800); text-transform: uppercase; letter-spacing: 0.05em;">💼 Oportunidades:</div>
+          <a href="oportunidades.html?cat=ALL" class="nav-link" style="padding-left: 1.5rem;">✨ Todas as Oportunidades</a>
+          <a href="oportunidades.html?cat=EMPREGO" class="nav-link" style="padding-left: 1.5rem;">💼 Vagas de Emprego</a>
+          <a href="oportunidades.html?cat=ESTÁGIO" class="nav-link" style="padding-left: 1.5rem;">🚀 Programas de Estágio</a>
+          <a href="oportunidades.html?cat=CURSO" class="nav-link" style="padding-left: 1.5rem;">🎓 Cursos & Capacitações</a>
           <a href="candidaturas.html" class="nav-link">📋 Minhas Candidaturas</a>
           <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200); margin-top: 0.5rem;">🚪 Sair da Conta</button>
         </div>
@@ -180,12 +227,61 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.innerHTML = `
         <a href="${currentPath === 'index.html' ? '#sobre' : 'index.html#sobre'}" class="nav-link">Sobre</a>
         <a href="${currentPath === 'index.html' ? '#como-funciona' : 'index.html#como-funciona'}" class="nav-link">Como funciona</a>
+        
+        <!-- Menu Suspenso de Oportunidades -->
+        <div class="nav-dropdown" id="oppNavDropdown">
+          <button type="button" class="nav-link nav-dropdown-toggle ${currentPath === 'oportunidades.html' ? 'active' : ''}" id="btnOppDropdown" aria-expanded="false" aria-haspopup="true">
+            <span>💼 Oportunidades</span>
+            <svg class="nav-dropdown-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu" id="oppDropdownMenu">
+            <a href="oportunidades.html?cat=ALL" class="nav-dropdown-item" data-nav-cat="ALL">
+              <div class="nav-dropdown-item-icon icon-bg-all">✨</div>
+              <div class="nav-dropdown-item-info">
+                <span class="nav-dropdown-item-title">Todas as Oportunidades</span>
+                <span class="nav-dropdown-item-sub">Mural completo</span>
+              </div>
+            </a>
+            <a href="oportunidades.html?cat=EMPREGO" class="nav-dropdown-item" data-nav-cat="EMPREGO">
+              <div class="nav-dropdown-item-icon icon-bg-purple">💼</div>
+              <div class="nav-dropdown-item-info">
+                <span class="nav-dropdown-item-title">Vagas de Emprego</span>
+                <span class="nav-dropdown-item-sub">CLT e contratos formais</span>
+              </div>
+              <span class="nav-dropdown-tag">Vagas</span>
+            </a>
+            <a href="oportunidades.html?cat=ESTÁGIO" class="nav-dropdown-item" data-nav-cat="ESTÁGIO">
+              <div class="nav-dropdown-item-icon icon-bg-pink">🚀</div>
+              <div class="nav-dropdown-item-info">
+                <span class="nav-dropdown-item-title">Programas de Estágio</span>
+                <span class="nav-dropdown-item-sub">Início de carreira & mentoria</span>
+              </div>
+              <span class="nav-dropdown-tag" style="background: var(--color-pink-100); color: var(--color-pink-800);">Estágios</span>
+            </a>
+            <a href="oportunidades.html?cat=CURSO" class="nav-dropdown-item" data-nav-cat="CURSO">
+              <div class="nav-dropdown-item-icon icon-bg-orange">🎓</div>
+              <div class="nav-dropdown-item-info">
+                <span class="nav-dropdown-item-title">Cursos & Capacitações</span>
+                <span class="nav-dropdown-item-sub">Workshops com certificado</span>
+              </div>
+              <span class="nav-dropdown-tag" style="background: var(--color-orange-100); color: var(--color-orange-800);">Cursos</span>
+            </a>
+          </div>
+        </div>
+
         <a href="${currentPath === 'index.html' ? '#parceiros' : 'index.html#parceiros'}" class="nav-link">Conexões com parceiros</a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
           <a href="${currentPath === 'index.html' ? '#sobre' : 'index.html#sobre'}" class="nav-link">ℹ️ Sobre</a>
           <a href="${currentPath === 'index.html' ? '#como-funciona' : 'index.html#como-funciona'}" class="nav-link">⚙️ Como funciona</a>
+          <div style="padding: 0.5rem 0.85rem; font-weight: 800; font-size: 0.8rem; color: var(--color-purple-800); text-transform: uppercase; letter-spacing: 0.05em;">💼 Oportunidades:</div>
+          <a href="oportunidades.html?cat=ALL" class="nav-link" style="padding-left: 1.5rem;">✨ Todas as Oportunidades</a>
+          <a href="oportunidades.html?cat=EMPREGO" class="nav-link" style="padding-left: 1.5rem;">💼 Vagas de Emprego</a>
+          <a href="oportunidades.html?cat=ESTÁGIO" class="nav-link" style="padding-left: 1.5rem;">🚀 Programas de Estágio</a>
+          <a href="oportunidades.html?cat=CURSO" class="nav-link" style="padding-left: 1.5rem;">🎓 Cursos & Capacitações</a>
           <a href="${currentPath === 'index.html' ? '#parceiros' : 'index.html#parceiros'}" class="nav-link">🤝 Conexões com parceiros</a>
           ${isStudentLoggedIn ? `
             <a href="perfil.html" class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center;">👤 Meu Perfil</a>
@@ -196,6 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="patrocinador.html" class="nav-portal-empresa" style="width: 100%; justify-content: center;">🏢 Área da Empresa</a>
         </div>
       `;
+
 
       headerActions.innerHTML = `
         ${isStudentLoggedIn ? `
@@ -312,19 +409,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Event Delegation para todas as interações do Menu Mobile
   document.addEventListener('click', (e) => {
-    const menuToggle = document.getElementById('menuToggle');
-    if (menuToggle && (e.target === menuToggle || menuToggle.contains(e.target))) {
+    const menuToggleBtn = e.target.closest('#menuToggle');
+    const closeBtn = e.target.closest('.mobile-drawer-close');
+    const dropdownToggle = e.target.closest('.nav-dropdown-toggle');
+    const dropdownItem = e.target.closest('.nav-dropdown-item');
+    
+    // 1. Toggle do menu hambúrguer
+    if (menuToggleBtn) {
+      e.preventDefault();
       e.stopPropagation();
       toggleMenu();
-    } else if (e.target === navBackdrop) {
+      return;
+    }
+
+    // 2. Botão de fechar (X)
+    if (closeBtn) {
+      e.preventDefault();
+      e.stopPropagation();
       closeMenu();
-    } else if (e.target.closest('.mobile-drawer-close')) {
+      return;
+    }
+    
+    // 3. Toggle do submenu dentro do mobile drawer
+    if (dropdownToggle && window.innerWidth <= 1080) {
+      e.preventDefault();
+      e.stopPropagation();
+      const parentDropdown = dropdownToggle.closest('.nav-dropdown');
+      if (parentDropdown) {
+        parentDropdown.classList.toggle('active');
+        const icon = dropdownToggle.querySelector('.nav-dropdown-icon');
+        if (icon) {
+          icon.style.transform = parentDropdown.classList.contains('active') ? 'rotate(180deg)' : 'none';
+        }
+      }
+      return;
+    }
+
+    // 4. Clique em item do submenu mobile (fecha o drawer para navegar)
+    if (dropdownItem && window.innerWidth <= 1080) {
       closeMenu();
-    } else if (e.target.classList.contains('nav-link') && window.innerWidth <= 1080) {
+      return;
+    }
+
+    // 5. Clique no backdrop escurecido
+    if (e.target === navBackdrop) {
+      closeMenu();
+      return;
+    }
+
+    // 6. Links normais dentro do drawer mobile
+    if (e.target.closest('.nav-link') && !dropdownToggle && window.innerWidth <= 1080) {
       closeMenu();
     }
   });
+
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {

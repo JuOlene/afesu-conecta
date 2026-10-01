@@ -566,3 +566,54 @@
     padding: 2rem 1.25rem;
   }
 }
+
+/* ==========================================================================
+   SUPORTE A TEMA ESCURO (PERFIL & BANNER)
+   ========================================================================== */
+[data-theme="dark"] .profile-hero-banner,
+[data-theme="dark"] .profile-card,
+[data-theme="dark"] .cv-highlight-card,
+[data-theme="dark"] .cv-modal-container {
+  background: var(--color-bg-card) !important;
+  border-color: var(--color-border-subtle) !important;
+}
+
+[data-theme="dark"] .profile-photo-lg {
+  border-color: var(--color-bg-card) !important;
+}
+
+[data-theme="dark"] .profile-verified-badge {
+  border-color: var(--color-bg-card) !important;
+}
+
+[data-theme="dark"] .first-opportunity-badge-box {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+[data-theme="dark"] .cv-highlight-card.purple {
+  background: linear-gradient(135deg, rgba(91, 33, 182, 0.2) 0%, var(--color-bg-card) 100%) !important;
+}
+
+[data-theme="dark"] .cv-highlight-card.pink {
+  background: linear-gradient(135deg, rgba(225, 29, 116, 0.2) 0%, var(--color-bg-card) 100%) !important;
+}
+
+[data-theme="dark"] .cv-highlight-card.orange {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, var(--color-bg-card) 100%) !important;
+}
+
+[data-theme="dark"] .timeline-item::before {
+  border-color: var(--color-bg-card) !important;
+}
+
+[data-theme="dark"] .profile-card-icon {
+  background: var(--color-bg-subtle) !important;
+}
+
+[data-theme="dark"] .cv-highlight-title-group span {
+  background: var(--color-bg-subtle) !important;
+  color: var(--color-purple-300) !important;
+}
+
+
