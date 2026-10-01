@@ -382,8 +382,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const closeMenu = () => {
+    const currentMenu = document.getElementById('navMenu');
     const menuToggle = document.getElementById('menuToggle');
-    if (navMenu) navMenu.classList.remove('active');
+    if (currentMenu) currentMenu.classList.remove('active');
     if (menuToggle) {
       menuToggle.classList.remove('active');
       menuToggle.setAttribute('aria-expanded', 'false');
@@ -393,8 +394,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const openMenu = () => {
+    const currentMenu = document.getElementById('navMenu');
     const menuToggle = document.getElementById('menuToggle');
-    if (navMenu) navMenu.classList.add('active');
+    if (currentMenu) currentMenu.classList.add('active');
     if (menuToggle) {
       menuToggle.classList.add('active');
       menuToggle.setAttribute('aria-expanded', 'true');
@@ -404,14 +406,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const toggleMenu = () => {
-    if (navMenu && navMenu.classList.contains('active')) {
+    const currentMenu = document.getElementById('navMenu');
+    if (currentMenu && currentMenu.classList.contains('active')) {
       closeMenu();
     } else {
       openMenu();
     }
   };
 
-  // Event Delegation para todas as interações do Menu Mobile
+  // Event Delegation para todas as interações do Menu Mobile (Click & Touch)
   document.addEventListener('click', (e) => {
     const menuToggleBtn = e.target.closest('#menuToggle');
     const closeBtn = e.target.closest('.mobile-drawer-close');
@@ -440,10 +443,12 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
       const parentDropdown = dropdownToggle.closest('.nav-dropdown');
       if (parentDropdown) {
+        const isAlreadyActive = parentDropdown.classList.contains('active');
         parentDropdown.classList.toggle('active');
+        dropdownToggle.setAttribute('aria-expanded', !isAlreadyActive);
         const icon = dropdownToggle.querySelector('.nav-dropdown-icon');
         if (icon) {
-          icon.style.transform = parentDropdown.classList.contains('active') ? 'rotate(180deg)' : 'none';
+          icon.style.transform = !isAlreadyActive ? 'rotate(180deg)' : 'none';
         }
       }
       return;
