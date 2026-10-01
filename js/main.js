@@ -97,14 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="#geral" class="nav-link sponsor-tab-link" data-tab="tabGeral">📊 Visão Geral</a>
-          <a href="#talentos" class="nav-link sponsor-tab-link" data-tab="tabTalentos">👥 Banco de Talentos</a>
           <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('btnOpenPubModal') && document.getElementById('btnOpenPubModal').click()" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
             ✨ + Adicionar Vaga
           </button>
           <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200); margin-top: 0.5rem;">🚪 Sair do Painel</button>
         </div>
       `;
+
 
       headerActions.innerHTML = `
         <div class="sponsor-session-chip nav-desktop-btn" style="background: var(--color-purple-50); border: 1px solid var(--color-purple-200); color: var(--color-purple-800); font-weight: 700; font-size: 0.8rem; padding: 0.4rem 0.8rem; border-radius: var(--radius-full); display: inline-flex; align-items: center; gap: 0.4rem;">
@@ -137,8 +136,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const studentFirstName = authUser.name ? authUser.name.split(' ')[0] : 'Minha Conta';
       navMenu.setAttribute('aria-label', 'Navegação da Aluna');
       navMenu.innerHTML = `
-        <a href="perfil.html" class="nav-link ${currentPath === 'perfil.html' ? 'active' : ''}">👤 Meu Perfil</a>
-        <a href="curriculo.html" class="nav-link ${currentPath === 'curriculo.html' ? 'active' : ''}">📄 Currículo</a>
+        <a href="perfil.html" class="nav-link ${currentPath === 'perfil.html' ? 'active' : ''}">
+          <span>👤</span>
+          <span>Meu Perfil</span>
+        </a>
+        <a href="curriculo.html" class="nav-link ${currentPath === 'curriculo.html' ? 'active' : ''}">
+          <span>📄</span>
+          <span>Currículo Digital</span>
+        </a>
         
         <!-- Menu Suspenso de Oportunidades -->
         <div class="nav-dropdown" id="oppNavDropdown">
@@ -183,21 +188,17 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
 
-        <a href="candidaturas.html" class="nav-link ${currentPath === 'candidaturas.html' ? 'active' : ''}">📋 Minhas Candidaturas</a>
+        <a href="candidaturas.html" class="nav-link ${currentPath === 'candidaturas.html' ? 'active' : ''}">
+          <span>📋</span>
+          <span>Minhas Candidaturas</span>
+        </a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="perfil.html" class="nav-link">👤 Meu Perfil</a>
-          <a href="curriculo.html" class="nav-link">📄 Currículo Digital</a>
-          <div style="padding: 0.5rem 0.85rem; font-weight: 800; font-size: 0.8rem; color: var(--color-purple-800); text-transform: uppercase; letter-spacing: 0.05em;">💼 Oportunidades:</div>
-          <a href="oportunidades.html?cat=ALL" class="nav-link" style="padding-left: 1.5rem;">✨ Todas as Oportunidades</a>
-          <a href="oportunidades.html?cat=EMPREGO" class="nav-link" style="padding-left: 1.5rem;">💼 Vagas de Emprego</a>
-          <a href="oportunidades.html?cat=ESTÁGIO" class="nav-link" style="padding-left: 1.5rem;">🚀 Programas de Estágio</a>
-          <a href="oportunidades.html?cat=CURSO" class="nav-link" style="padding-left: 1.5rem;">🎓 Cursos & Capacitações</a>
-          <a href="candidaturas.html" class="nav-link">📋 Minhas Candidaturas</a>
           <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200); margin-top: 0.5rem;">🚪 Sair da Conta</button>
         </div>
       `;
+
 
       headerActions.innerHTML = `
         <a href="perfil.html" class="btn btn-secondary btn-sm nav-desktop-btn" title="Meu Perfil">
@@ -225,8 +226,14 @@ document.addEventListener('DOMContentLoaded', () => {
     else {
       navMenu.setAttribute('aria-label', 'Navegação Principal');
       navMenu.innerHTML = `
-        <a href="${currentPath === 'index.html' ? '#sobre' : 'index.html#sobre'}" class="nav-link">Sobre</a>
-        <a href="${currentPath === 'index.html' ? '#como-funciona' : 'index.html#como-funciona'}" class="nav-link">Como funciona</a>
+        <a href="${currentPath === 'index.html' ? '#sobre' : 'index.html#sobre'}" class="nav-link">
+          <span>ℹ️</span>
+          <span>Sobre</span>
+        </a>
+        <a href="${currentPath === 'index.html' ? '#como-funciona' : 'index.html#como-funciona'}" class="nav-link">
+          <span>⚙️</span>
+          <span>Como funciona</span>
+        </a>
         
         <!-- Menu Suspenso de Oportunidades -->
         <div class="nav-dropdown" id="oppNavDropdown">
@@ -271,18 +278,13 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
 
-        <a href="${currentPath === 'index.html' ? '#parceiros' : 'index.html#parceiros'}" class="nav-link">Conexões com parceiros</a>
+        <a href="${currentPath === 'index.html' ? '#parceiros' : 'index.html#parceiros'}" class="nav-link">
+          <span>🤝</span>
+          <span>Conexões com parceiros</span>
+        </a>
 
         <!-- Ações no Drawer Mobile -->
         <div class="mobile-menu-actions">
-          <a href="${currentPath === 'index.html' ? '#sobre' : 'index.html#sobre'}" class="nav-link">ℹ️ Sobre</a>
-          <a href="${currentPath === 'index.html' ? '#como-funciona' : 'index.html#como-funciona'}" class="nav-link">⚙️ Como funciona</a>
-          <div style="padding: 0.5rem 0.85rem; font-weight: 800; font-size: 0.8rem; color: var(--color-purple-800); text-transform: uppercase; letter-spacing: 0.05em;">💼 Oportunidades:</div>
-          <a href="oportunidades.html?cat=ALL" class="nav-link" style="padding-left: 1.5rem;">✨ Todas as Oportunidades</a>
-          <a href="oportunidades.html?cat=EMPREGO" class="nav-link" style="padding-left: 1.5rem;">💼 Vagas de Emprego</a>
-          <a href="oportunidades.html?cat=ESTÁGIO" class="nav-link" style="padding-left: 1.5rem;">🚀 Programas de Estágio</a>
-          <a href="oportunidades.html?cat=CURSO" class="nav-link" style="padding-left: 1.5rem;">🎓 Cursos & Capacitações</a>
-          <a href="${currentPath === 'index.html' ? '#parceiros' : 'index.html#parceiros'}" class="nav-link">🤝 Conexões com parceiros</a>
           ${isStudentLoggedIn ? `
             <a href="perfil.html" class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center;">👤 Meu Perfil</a>
             <button type="button" class="btn btn-outline btn-sm btn-drawer-logout" style="width: 100%; justify-content: center; color: var(--color-pink-600); border-color: var(--color-pink-200);">🚪 Sair da Conta</button>
@@ -292,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="patrocinador.html" class="nav-portal-empresa" style="width: 100%; justify-content: center;">🏢 Área da Empresa</a>
         </div>
       `;
+
 
 
       headerActions.innerHTML = `
